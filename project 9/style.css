@@ -1,0 +1,109 @@
+/* Start Global Roles */
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "Varela", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+}
+button {
+    border: 0;
+    outline: 0;
+}
+/* End Global Roles */
+.preloader {
+    background-color: white;
+    visibility: visible;
+    z-index: 5;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.preloader.hide-preloader {
+    animation: fadeOut .3s ease forwards;
+    -webkit-animation: fadeOut .3s ease forwards;
+}
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.preloader img {
+    z-index: 10;
+}
+.content {
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+.content::before {
+    content: " ";
+    background-color: #00000068;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1
+}
+h1 {
+    z-index: 1;
+    color: white;
+}
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.play-pause {
+    background-color: #eee;
+    border-radius: 5px;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    cursor: pointer;
+    z-index: 1;
+}
+.play-pause::before {
+    content: " ";
+    background-color: blueviolet;
+    width: 50%;
+    position: absolute;
+    height: 100%;
+    border-radius: 5px;
+    left: 50%;
+    transition: .7s;
+}
+.play-pause.play::before {
+    content: " ";
+    width: 50%;
+    left: 0%;
+}
+input {
+    text-align: center;
+    width: 80px;
+    background-color: #eee;
+    border: 0;
+    outline: 0;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #eee;
+}
+input:focus {
+    border: 2px solid blueviolet;
+}
+
+
+
+

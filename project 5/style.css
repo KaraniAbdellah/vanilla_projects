@@ -1,0 +1,140 @@
+/* Start A Global Roles */
+* {
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+:root {
+    --main-transition: 0.5s;
+    --main-color-black: #000000;
+    --main-color-e0: #e0e0e0;
+    --main-color-f6f6: #f6f6f6;
+    --main-color-hover: #7300f6;
+}
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+.container {
+    margin: 0 60px;
+}
+@media (max-width: 767px) {
+    .container {margin: 30px 0;}
+}
+.page {
+    background-color: var(--main-color-f6f6);
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* End Global Roles */
+
+/* Start Header */
+header {
+    height: 60px;
+    background-color: var(--main-color-e0);
+    padding: 20px;
+}
+.logo {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--main-color-black);
+}  
+header nav {
+    width: 40%;
+}
+header nav a {
+    font-size: 20px;
+}
+header .links {
+    width: 10%;
+    align-items: center;
+}
+.links a,  nav a {
+    transition: var(--main-transition);
+}
+.links a:hover,  nav a:hover{
+    color: var(--main-color-hover);
+}
+header .click {
+    display: none;
+    font-size: 30px;
+    color: var(--main-color-hover);
+    cursor: pointer;
+}
+@media (max-width: 991px) {
+    header .click {display: block;}
+    header .nav {display: none;}
+    header .links {display: none;}
+}
+/* End Header */
+
+/* Start Content */
+.content {
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* End Content */
+
+/* Start Footer */
+footer {
+    background-color: var(--main-color-e0);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* End Footer */
+/* Start Aside */
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 50%;
+    background-color: white;
+    position: absolute;
+    left: -100%;
+    transition: var(--main-transition);
+    padding: 20px;   
+}
+@media (max-width: 767px) {
+    aside {width: 100%;}
+}
+aside.show {
+    left: 0;
+}
+aside .logo {color: white;}
+aside .logo i {color: var(--main-color-hover); cursor: pointer;}
+aside nav {margin: 50px 0; height: 70%;}
+aside nav a {
+    margin: 10px 0;
+    font-size: 23px;
+    padding: 15px 5px;
+}
+aside nav a:hover {
+    background-color: #7300f664;
+    padding: 15px 12px;
+}
+aside .links {
+    width: 50%;
+}aside .links a {font-size: 23px;}
+/* End Aside */
+
+

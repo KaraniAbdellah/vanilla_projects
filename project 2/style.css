@@ -1,0 +1,124 @@
+/* Start Variable */
+:root {
+    --main-transition: 0.3s;
+    --blue-color: #0075ff;
+    --blue-alt-color: #0d69d5;
+    --orange-color: #f59e0b;
+    --green-color: #22c55e;
+    --red-color: #f44336;
+    --grey-color: #888;
+}
+/* End Variable */
+/* Global Rules */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+}
+*:focus {
+    outline: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+/* End Global Rules */
+/* Start Header */
+header {
+    background-color: #e9e9e9;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+header::before {
+    content: " ";
+    position: absolute;
+    background-color: var(--blue-color);
+    width: 0;
+    height: 4px;
+    bottom: -4px;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+header:hover::before {
+    width: 100%;
+}
+header .title {
+    font-size: 45px;
+    font-weight: 700;
+}
+@media (max-width: 767px) {
+    header .title {
+        font-size: 30px;
+        font-weight: 700;
+    }
+}
+header .title:hover::before {
+    width: 100%;
+}
+/* End Header */
+/* Start Page */
+.page {
+    background-color: #fcfcfc;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page .page-content {
+    text-align: center;
+}
+.page .page-content #counter{
+    margin: 20px 0 20px 0;
+    font-size: 120px;
+    font-weight: 600;
+    color: var(--blue-color);
+}
+@media (max-width: 767px) {
+    .page .page-content #counter {
+        font-size: 80px;
+    }
+}
+.page .page-content .btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border: black 2px solid;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    background-color: #fcfcfc;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    cursor: pointer;
+}
+
+.page .page-content .btn:hover {
+    background-color: var(--blue-color);
+}
+.page .page-content .btn.middle {
+    margin: 0 20px;
+}
+@media (max-width: 767px) {
+    .page .page-content .btn {
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+    .page .page-content .btn.middle {
+        margin: 0 10px;
+    }
+}
+/* End Page */

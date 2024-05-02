@@ -1,0 +1,128 @@
+/* Start A Global Rules */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Varela", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+button {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+:root {
+    --eb-color: #e7f5fe;
+    --green-color: #25bb32;
+    --main-transition: 0.5s;
+}
+/* End A Global Rules */
+/* Start A Content Page */
+.page {
+    background-color: var(--eb-color);
+    height: 100vh;
+    position: relative;
+}
+.page .content_page {
+    padding: 30px;
+    height: calc(100vh - 60px);
+    text-align: center;
+}
+.page h1 {
+    font-size: 26px;
+    margin-bottom: 50px;
+    border-bottom: 4px dashed black; /* dotted */
+    width: 230px;
+    margin: 0 auto 50px;
+}
+.questions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.questions .question {
+    margin-bottom: 30px;
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+    width: 700px;
+    margin: 20px auto;
+}
+@media (max-width: 767px) {
+    .questions .question {width: 100%; margin: 20px 0;}
+}
+.question .text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.question .text button {
+    position: relative;
+    padding: 3px;
+    color: var(--green-color);
+    font-size: 24px;
+    background-color: var(--eb-color);
+    z-index: 3;
+}
+.question .text button::before {
+    content: "";
+    position: absolute;
+    background-color: #d0ecff;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    transition: var(--main-transition);
+    z-index: -1;
+}
+.question .text button:hover::before {
+    width: 100%;
+    height: 100%;
+}
+.question .text i.minus::before {
+    content: "\f068";
+}
+.question .text h3 {
+    font-size: 20px;
+    margin-right: 15px;
+    text-align: left;
+}
+.question p {
+    display: none;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 10px;
+    font-weight: 600;
+}
+.question.show-text p {
+    display: block;
+}
+/* End A Content Page */
+/* Start Footer */
+footer {
+    height: 60px;
+    background-color: white;
+    padding: 20px 0;
+    font-weight: 600;
+    color: var(--green-color);
+    box-shadow: 0 5px 6px 3px #0000001a;
+}
+/* End Footer */

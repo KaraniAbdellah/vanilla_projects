@@ -1,0 +1,132 @@
+/* Start Global Roles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+input {
+    display: block;
+}
+/* End Global Roles */
+/* Start Container */
+.page {
+    padding: 30px;
+}
+.page h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.container {
+    text-align: center;
+    margin: 20px auto;
+}
+@media (min-width: 767px) {
+    .container {width: 600px;}
+}
+form {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+form .input, .add {
+    border: 0;
+    outline: 0;
+    border-radius: 4px;
+    font-size: 20px;
+}
+form .input {
+    width: 70%;
+    padding: 8px 10px;
+    margin-right: 10px;
+}
+form .input::placeholder {
+    font-size: 20px;
+}
+form .add {
+    background-color: red;
+    color: white;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+form .remove_all {
+    position: relative;
+    display: block;
+    color: red;
+    background-color: white;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+form .remove {
+    position: relative;
+}
+form .remove_all:hover + .message::before {
+    content: "Remove All";
+    font-size: 14px;
+    background-color: white;
+    width: 100px;
+    position: absolute;
+    bottom: 43px;
+    left: -30px;
+    border-radius: 5px;
+    padding: 3px;
+    border: 1px solid red;
+}
+@media (max-width: 767px) {
+    form {
+        flex-wrap: wrap;
+    }
+    form .input {width: 100%; margin: 0 0 30px;}
+    form .add {width: 70%; margin-right: 10px;}
+    form .remove_all {width: 60px;}
+}
+.tasks {
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+/* End Container */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Start Challenge 13 */

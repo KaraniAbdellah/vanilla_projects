@@ -1,0 +1,99 @@
+/* Start Global Roles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button {
+    outline: 0;
+    border: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+:root {
+    --main-transition: 0.5s;
+    --main-blue-color: rgb(38, 38, 255);
+    --main-border-radius: 6px;
+}
+body, button {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* End Global Roles */
+/* Start Content Page */
+.page {
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+.page.show::before {
+    content: " ";
+    background: rgba(73, 166, 233, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+.model {
+    background-color: white;
+    min-width: 40%;
+    min-height: 300px;
+    max-height: 80vh;
+    border-radius: var(--main-border-radius);
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: var(--main-transition);
+}
+.model:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.model .text { text-align: center; }
+.model .text h3 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.model .text button {
+    font-size: 20px;
+    background-color: var(--main-blue-color);
+    color: white;
+    padding: 10px;
+    border-radius: var(--main-border-radius);
+    cursor: pointer;
+}
+.model .model-overlay {
+    visibility: hidden;
+    z-index: -10;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 90%;
+    height: 80%;
+}
+.model .model-overlay.show {
+    visibility: visible;
+    border-radius: var(--main-border-radius);
+    z-index: 3;
+}
+.model .model-overlay .close-btn {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    margin: 5px;
+    padding: 5px;
+    color: red;
+    font-size: 30px;
+    cursor: pointer;
+}
+/* End Content Page */
+
+
