@@ -10,7 +10,73 @@ body {
     font-weight: 400;
     font-style: normal;
 }
-
-
+:root {
+    --main-primary1: hsl(205, 86%, 17%);
+    --main-primary2: hsl(205, 72%, 37%);
+    --main-primary3: hsl(210, 31%, 80%);
+    --main-primary4: hsl(205, 100%, 96%);
+}
+/* Start Section */
+.content-page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f6f6f6;
+    display: grid;
+    align-content: stretch;
+    justify-content: center;
+    padding: 20px;
+}
+section {
+    width: 500px;
+    margin: 0 auto;
+}
+@media (max-width: 767px) {
+    section {
+        width: 100%;
+    }
+}
+section h1 {
+    font-size: xx-large;
+    font-variant: small-caps;
+    font-weight: 800;
+    color: var(--main-primary1);
+    margin-top: 30px;
+}
+section form {
+    text-align: center;
+    margin: 30px 0 40px;
+}
+section form span.p {
+    font-size: 20px;
+}
+section input {height: 35px; outline: 0; border: 0; border-radius: 5px;}
+section form input.numbers {
+    margin: 0 10px;
+    font-size: 20px;
+    width: 60px;
+    padding: 5px;
+}
+section form input.generate-submit {
+    background-color: var(--main-primary3);
+    padding: 0 20px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    font-weight: 700;
+}
+section form input.generate-submit:focus {
+    outline: 3px solid var(--main-primary1);
+}
+.content-page {
+    text-align: center;
+}
+.content-page p {
+    font-size: 18px;
+    color: grey;
+}
+.content-page p:not(:last-child) {
+    margin-bottom: 20px;
+}
+/* End Section */
 
 
