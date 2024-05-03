@@ -2,6 +2,7 @@
 var inputNumber = document.querySelector(".numbers");
 var generateParg = document.querySelector(".generate-submit");
 var content = document.querySelector(".content");
+var form = document.querySelector(".generate_paragraph");
 
 const paragraphs = {
     paragraph1: "The rise of Mesopotamia marked the dawn of civilization, where city-states like Ur and Babylon flourished along the fertile banks of the Tigris and Euphrates, pioneering writing and law codes.",
@@ -19,11 +20,10 @@ const paragraphs = {
 
 // Generate Elements
 function generate_ele(end) {
-    var end = inputNumber.value;
     if (end > 10 || end < 0) end = 1;
     for (var i = 0; i < end; i++) {
         const p_ele = document.createElement("p");
-        if (inputNumber.value >= 0) p_ele.textContent = paragraphs[`paragraph${i + 1}`];
+        if (end >= 0) p_ele.textContent = paragraphs[`paragraph${i + 1}`];
         else p_ele.textContent = `Enter A Positive Number`;
         content.appendChild(p_ele);
     }
@@ -35,16 +35,17 @@ if (window.localStorage.getItem("number")) {
     const number = window.localStorage.getItem("number");
     generate_ele(number);
     inputNumber.value = number;
+    console.log(number);
 }
 
 
-generateParg.addEventListener("click", function(e) {
+form.addEventListener("submit", function(e) {
     e.preventDefault();
     // Delete All Previos Elements
     document.querySelectorAll(".content p").forEach(ele => ele.remove());
     // Generate Elements
     generate_ele(inputNumber.value);
-    window.localStorage.setItem("number", inputNumber);
+    window.localStorage.setItem("number", inputNumber.value);
 });
 
 
