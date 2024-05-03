@@ -1,0 +1,82 @@
+/* Start Global Roles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Rubik", sans-serif;
+}
+
+:root {
+    --clr-primary-1: hsl(205, 86%, 17%);
+    --clr-primary-2: hsl(205, 77%, 27%);
+    --clr-primary-3: hsl(205, 72%, 37%);
+    --clr-primary-4: hsl(205, 63%, 48%);
+    --clr-primary-5: #49a6e9;
+    --clr-primary-6: hsl(205, 89%, 70%);
+    --clr-primary-7: hsl(205, 90%, 76%);
+    --clr-primary-8: hsl(205, 86%, 81%);
+    --clr-primary-9: hsl(205, 90%, 88%);
+    --clr-red-dark: hsl(360, 67%, 44%);
+    --clr-green-dark: hsl(125, 67%, 44%);
+    --border-radius: 5px;
+}
+/* End Global Roles */
+/* Start Content Page */
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+section .notepad {
+    width: 550px;
+    padding: 20px;
+    background-color: var(--clr-primary-9);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+section .notepad .alert {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+section .notepad h1 {
+    color: var(--clr-primary-1);
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+section form {
+    margin-bottom: 20px;
+}
+section form input {
+    outline: 0;
+    border: 0;
+}
+section .notepad form .add {
+    display: grid;
+    grid-template-areas: "add add add add submit";
+    width: 100%;
+    height: 30px;
+    background-color: var(--clr-primary-3);
+    border-radius: var(--border-radius);
+}
+section form .add_task, section form .submit {
+    height: 100%;
+    font-size: 20px;
+}
+section form .add_task {
+    padding: 5px;
+    grid-area: add;
+}
+section form .submit {
+    grid-area: submit;
+    cursor: pointer;
+}
+
+.tasks {
+
+}
+
