@@ -40,8 +40,14 @@ section .notepad {
     text-align: center;
 }
 section .notepad .alert {
+    display: block;
+    color: white;
     font-size: 16px;
     letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+section .notepad .alert.hidden {
+    display: none;
 }
 section .notepad h1 {
     color: var(--clr-primary-1);
@@ -63,7 +69,7 @@ section .notepad form .add {
     background-color: var(--clr-primary-3);
     border-radius: var(--border-radius);
 }
-section form .add_task, section form .submit {
+section form .add_task, section form .add_task + input {
     height: 100%;
     font-size: 20px;
 }
@@ -76,7 +82,18 @@ section form .submit {
     cursor: pointer;
 }
 
-.tasks {
-
+.clear_btn {
+    display: none;
+    background-color: red;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-radius: var(--border-radius);
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
 }
-
+.clear_btn.show {
+    display: block;
+}
