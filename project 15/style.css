@@ -40,11 +40,14 @@ section .notepad {
     text-align: center;
 }
 section .notepad .alert {
-    display: block;
+    display: none;
     color: white;
     font-size: 16px;
     letter-spacing: 2px;
     margin-bottom: 10px;
+}
+section .notepad .alert.show {
+    display: block;
 }
 section .notepad .alert.hidden {
     display: none;

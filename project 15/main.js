@@ -4,8 +4,18 @@ var add_task = document.querySelector(".add_task");
 var alert = document.querySelector(".alert");
 var tasks = document.querySelector(".tasks");
 var clear_btn = document.querySelector(".clear_btn");
+
+
+if (window.localStorage.getItem("text")) {
+    create_ele(window.localStorage.getItem("text"));
+}
+
+
+
+
+
 // Create Element
-function create_ele() {
+function create_ele(text) {
     var task = document.createElement("div");
     var span = document.createElement("span");
     var icons = document.createElement("div");
@@ -24,7 +34,7 @@ function create_ele() {
     icons.style.cssText = "text-align: right; cursor: pointer;";
     icon1.style.cssText = "color: green; cursor: pointer;";
     icon2.style.cssText = "color: red; margin-left: 20px;";
-    span.textContent = add_task.value;
+    span.textContent = text;
     // Add Child
     task.appendChild(span);
     task.appendChild(icons);
@@ -37,13 +47,17 @@ function create_ele() {
 document.addEventListener("click", function(event) {
     if (event.target.matches(".submit")) {
         event.preventDefault();
-        create_ele();
+        create_ele(add_task.value);
+        window.localStorage.setItem("text", add_task.value);
         // After Create Element
         add_task.value = "";
         alert.textContent = "Item Add To The List";
         alert.style.cssText = "background-color: green;\
         width: 100%; height: 20px; border-radius: 5px;";
         clear_btn.classList.add("show");
+        setInterval (function() {
+            alert.classList.add("hidden");
+        }, 2000);
     }
 });
 
@@ -60,12 +74,18 @@ document.addEventListener("click", function(event) {
     event.target.parentElement.parentElement.firstChild.classList.add("must_edit");
 });
 
+
 document.addEventListener("click", function(event) {
     if (event.target.matches(".edit")) {
         event.preventDefault();
         document.querySelector(".must_edit").textContent = add_task.value;
         add_task.value = "";
         alert.textContent = "Valued Changed";
+        alert.classList.remove("hidden");
+        alert.classList.add("show");
+        setInterval (function() {
+            alert.classList.add("hidden");
+        }, 2000);
         submit.value = "Submit";
         submit.className = "submit";
         document.querySelector(".must_edit").classList.remove("must_edit");
@@ -78,6 +98,11 @@ document.addEventListener("click", function(event) {
         event.target.parentElement.parentElement.remove();
         alert.textContent = "Item Removed";
         alert.style.cssText = "background-color: red;";
+        alert.classList.add("show");
+        alert.classList.remove("hidden");
+        setInterval (function() {
+            alert.classList.add("hidden");
+        }, 2000);
     }
 });
 
@@ -87,6 +112,12 @@ clear_btn.addEventListener("click", function() {
         element.remove();
     });
     alert.textContent = "Remove All Item";
+    alert.style.cssText = "background-color: red;";
+    alert.classList.add("show");
+    alert.classList.remove("hidden");
+    setInterval (function() {
+        alert.classList.add("hidden");
+    }, 2000);
     clear_btn.classList.remove("show");
 });
 
