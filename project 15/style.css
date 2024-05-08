@@ -49,9 +49,13 @@ section .notepad .alert {
 section .notepad .alert.show {
     display: block;
 }
-section .notepad .alert.hidden {
-    display: none;
+section .notepad .alert.show.green {
+    background-color: green;
 }
+section .notepad .alert.show.red {
+    background-color: red;
+}
+
 section .notepad h1 {
     color: var(--clr-primary-1);
     font-size: 35px;
@@ -80,7 +84,7 @@ section form .add_task {
     padding: 5px;
     grid-area: add;
 }
-section form .submit {
+section form .submit_edit {
     grid-area: submit;
     cursor: pointer;
 }
@@ -100,3 +104,6 @@ section form .submit {
 .clear_btn.show {
     display: block;
 }
+
+
+

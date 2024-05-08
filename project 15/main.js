@@ -1,5 +1,5 @@
 // start getting variables
-var submit = document.querySelector(".submit");
+var submit_edit = document.querySelector(".submit_edit");
 var add_task = document.querySelector(".add_task");
 var alert = document.querySelector(".alert");
 var tasks = document.querySelector(".tasks");
@@ -9,8 +9,6 @@ var clear_btn = document.querySelector(".clear_btn");
 if (window.localStorage.getItem("text")) {
     create_ele(window.localStorage.getItem("text"));
 }
-
-
 
 
 
@@ -41,85 +39,82 @@ function create_ele(text) {
     icons.appendChild(icon1);
     icons.appendChild(icon2);
     tasks.appendChild(task);
+    // Add Button For Remove All
+    clear_btn.classList.add("show");
+}
+
+function alert_ele(message, class1, class2) {
+    alert.textContent = message;
+    alert.classList.add(class1);
+    alert.classList.add(class2);
+    setInterval(function() {
+        alert.classList.remove(class2);
+        alert.classList.remove(class1);
+    }, 2000);
 }
 
 // Submit Button
-document.addEventListener("click", function(event) {
-    if (event.target.matches(".submit")) {
-        event.preventDefault();
+submit_edit.addEventListener("click", function(e){
+    e.preventDefault();
+    if (!add_task.value) {
+        alert_ele("Please Enter A Value", "show", "red");
+        // submit_edit.value = "Submit"; 
+    }
+    if (submit_edit.value == "Submit" && add_task.value) {
+        // Create Element
         create_ele(add_task.value);
-        window.localStorage.setItem("text", add_task.value);
-        // After Create Element
+        // Some Others Changes That Happen
         add_task.value = "";
-        alert.textContent = "Item Add To The List";
-        alert.style.cssText = "background-color: green;\
-        width: 100%; height: 20px; border-radius: 5px;";
-        clear_btn.classList.add("show");
-        setInterval (function() {
-            alert.classList.add("hidden");
-        }, 2000);
+        alert_ele("Item Add To The List", "show", "green");
+    }
+    if (submit_edit.value == "Edit" && add_task.value) {
+        const must_edit = document.querySelector(".must_edit");
+        must_edit.textContent = add_task.value;
+        add_task.value = "";
+        must_edit.classList.remove("must_edit");
+        submit_edit.value = "Submit";
+        alert_ele("Value Changed", "show", "green");
     }
 });
 
-// Start Modification
-var edit_icon = document.querySelector(".edit-icon");
-var remove_icon = document.querySelector(".remove-icon");
 
+// event.target.matches(".submit_edit")
+
+// Edit Element
 document.addEventListener("click", function(event) {
     if (event.target.matches(".edit-icon")) {
-        add_task.value = document.querySelector(".title").textContent;
-        submit.value = "Edit";
-        submit.className = "edit";
-    }
-    event.target.parentElement.parentElement.firstChild.classList.add("must_edit");
-});
-
-
-document.addEventListener("click", function(event) {
-    if (event.target.matches(".edit")) {
-        event.preventDefault();
-        document.querySelector(".must_edit").textContent = add_task.value;
-        add_task.value = "";
-        alert.textContent = "Valued Changed";
-        alert.classList.remove("hidden");
-        alert.classList.add("show");
-        setInterval (function() {
-            alert.classList.add("hidden");
-        }, 2000);
-        submit.value = "Submit";
-        submit.className = "submit";
-        document.querySelector(".must_edit").classList.remove("must_edit");
+        const matches_task_edit = event.target.parentElement.parentElement.firstChild;
+        // Some Changes
+        event.target.parentElement.parentElement.firstChild.classList.add("must_edit");
+        add_task.value = matches_task_edit.textContent;
+        submit_edit.value = "Edit";
     }
 });
 
-// Remove Icon
+// Remove Element
 document.addEventListener("click", function(event) {
     if (event.target.matches(".remove-icon")) {
-        event.target.parentElement.parentElement.remove();
-        alert.textContent = "Item Removed";
-        alert.style.cssText = "background-color: red;";
-        alert.classList.add("show");
-        alert.classList.remove("hidden");
-        setInterval (function() {
-            alert.classList.add("hidden");
-        }, 2000);
+        const matches_task_remove = event.target.parentElement.parentElement;
+        matches_task_remove.remove();
+        alert_ele("Item Removed", "red", "show");
+        // Some Changes About Remove Button Of Clear List
+        const tasks_eles = document.querySelectorAll(".tasks div");
+        if(tasks_eles.length == 0) clear_btn.classList.remove("show");
     }
 });
 
-// Clear List Of Task
+
+// Remove All Element
 clear_btn.addEventListener("click", function() {
-    document.querySelectorAll(".tasks div").forEach(element => {
-        element.remove();
-    });
-    alert.textContent = "Remove All Item";
-    alert.style.cssText = "background-color: red;";
-    alert.classList.add("show");
-    alert.classList.remove("hidden");
-    setInterval (function() {
-        alert.classList.add("hidden");
-    }, 2000);
+    const tasks_eles = document.querySelectorAll(".tasks div");
+    tasks_eles.forEach(element => element.remove());
     clear_btn.classList.remove("show");
+    alert_ele("Empty List", "show", "red");
 });
+
+
+
+
 
 
 
