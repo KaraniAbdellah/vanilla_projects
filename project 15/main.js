@@ -5,9 +5,14 @@ var alert = document.querySelector(".alert");
 var tasks = document.querySelector(".tasks");
 var clear_btn = document.querySelector(".clear_btn");
 
+var elements = [];
+// localStorage.setItem('myArray', JSON.stringify([1, 2, 3, 4, 5]));
+// event.target.matches(".submit_edit");
 
-if (window.localStorage.getItem("text")) {
-    create_ele(window.localStorage.getItem("text"));
+var elements_local = localStorage.getItem('myArray', JSON.stringify(elements));
+if (elements_local) {
+    elements_local = JSON.parse(elements_local);
+    elements_local.forEach(text => create_ele(text));
 }
 
 
@@ -39,9 +44,12 @@ function create_ele(text) {
     icons.appendChild(icon1);
     icons.appendChild(icon2);
     tasks.appendChild(task);
+    elements.push(span.textContent);
+    localStorage.setItem('myArray', JSON.stringify(elements));
     // Add Button For Remove All
     clear_btn.classList.add("show");
 }
+
 
 function alert_ele(message, class1, class2) {
     alert.textContent = message;
@@ -52,6 +60,7 @@ function alert_ele(message, class1, class2) {
         alert.classList.remove(class1);
     }, 2000);
 }
+
 
 // Submit Button
 submit_edit.addEventListener("click", function(e){
@@ -77,8 +86,6 @@ submit_edit.addEventListener("click", function(e){
     }
 });
 
-
-// event.target.matches(".submit_edit")
 
 // Edit Element
 document.addEventListener("click", function(event) {
