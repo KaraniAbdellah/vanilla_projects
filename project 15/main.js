@@ -13,6 +13,7 @@ var elements_local = localStorage.getItem('myArray', JSON.stringify(elements));
 if (elements_local) {
     elements_local = JSON.parse(elements_local);
     elements_local.forEach(text => create_ele(text));
+    console.log(elements);
 }
 
 
