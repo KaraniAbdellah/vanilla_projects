@@ -1,3 +1,5 @@
+// dO THE LOCAL STORAGE 
+
 // start getting variables
 var submit_edit = document.querySelector(".submit_edit");
 var add_task = document.querySelector(".add_task");
