@@ -7,9 +7,8 @@
 body {
     font-family: "Rubik", sans-serif;
 }
-
 :root {
-    --clr-primary-1: #c8e1f3;
+    --clr-primary-1: hsl(205, 86%, 17%);
     --clr-primary-2: hsl(205, 77%, 27%);
     --clr-primary-3: hsl(205, 72%, 37%);
     --clr-primary-4: hsl(205, 63%, 48%);
@@ -31,15 +30,26 @@ section {
     display: grid;
     justify-content: center;
     align-content: center;
+    padding: 30px;
 }
 section .notepad {
     width: 550px;
     padding: 20px;
-    background-color: var(--clr-primary-9);
+    background-color: #eee;
     border-radius: var(--border-radius);
     text-align: center;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+@media (max-width: 767px) {
+    section .notepad {width: 100%;}
+}
+section .notepad h1 {
+    color: #641cff;
+    font-size: 35px;
+    margin-bottom: 30px;
 }
 section .notepad .alert {
+    padding: 5px 0;
     display: none;
     color: white;
     font-size: 16px;
@@ -54,12 +64,6 @@ section .notepad .alert.show.green {
 }
 section .notepad .alert.show.red {
     background-color: red;
-}
-
-section .notepad h1 {
-    color: var(--clr-primary-1);
-    font-size: 35px;
-    margin-bottom: 30px;
 }
 section form {
     margin-bottom: 20px;
@@ -80,30 +84,37 @@ section form .add_task, section form .add_task + input {
     height: 100%;
     font-size: 20px;
 }
+@media (min-width: 767px) {
+    section form .add_task, section form .add_task + input {
+        font-size: 18px;
+    }   
+}
 section form .add_task {
     padding: 5px;
     grid-area: add;
+    border: 2px solid #641cff;
 }
 section form .submit_edit {
     grid-area: submit;
     cursor: pointer;
+    background-color: #641cff;
+    color: white;
 }
-
 .clear_btn {
     display: none;
+    font-size: 18px;
     background-color: red;
     width: 100%;
+    padding: 5px;
     border: 0;
     outline: 0;
-    border-radius: var(--border-radius);
-    font-size: 18px;
     color: white;
-    padding: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
 }
 .clear_btn.show {
     display: block;
 }
 
-/* End Content */
+
 
