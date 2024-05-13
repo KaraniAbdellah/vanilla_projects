@@ -84,9 +84,13 @@ section form .add_task, section form .add_task + input {
     height: 100%;
     font-size: 20px;
 }
-@media (min-width: 767px) {
+@media (max-width: 767px) {
+    section {
+        justify-content: stretch;
+    }
     section form .add_task, section form .add_task + input {
         font-size: 18px;
+        padding: 5px;
     }   
 }
 section form .add_task {

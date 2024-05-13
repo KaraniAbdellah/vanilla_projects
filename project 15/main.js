@@ -9,13 +9,31 @@ var elements = [];
 // localStorage.setItem('myArray', JSON.stringify([1, 2, 3, 4, 5]));
 // event.target.matches(".submit_edit");
 
+// Focus In Input When I Reload
+window.onload = function() {
+    add_task.focus();
+}
+
+// SetUp The Local Storage and Tasks + Storage Session [edit && add_task]
 var local_ele = localStorage.getItem('myArray', JSON.stringify(elements));
 if (local_ele) {
     local_ele = JSON.parse(local_ele);
     local_ele.forEach(text => create_ele(text));
 }
 
-
+if (window.sessionStorage.getItem("edit_button", "Edit") &&
+window.sessionStorage.getItem("add_task", add_task.value)) {
+    submit_edit.value = "Edit";
+    add_task.value = window.sessionStorage.getItem("add_task", add_task);
+    // Search Of Element That HAve This Content
+    var must_edit_ele;
+    document.querySelectorAll(".tasks div").forEach(function(ele) {
+        if (ele.firstChild.textContent == window.sessionStorage.getItem("add_task", add_task)) {
+            must_edit_ele = ele;
+            must_edit_ele.firstChild.classList.add("must_edit");
+        }
+    });
+}
 
 // Create Element
 function create_ele(text) {
@@ -88,6 +106,9 @@ submit_edit.addEventListener("click", function(e){
         must_edit.classList.remove("must_edit");
         submit_edit.value = "Submit";
         alert_ele("Value Changed", "show", "green");
+        // Session Storage
+        window.sessionStorage.setItem("edit_button", "");
+        window.sessionStorage.setItem("add_task", "");
     }
 });
 
@@ -100,6 +121,8 @@ document.addEventListener("click", function(event) {
         matches_task_edit.classList.add("must_edit");
         add_task.value = matches_task_edit.textContent;
         submit_edit.value = "Edit";
+        window.sessionStorage.setItem("edit_button", "Edit");
+        window.sessionStorage.setItem("add_task", add_task.value);
     }
 });
 
