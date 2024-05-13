@@ -9,7 +9,7 @@ var elements = [];
 // localStorage.setItem('myArray', JSON.stringify([1, 2, 3, 4, 5]));
 // event.target.matches(".submit_edit");
 
-// Focus In Input When I Reload
+// Focus On Input When I Reload
 window.onload = function() {
     add_task.focus();
 }

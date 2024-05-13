@@ -22,7 +22,7 @@ body {
     --border-radius: 5px;
 }
 /* End Global Roles */
-/* Start Content Page */
+/* Start Section Page */
 
 section {
     min-height: 100vh;
@@ -119,6 +119,6 @@ section form .submit_edit {
 .clear_btn.show {
     display: block;
 }
-
+/* End Section Page */
 
 
