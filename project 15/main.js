@@ -68,12 +68,12 @@ function create_ele(text) {
     clear_btn.classList.add("show");
 }
 
-
+// Display Function
 function alert_ele(message, class1, class2) {
     alert.textContent = message;
     alert.classList.add(class1);
     alert.classList.add(class2);
-    setInterval(function() {
+    setTimeout(function() {
         alert.classList.remove(class2);
         alert.classList.remove(class1);
     }, 2000);
@@ -85,7 +85,6 @@ submit_edit.addEventListener("click", function(e){
     e.preventDefault();
     if (!add_task.value) {
         alert_ele("Please Enter A Value", "show", "red");
-        // submit_edit.value = "Submit"; 
     }
     if (submit_edit.value == "Submit" && add_task.value) {
         // Create Element
