@@ -66,6 +66,39 @@ function create_ele(text) {
     localStorage.setItem('myArray', JSON.stringify(elements));
     // Add Button For Remove All
     clear_btn.classList.add("show");
+    const deleteBtn = document.querySelector(".remove-icon");
+    const editBtn = document.querySelector(".edit-icon");
+    deleteBtn.addEventListener("click", deleteItem, deleteBtn);
+    editBtn.addEventListener("click", editItem, editBtn);
+}
+
+// Deleted Item
+function deleteItem(deleteBtn) {
+    // Remove Elements From elements and set The Local Storage
+    const matches_task_remove = deleteBtn.target.parentElement.parentElement;
+    const index_ele = elements.indexOf(matches_task_remove.firstChild.textContent);
+    elements.splice(index_ele, 1);
+    localStorage.setItem('myArray', JSON.stringify(elements));
+    console.log(elements);
+    // Remove Elements
+    matches_task_remove.remove();
+    alert_ele("Item Removed", "red", "show");
+    // Some Changes About Remove Button Of Clear List
+    const tasks_eles = document.querySelectorAll(".tasks div");
+    if(tasks_eles.length == 0) clear_btn.classList.remove("show");
+    setbackDefault();   
+}
+
+// Edit Item
+function editItem(editBtn) {
+    const matches_task_edit = editBtn.target.parentElement.parentElement.firstChild;
+    console.log(matches_task_edit);
+    // Edit From Task + Some Changes
+    matches_task_edit.classList.add("must_edit");
+    add_task.value = matches_task_edit.textContent;
+    submit_edit.value = "Edit";
+    window.sessionStorage.setItem("edit_button", "Edit");
+    window.sessionStorage.setItem("add_task", add_task.value);
 }
 
 // Display Function
@@ -78,6 +111,25 @@ function alert_ele(message, class1, class2) {
         alert.classList.remove(class1);
     }, 2000);
 }
+
+// Set To The Default
+function setbackDefault() {
+    submit_edit.value = "Submit";
+    add_task.value = "";
+}
+
+// Clear Items
+function clearItem() {
+    const tasks_eles = document.querySelectorAll(".tasks div");
+    tasks_eles.forEach(element => element.remove());
+    clear_btn.classList.remove("show");
+    alert_ele("Empty List", "show", "red");
+    // Set The Locat Storage
+    elements = [];
+    localStorage.setItem('myArray', JSON.stringify(elements));
+    setbackDefault();
+}
+
 
 
 // Submit Button
@@ -101,9 +153,8 @@ submit_edit.addEventListener("click", function(e){
         localStorage.setItem('myArray', JSON.stringify(elements));
         // Edit The Content + Some Changes
         must_edit.textContent = add_task.value;
-        add_task.value = "";
         must_edit.classList.remove("must_edit");
-        submit_edit.value = "Submit";
+        setbackDefault();
         alert_ele("Value Changed", "show", "green");
         // Session Storage
         window.sessionStorage.setItem("edit_button", "");
@@ -112,49 +163,8 @@ submit_edit.addEventListener("click", function(e){
 });
 
 
-// Edit Element
-document.addEventListener("click", function(event) {
-    if (event.target.matches(".edit-icon")) {
-        const matches_task_edit = event.target.parentElement.parentElement.firstChild;
-        // Edit From Task + Some Changes
-        matches_task_edit.classList.add("must_edit");
-        add_task.value = matches_task_edit.textContent;
-        submit_edit.value = "Edit";
-        window.sessionStorage.setItem("edit_button", "Edit");
-        window.sessionStorage.setItem("add_task", add_task.value);
-    }
-});
-
-// Remove Element
-document.addEventListener("click", function(event) {
-    if (event.target.matches(".remove-icon")) {
-        // Remove Elements From elements and set The Local Storage
-        const matches_task_remove = event.target.parentElement.parentElement;
-        const index_ele = elements.indexOf(matches_task_remove.firstChild.textContent);
-        elements.splice(index_ele, 1);
-        localStorage.setItem('myArray', JSON.stringify(elements));
-        console.log(elements);
-        // Remove Elements
-        matches_task_remove.remove();
-        alert_ele("Item Removed", "red", "show");
-        // Some Changes About Remove Button Of Clear List
-        const tasks_eles = document.querySelectorAll(".tasks div");
-        if(tasks_eles.length == 0) clear_btn.classList.remove("show");
-    }
-});
-
-
 // Remove All Element
-clear_btn.addEventListener("click", function() {
-    const tasks_eles = document.querySelectorAll(".tasks div");
-    tasks_eles.forEach(element => element.remove());
-    clear_btn.classList.remove("show");
-    alert_ele("Empty List", "show", "red");
-    // Set The Locat Storage
-    elements = [];
-    localStorage.setItem('myArray', JSON.stringify(elements));
-});
-
+clear_btn.addEventListener("click", clearItem);
 
 
 
