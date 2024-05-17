@@ -86,7 +86,8 @@ function deleteItem(deleteBtn) {
     // Some Changes About Remove Button Of Clear List
     const tasks_eles = document.querySelectorAll(".tasks div");
     if(tasks_eles.length == 0) clear_btn.classList.remove("show");
-    setbackDefault();   
+    setbackDefault();
+    setWindowSession();  
 }
 
 // Edit Item
@@ -118,6 +119,12 @@ function setbackDefault() {
     add_task.value = "";
 }
 
+// Set Window Session
+function setWindowSession() {
+    window.sessionStorage.setItem("edit_button", "");
+    window.sessionStorage.setItem("add_task", "");
+}
+
 // Clear Items
 function clearItem() {
     const tasks_eles = document.querySelectorAll(".tasks div");
@@ -128,6 +135,7 @@ function clearItem() {
     elements = [];
     localStorage.setItem('myArray', JSON.stringify(elements));
     setbackDefault();
+    setWindowSession();
 }
 
 
