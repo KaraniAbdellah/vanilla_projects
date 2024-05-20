@@ -4,10 +4,7 @@ var add_task = document.querySelector(".add_task");
 var alert = document.querySelector(".alert");
 var tasks = document.querySelector(".tasks");
 var clear_btn = document.querySelector(".clear_btn");
-
 var elements = [];
-// localStorage.setItem('myArray', JSON.stringify([1, 2, 3, 4, 5]));
-// event.target.matches(".submit_edit");
 
 // Focus On Input When I Reload
 window.onload = function() {
@@ -15,25 +12,9 @@ window.onload = function() {
 }
 
 // SetUp The Local Storage and Tasks + Storage Session [edit && add_task]
-var local_ele = localStorage.getItem('myArray', JSON.stringify(elements));
-if (local_ele) {
-    local_ele = JSON.parse(local_ele);
-    local_ele.forEach(text => create_ele(text));
-}
-
-if (window.sessionStorage.getItem("edit_button", "Edit") &&
-window.sessionStorage.getItem("add_task", add_task.value)) {
-    submit_edit.value = "Edit";
-    add_task.value = window.sessionStorage.getItem("add_task", add_task);
-    // Search Of Element That HAve This Content
-    var must_edit_ele;
-    document.querySelectorAll(".tasks div").forEach(function(ele) {
-        if (ele.firstChild.textContent == window.sessionStorage.getItem("add_task", add_task)) {
-            must_edit_ele = ele;
-            must_edit_ele.firstChild.classList.add("must_edit");
-        }
-    });
-}
+window.addEventListener("DOMContentLoaded", function() {
+    setupItems();
+});
 
 // Create Element
 function create_ele(text) {
@@ -63,6 +44,7 @@ function create_ele(text) {
     icons.appendChild(icon2);
     tasks.appendChild(task);
     elements.push(span.textContent);
+    // Add To Local Storage
     localStorage.setItem('myArray', JSON.stringify(elements));
     // Add Button For Remove All
     clear_btn.classList.add("show");
@@ -79,7 +61,6 @@ function deleteItem(deleteBtn) {
     const index_ele = elements.indexOf(matches_task_remove.firstChild.textContent);
     elements.splice(index_ele, 1);
     localStorage.setItem('myArray', JSON.stringify(elements));
-    console.log(elements);
     // Remove Elements
     matches_task_remove.remove();
     alert_ele("Item Removed", "red", "show");
@@ -138,7 +119,29 @@ function clearItem() {
     setWindowSession();
 }
 
-
+// Set Up The Items
+function setupItems() {
+    // For Local Storage
+    var local_ele = localStorage.getItem('myArray', JSON.stringify(elements));
+    if (local_ele) {
+        local_ele = JSON.parse(local_ele);
+        local_ele.forEach(text => create_ele(text));
+    }
+    // For The Session Storage
+    if (window.sessionStorage.getItem("edit_button", "Edit") &&
+    window.sessionStorage.getItem("add_task", add_task.value)) {
+        submit_edit.value = "Edit";
+        add_task.value = window.sessionStorage.getItem("add_task", add_task);
+        // Search Of Element That HAve This Content
+        var must_edit_ele;
+        document.querySelectorAll(".tasks div").forEach(function(ele) {
+            if (ele.firstChild.textContent == window.sessionStorage.getItem("add_task", add_task)) {
+                must_edit_ele = ele;
+                must_edit_ele.firstChild.classList.add("must_edit");
+            }
+        });
+    }
+}
 
 // Submit Button
 submit_edit.addEventListener("click", function(e){
