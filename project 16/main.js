@@ -1,19 +1,32 @@
 // Getting The Variables
-var slide_container = document.querySelector(".slide-container");
 var next = document.querySelector(".next");
 var prev = document.querySelector(".prev");
+var slide_img = document.querySelector(".slide img");
+var myCounter = document.querySelector(".counter");
 var images = ["images/img-1.jpeg", "images/img-2.jpeg", "images/img-3.jpeg", "images/img-4.jpeg"];
+var count = 1;
 
-function createSlide (src_img) {
-    var slide = document.createElement("div");
-    var image = document.createElement("img");
-    slide.classList.add("slide");
-    image.src = src_img;
-    slide.appendChild(image);
-    slide_container.appendChild(slide);
-}
 
-createSlide(images[0]);
+
+// check something
+next.addEventListener("click", function() {
+    slide_img.src = images[count];
+    myCounter.textContent = count + 1;
+    prev.classList.remove("hidden");
+    count++;
+    if (count == images.length) next.classList.add("hidden");
+});
+prev.addEventListener("click", function() {
+    count--;
+    slide_img.src = images[count - 1];
+    myCounter.textContent = count;
+    if (count != images.length) next.classList.remove("hidden");
+    if (count == 1) prev.classList.add("hidden");
+});
+
+
+
+
 
 
 
