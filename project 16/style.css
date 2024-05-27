@@ -26,14 +26,27 @@ section .content-page {
     text-align: center;
 }
 section .slide-container {
+    position: relative;
     margin-bottom: 20px;
+    border: 5px solid var(--clr-primary-1);
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
 }
 section .slide-container .slide {
-    height: 300px;
-    border: 5px solid var(--clr-primary-1);
-    border-radius: 10px;
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
 }
+/* section .slide-container .slide.hidden {
+    transform: translateX(100%);
+}
+section .slide-container .slide.show {
+    transform: translateX(0%);
+} */
 section .slide-container .slide p {
     font-size: 50px;
     font-weight: bold;
