@@ -1,49 +1,59 @@
-// Getting The Variables
-var next = document.querySelector(".next");
-var prev = document.querySelector(".prev");
-var images = document.querySelectorAll(".slide");
-var count = 1;
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const slides = document.querySelectorAll(".slide");
+let count = 0;
 
-window.addEventListener("DOMContentLoaded", function() {
-    for (var i = 0; i < images.length; i++) {
-        images[i].style.cssText = `left:${i}00%;`;
-        images[i].style.cssText = `transform: translateX(${i}00%);`;
-    }
-    images.forEach(ele => ele.style.cssText = `transform: translateX(-100%);`); 
+slides[count].classList.add("show");
+prevBtn.classList.add("hidden");
+
+function updateSlides() {
+    slides.forEach((slide, index) => {
+        slide.classList.remove("show");
+        slide.style.transform = (index === count) ? "translateX(0)" : (index < count) ? "translateX(-100%)" : "translateX(100%)";
+    });
+    prevBtn.classList.toggle("hidden", count === 0);
+    nextBtn.classList.toggle("hidden", count === slides.length - 1);
+}
+nextBtn.addEventListener("click", function() {
+    count++;
+    updateSlides();
+});
+prevBtn.addEventListener("click", function() {
+    count--;
+    updateSlides();
 });
 
 
+
+/*
+// Getting The Variables
+let nextBtn = document.querySelector(".next");
+let prevBtn = document.querySelector(".prev");
+let slides = document.querySelectorAll(".slide");
+let count = 1;
  
 function next_set(count) {
-    images[count].style.cssText = `transform: translateX(0);`;
-    images[count - 1].style.cssText = `transform: translateX(-100%);`; 
+    slides[count].classList.add("show");
+    slides[count - 1].classList.remove("show");
 }
 function prev_set(count) {
-    images[count - 1].style.cssText = `transform: translateX(0);`;
-    images[count].style.cssText = `transform: translateX(-100%);`;  
+    slides[count - 1].classList.add("show");
+    slides[count].classList.remove("show"); 
 }
 
-// check something
-next.addEventListener("click", function() {
-    // Start Fix The Show And Hidden Elements
+nextBtn.addEventListener("click", function() {
     next_set(count);
-    // Start Fix Counter
-    prev.classList.remove("hidden");
+    prevBtn.classList.remove("hidden");
     count++;
-    if (count == images.length) next.classList.add("hidden");
+    if (count == slides.length) nextBtn.classList.add("hidden");
 });
-prev.addEventListener("click", function() {
+prevBtn.addEventListener("click", function() {
     count--;
-    // Start Fix The Show And Hidden Elements
     prev_set(count);
-    // Start Fix Counter
-    if (count != images.length) next.classList.remove("hidden");
-    if (count == 1) prev.classList.add("hidden");
+    if (count != slides.length) nextBtn.classList.remove("hidden");
+    if (count == 1) prevBtn.classList.add("hidden");
 });
-
-
-
-
+*/
 
 
 
