@@ -4,8 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe Game</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Style File -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="content">
+        <section class="content_page">
+            <header>
+                <div class="x_o">
+                    <span class="x"><i class="fa-solid fa-xmark"></i></span> 
+                    <span class="o"><i class="fa-solid fa-o"></i></span> 
+                </div>
+                <div class="role">
+                    <span><i class="fa-solid fa-xmark"></i>turn</span>
+                </div>
+                <div class="reset">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
+            </header>
+            <div class="game_tic">
+                Hello Game
+            </div>
+            <footer>
+                <p class="player1">
+                    Player1 <br> <span class="player1">0</span>
+                </p>
+                <p class="draws">
+                    draws <br> <span class="draws">0</span>
+                </p>
+                <p class="player2">
+                    Player2 <br> <span class="player2">0</span>
+                </p>
+            </footer>
+        </section>
+    </div>
+    <!-- Main Js -->
+    <script src="main.js"></script>
 </body>
 </html>
