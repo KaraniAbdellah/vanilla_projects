@@ -18,9 +18,12 @@ button {
     outline: none;
     border: none;
 }
+i {
+    font-weight: bold;
+}
 :root {
     --clr-1: #03045e;
-    --clr-2: #03055e78;
+    --clr-2: #0077b6;
     --clr-3: #caf0f8;
     --clr-4: #ffbe0b;
     --border-raduis: 5px;
@@ -33,7 +36,7 @@ button {
 .content_page {
     height: 100vh;
     display: grid;
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: 80px 1fr 80px;
     padding: 20px;
     width: 100%;
     margin: 0 auto;
@@ -49,17 +52,44 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: blue;
+    background-color: var(--clr-2);
     border-radius: var(--border-raduis);
     margin-bottom: 20px;
     font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+header .x_o span.x {
+    color: var(--clr-4);
+}
+header .role .must_play {
+    color: var(--clr-4);
+}
+header .reset {
+    cursor: pointer;
 }
 /* End Header */
 /* Start game_tic */
 .game_tic {
-    background-color: green;
+    background-color: var(--clr-1);
     border-radius: var(--border-raduis);
     margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.game_tic .box {
+    background-color: var(--clr-2);
+    border-radius: var(--border-raduis);
+    cursor: pointer;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: bold;
 }
 /* End game_tic */
 /* Start Footer */
@@ -70,11 +100,14 @@ footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: red;
+    background-color: var(--clr-2);
     border-radius: var(--border-raduis);
     margin-bottom: 20px;
+    color: white;
 }
-
+footer p span {
+    color: var(--clr-4);
+}
 /* End Footer */
 
 
