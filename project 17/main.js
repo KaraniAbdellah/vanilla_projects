@@ -1,7 +1,8 @@
 // Getting The Varibales
 var x_symbol = document.querySelector(".x");
 var o_symbol = document.querySelector(".o");
-var role_must_play = document.querySelector(".role .must_play");
+var role_must_play = document.querySe
+role_must_play= document.querySelector(".role .must_play");
 var reset_btn = document.querySelector(".reset");
 var boxes = document.querySelectorAll(".box");
 var player1 = document.querySelector(".player1 span");
@@ -10,6 +11,7 @@ var draws = document.querySelector(".draws span");
 var toolge = document.querySelector(".toogle");
 var mark = document.querySelector(".toogle .mark");
 var winner = document.querySelector(".winner");
+var content = document.querySelector(".content");
 var i = 0;
 
 
@@ -22,8 +24,10 @@ function reset() {
     // Change i value
     i = 0;
     // Change The Color Of "O" and "X"
-    x_symbol.style.color = "yellow";
-    o_symbol.style.color = "black";
+    o_symbol.style.color = "white";
+    x_symbol.style.color = "black";
+    // remove "shadow" class from content
+    content.classList.remove("shadow");
 }
 
 // Check If The All Box Full Of [X || O]
@@ -36,7 +40,7 @@ function check_all_ele_full() {
 }
 
 // Check The Winner --> X : Player1, O : Player2 
-function is_winner() {
+function is_there_a_winner() {
     // Make Matrix That Contain Just "X" and "O"
     var matrix = [], count = 1, temp = [];
     boxes.forEach(function(ele) {
@@ -54,6 +58,7 @@ function is_winner() {
     else if (matrix[0][0] == "X" && matrix[1][0] == "X" && matrix[2][0] == "X") {check = true; winner.textContent = "X"}
     else if (matrix[0][1] == "X" && matrix[1][1] == "X" && matrix[2][1] == "X") {check = true; winner.textContent = "X"}
     else if (matrix[0][2] == "X" && matrix[1][2] == "X" && matrix[2][2] == "X") {check = true; winner.textContent = "X"}
+    else if (matrix[0][2] == "X" && matrix[1][1] == "X" && matrix[2][0] == "X") {check = true; winner.textContent = "X";}
 
     else if (matrix[0][0] == "0" && matrix[0][1] == "0" && matrix[0][2] == "0") {check = true; winner.textContent = "0"}
     else if (matrix[1][0] == "0" && matrix[1][1] == "0" && matrix[1][2] == "0") {check = true; winner.textContent = "0"}
@@ -63,27 +68,21 @@ function is_winner() {
     else if (matrix[0][0] == "0" && matrix[1][0] == "0" && matrix[2][0] == "0") {check = true; winner.textContent = "0"}
     else if (matrix[0][1] == "0" && matrix[1][1] == "0" && matrix[2][1] == "0") {check = true; winner.textContent = "0"}
     else if (matrix[0][2] == "0" && matrix[1][2] == "0" && matrix[2][2] == "0") {check = true; winner.textContent = "0"}
+    else if (matrix[0][2] == "0" && matrix[1][1] == "0" && matrix[2][0] == "0") {check = true; winner.textContent = "X";}
 
     else { check = false; winner.textContent = "NO ONE WINNER"; }
     return check;
 }
 
-// Tell Us Where is The Winner
+// The Winner is : ....
 function winner_is() {
-    if (!check_all_ele_full()) { // Not Full
-        if (is_winner()) {
-            console.log("We have A Winner");
-            toolge.style.display = "flex";
-        }
-    } else { // Is Full
-        if (is_winner()) {
-            toolge.style.display = "flex";
-            console.log("We have A Winner");
-        }
-        else {
-            toolge.style.display = "flex";
-            console.log("We Do Not Have A Winner");
-        }
+    if (is_there_a_winner()) {
+        toolge.style.display = "flex";
+        content.classList.add("shadow");
+    }
+    if(check_all_ele_full()) {
+        toolge.style.display = "flex";
+        content.classList.add("shadow");
     }
 }
 
@@ -101,10 +100,11 @@ boxes.forEach(function(ele) {
                 e.target.textContent = "X";
                 e.target.classList.add("pick");
                 // Change The Content
-                role_must_play.textContent = "X";
+                role_must_play.textContent = "0";
+                role_must_play.style.color = "white";
                 // Change The Color Of "O" and "X"
-                x_symbol.style.color = "yellow";
-                o_symbol.style.color = "black";
+                o_symbol.style.color = "white";
+                x_symbol.style.color = "black";
                 winner_is();
             }
             else {
@@ -112,10 +112,11 @@ boxes.forEach(function(ele) {
                 e.target.textContent = "0";
                 e.target.classList.add("pick");
                 // Change The Content
-                role_must_play.textContent = "0";
+                role_must_play.textContent = "X";
+                role_must_play.style.color = "white";
                 // Change The Color Of "O" and "X"
-                x_symbol.style.color = "black";
-                o_symbol.style.color = "yellow";
+                o_symbol.style.color = "black";
+                x_symbol.style.color = "white";
                 winner_is();
             }
             i++;
