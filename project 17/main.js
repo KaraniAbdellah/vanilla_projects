@@ -1,3 +1,14 @@
+// You Task Is
+/**
+ * Custom A Lot Of Thing
+ * Modifier The Players [Player1 --> x] && [Player2 --> 0]
+ * Use The Local Storage For The Result Of The Players
+ * Custom The Matrix Conditions
+ */
+
+
+
+
 // Getting The Varibales
 var x_symbol = document.querySelector(".x");
 var o_symbol = document.querySelector(".o");
@@ -134,7 +145,6 @@ mark.addEventListener("click", function() {
     toolge.style.display = "none";
     reset();
 })
-
 
 
 
