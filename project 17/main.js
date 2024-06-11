@@ -1,6 +1,6 @@
 // You Task Is
 /**
- * Custom A Lot Of Thing
+ * Custom A Lot Of Things
  * Modifier The Players [Player1 --> x] && [Player2 --> 0]
  * Use The Local Storage For The Result Of The Players
  * Custom The Matrix Conditions
@@ -12,8 +12,7 @@
 // Getting The Varibales
 var x_symbol = document.querySelector(".x");
 var o_symbol = document.querySelector(".o");
-var role_must_play = document.querySe
-role_must_play= document.querySelector(".role .must_play");
+var role_must_play= document.querySelector(".role .must_play");
 var reset_btn = document.querySelector(".reset");
 var boxes = document.querySelectorAll(".box");
 var player1 = document.querySelector(".player1 span");
@@ -24,6 +23,13 @@ var mark = document.querySelector(".toogle .mark");
 var winner = document.querySelector(".winner");
 var content = document.querySelector(".content");
 var i = 0;
+
+// Set The Winner And Loser Results
+if (localStorage.getItem("player1") && localStorage.getItem("player2") && localStorage.getItem("draws")) {
+    player1.textContent = localStorage.getItem("player1");
+    player2.textContent = localStorage.getItem("player2");
+    draws.textContent = localStorage.getItem("draws");
+}
 
 
 // Reset Function
@@ -82,6 +88,20 @@ function is_there_a_winner() {
     else if (matrix[0][2] == "0" && matrix[1][1] == "0" && matrix[2][0] == "0") {check = true; winner.textContent = "X";}
 
     else { check = false; winner.textContent = "NO ONE WINNER"; }
+    // Set The Player1 and Player2
+    if (winner.textContent == "X") {
+        player1.textContent = Number(player1.textContent) + 1;
+        window.localStorage.setItem("player1", player1.textContent);
+    }
+    if (winner.textContent == "0") {
+        player2.textContent = Number(player2.textContent) + 1;
+        window.localStorage.setItem("player2", player2.textContent);
+        
+    } 
+    if (winner.textContent != "0" && winner.textContent != "X") {
+        if (check_all_ele_full()) draws.textContent = Number(draws.textContent) + 1;
+        window.localStorage.setItem("draws", draws.textContent);
+    }
     return check;
 }
 
