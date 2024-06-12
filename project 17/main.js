@@ -25,10 +25,10 @@ var content = document.querySelector(".content");
 var i = 0;
 
 // Set The Winner And Loser Results
-if (localStorage.getItem("player1") && localStorage.getItem("player2") && localStorage.getItem("draws")) {
-    player1.textContent = localStorage.getItem("player1");
-    player2.textContent = localStorage.getItem("player2");
-    draws.textContent = localStorage.getItem("draws");
+if (sessionStorage.getItem("player1") && sessionStorage.getItem("player2") && sessionStorage.getItem("draws")) {
+    player1.textContent = sessionStorage.getItem("player1");
+    player2.textContent = sessionStorage.getItem("player2");
+    draws.textContent = sessionStorage.getItem("draws");
 }
 
 
@@ -66,41 +66,30 @@ function is_there_a_winner() {
         count++;
     });
     // Check The Winner and Set The Winner textcontent
-    var check = false;
-    if (matrix[0][0] == "X" && matrix[0][1] == "X" && matrix[0][2] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[1][0] == "X" && matrix[1][1] == "X" && matrix[1][2] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[2][0] == "X" && matrix[2][1] == "X" && matrix[2][2] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[0][0] == "X" && matrix[1][1] == "X" && matrix[2][2] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[0][0] == "X" && matrix[0][1] == "X" && matrix[0][2] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[0][0] == "X" && matrix[1][0] == "X" && matrix[2][0] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[0][1] == "X" && matrix[1][1] == "X" && matrix[2][1] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[0][2] == "X" && matrix[1][2] == "X" && matrix[2][2] == "X") {check = true; winner.textContent = "X"}
-    else if (matrix[0][2] == "X" && matrix[1][1] == "X" && matrix[2][0] == "X") {check = true; winner.textContent = "X";}
-
-    else if (matrix[0][0] == "0" && matrix[0][1] == "0" && matrix[0][2] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[1][0] == "0" && matrix[1][1] == "0" && matrix[1][2] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[2][0] == "0" && matrix[2][1] == "0" && matrix[2][2] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[0][0] == "0" && matrix[1][1] == "0" && matrix[2][2] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[0][0] == "0" && matrix[0][1] == "0" && matrix[0][2] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[0][0] == "0" && matrix[1][0] == "0" && matrix[2][0] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[0][1] == "0" && matrix[1][1] == "0" && matrix[2][1] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[0][2] == "0" && matrix[1][2] == "0" && matrix[2][2] == "0") {check = true; winner.textContent = "0"}
-    else if (matrix[0][2] == "0" && matrix[1][1] == "0" && matrix[2][0] == "0") {check = true; winner.textContent = "X";}
-
-    else { check = false; winner.textContent = "NO ONE WINNER"; }
+    var check;
+    for (var i = 0; i < 8; i++) {
+        check = true;
+        for (var j = 0; j < 3; j++) {
+            for (var k = 0; k < 3; k++) {
+                
+            }
+        }
+        if (check == true) console.log("There Is A Winner\n");
+    }
+    if (check_all_ele_full() && !check) console.log("There is No Winner\n"); 
     // Set The Player1 and Player2
     if (winner.textContent == "X") {
         player1.textContent = Number(player1.textContent) + 1;
-        window.localStorage.setItem("player1", player1.textContent);
+        window.sessionStorage.setItem("player1", player1.textContent);
     }
     if (winner.textContent == "0") {
         player2.textContent = Number(player2.textContent) + 1;
-        window.localStorage.setItem("player2", player2.textContent);
+        window.sessionStorage.setItem("player2", player2.textContent);
         
     } 
     if (winner.textContent != "0" && winner.textContent != "X") {
         if (check_all_ele_full()) draws.textContent = Number(draws.textContent) + 1;
-        window.localStorage.setItem("draws", draws.textContent);
+        window.sessionStorage.setItem("draws", draws.textContent);
     }
     return check;
 }
