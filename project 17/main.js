@@ -56,6 +56,37 @@ function check_all_ele_full() {
     return check;
 }
 
+// Check The Winner
+function checkWinner(matrix) {
+    // Check rows
+    for (let i = 0; i < 3; i++) {
+        if (matrix[i][0] === matrix[i][1] && matrix[i][1] === matrix[i][2] && matrix[i][0] !== '-') {
+            console.log(matrix[i][0]);
+            return matrix[i][0];
+        }
+    }
+
+    // Check columns
+    for (let j = 0; j < 3; j++) {
+        if (matrix[0][j] === matrix[1][j] && matrix[1][j] === matrix[2][j] && matrix[0][j] !== '-') {
+            console.log(matrix[0][j]);
+            return matrix[0][j];
+        }
+    }
+
+    // Check diagonals
+    if ((matrix[0][0] === matrix[1][1] && matrix[1][1] === matrix[2][2] && matrix[1][1] !== '-') ||
+        (matrix[0][2] === matrix[1][1] && matrix[1][1] === matrix[2][0] && matrix[1][1] !== '-')) {
+        console.log(matrix[1][1]);
+        return matrix[1][1];
+    }
+    
+    // No winner
+    console.log("-");
+    return '-';
+}
+
+
 // Check The Winner --> X : Player1, O : Player2 
 function is_there_a_winner() {
     // Make Matrix That Contain Just "X" and "O"
@@ -64,46 +95,51 @@ function is_there_a_winner() {
         temp[count - 1] = ele.textContent;
         if (count == 3) { matrix.push(temp); count = 0; temp = []; }
         count++;
+        console.log(matrix);
     });
+
     // Check The Winner and Set The Winner textcontent
-    var check;
-    for (var i = 0; i < 8; i++) {
-        check = true;
-        for (var j = 0; j < 3; j++) {
-            for (var k = 0; k < 3; k++) {
-                
-            }
-        }
-        if (check == true) console.log("There Is A Winner\n");
-    }
-    if (check_all_ele_full() && !check) console.log("There is No Winner\n"); 
-    // Set The Player1 and Player2
-    if (winner.textContent == "X") {
+    var check = checkWinner(matrix);
+    return check;
+}
+
+// Fucntion
+function set_result(check) {
+    if (check == "X") {
+        winner.textContent == "X";
         player1.textContent = Number(player1.textContent) + 1;
         window.sessionStorage.setItem("player1", player1.textContent);
     }
-    if (winner.textContent == "0") {
+    if (check == "0") {
+        winner.textContent == "0"
         player2.textContent = Number(player2.textContent) + 1;
         window.sessionStorage.setItem("player2", player2.textContent);
         
     } 
-    if (winner.textContent != "0" && winner.textContent != "X") {
+    if (check == "-") {
         if (check_all_ele_full()) draws.textContent = Number(draws.textContent) + 1;
         window.sessionStorage.setItem("draws", draws.textContent);
     }
-    return check;
 }
 
 // The Winner is : ....
 function winner_is() {
-    if (is_there_a_winner()) {
+    var check = is_there_a_winner();
+    if (check != "-") {
+        console.log("HH");
         toolge.style.display = "flex";
         content.classList.add("shadow");
+        set_result(check);
     }
-    if(check_all_ele_full()) {
+    if(check_all_ele_full() && check != "-") {
+        console.log("EE");
         toolge.style.display = "flex";
         content.classList.add("shadow");
+        set_result(check);
     }
+    if (check == "-") console.log("There Is No Winner Yet");
+    if (check == "-" && check_all_ele_full()) console.log("There is Not Winner");
+    // Set The Player1 and Player2
 }
 
 // Load The Page

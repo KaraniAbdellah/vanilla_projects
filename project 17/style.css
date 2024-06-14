@@ -102,6 +102,12 @@ header .reset {
     padding: 20px;
     box-shadow: var(--box-shadow);
 }
+@media (max-width: 767px) {
+    .game_tic {
+        grid-template-rows: repeat(3, 100px);
+        align-content: center;
+    }
+}
 .game_tic .box {
     background-color: #cdc9c9;
     border-radius: var(--border-raduis);
