@@ -82,12 +82,14 @@ header {
     border-radius: var(--border-raduis);
     margin-bottom: 20px;
     font-size: 20px;
-    color: black;
     box-shadow: var(--box-shadow);
 }
 header .reset {
     color: white;
     cursor: pointer;
+}
+.must_play {
+    color: white;
 }
 /* End Header */
 /* Start game_tic */

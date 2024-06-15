@@ -12,7 +12,7 @@
 // Getting The Varibales
 var x_symbol = document.querySelector(".x");
 var o_symbol = document.querySelector(".o");
-var role_must_play= document.querySelector(".role .must_play");
+var role_must_play = document.querySelector(".role .must_play");
 var reset_btn = document.querySelector(".reset");
 var boxes = document.querySelectorAll(".box");
 var player1 = document.querySelector(".player1 span");
@@ -41,8 +41,8 @@ function reset() {
     // Change i value
     i = 0;
     // Change The Color Of "O" and "X"
-    o_symbol.style.color = "white";
-    x_symbol.style.color = "black";
+    o_symbol.style.color = "black";
+    x_symbol.style.color = "white";
     // remove "shadow" class from content
     content.classList.remove("shadow");
 }
@@ -61,7 +61,6 @@ function checkWinner(matrix) {
     // Check rows
     for (let i = 0; i < 3; i++) {
         if (matrix[i][0] === matrix[i][1] && matrix[i][1] === matrix[i][2] && matrix[i][0] !== '-') {
-            console.log(matrix[i][0]);
             return matrix[i][0];
         }
     }
@@ -69,7 +68,6 @@ function checkWinner(matrix) {
     // Check columns
     for (let j = 0; j < 3; j++) {
         if (matrix[0][j] === matrix[1][j] && matrix[1][j] === matrix[2][j] && matrix[0][j] !== '-') {
-            console.log(matrix[0][j]);
             return matrix[0][j];
         }
     }
@@ -77,12 +75,10 @@ function checkWinner(matrix) {
     // Check diagonals
     if ((matrix[0][0] === matrix[1][1] && matrix[1][1] === matrix[2][2] && matrix[1][1] !== '-') ||
         (matrix[0][2] === matrix[1][1] && matrix[1][1] === matrix[2][0] && matrix[1][1] !== '-')) {
-        console.log(matrix[1][1]);
         return matrix[1][1];
     }
     
     // No winner
-    console.log("-");
     return '-';
 }
 
@@ -97,7 +93,7 @@ function is_there_a_winner() {
         count++;
         console.log(matrix);
     });
-
+    console.log(matrix);
     // Check The Winner and Set The Winner textcontent
     var check = checkWinner(matrix);
     return check;
@@ -105,40 +101,44 @@ function is_there_a_winner() {
 
 // Fucntion
 function set_result(check) {
+    winner.textContent = check;
     if (check == "X") {
-        winner.textContent == "X";
         player1.textContent = Number(player1.textContent) + 1;
         window.sessionStorage.setItem("player1", player1.textContent);
     }
     if (check == "0") {
-        winner.textContent == "0"
         player2.textContent = Number(player2.textContent) + 1;
         window.sessionStorage.setItem("player2", player2.textContent);
         
-    } 
-    if (check == "-") {
-        if (check_all_ele_full()) draws.textContent = Number(draws.textContent) + 1;
-        window.sessionStorage.setItem("draws", draws.textContent);
+    }
+    if (!(check == "X" && check == "0")) {
+        if (check_all_ele_full()) {
+            draws.textContent = Number(draws.textContent) + 1;
+            window.sessionStorage.setItem("draws", draws.textContent);
+        }
     }
 }
 
 // The Winner is : ....
 function winner_is() {
     var check = is_there_a_winner();
-    if (check != "-") {
-        console.log("HH");
+    var condition = (check == "X" || check == "0");
+    if (condition) {
         toolge.style.display = "flex";
         content.classList.add("shadow");
         set_result(check);
     }
-    if(check_all_ele_full() && check != "-") {
-        console.log("EE");
+    if(check_all_ele_full() && (condition)) {
         toolge.style.display = "flex";
         content.classList.add("shadow");
         set_result(check);
     }
-    if (check == "-") console.log("There Is No Winner Yet");
-    if (check == "-" && check_all_ele_full()) console.log("There is Not Winner");
+    if (!condition && check_all_ele_full()) {
+        toolge.style.display = "flex";
+        content.classList.add("shadow");
+        check = "NO WINNER";
+        set_result(check);
+    }
     // Set The Player1 and Player2
 }
 
@@ -157,7 +157,6 @@ boxes.forEach(function(ele) {
                 e.target.classList.add("pick");
                 // Change The Content
                 role_must_play.textContent = "0";
-                role_must_play.style.color = "white";
                 // Change The Color Of "O" and "X"
                 o_symbol.style.color = "white";
                 x_symbol.style.color = "black";
@@ -169,7 +168,6 @@ boxes.forEach(function(ele) {
                 e.target.classList.add("pick");
                 // Change The Content
                 role_must_play.textContent = "X";
-                role_must_play.style.color = "white";
                 // Change The Color Of "O" and "X"
                 o_symbol.style.color = "black";
                 x_symbol.style.color = "white";
