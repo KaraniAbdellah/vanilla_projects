@@ -12,9 +12,9 @@
 // Getting The Varibales
 var x_symbol = document.querySelector(".x");
 var o_symbol = document.querySelector(".o");
-var role_must_play = document.querySelector(".role .must_play");
+var current_trun = document.querySelector(".turn .current-trun");
 var reset_btn = document.querySelector(".reset");
-var boxes = document.querySelectorAll(".box");
+var celles = document.querySelectorAll(".cell");
 var player1 = document.querySelector(".player1 span");
 var player2 = document.querySelector(".player2 span");
 var draws = document.querySelector(".draws span");
@@ -34,7 +34,7 @@ if (sessionStorage.getItem("player1") && sessionStorage.getItem("player2") && se
 
 // Reset Function
 function reset() {
-    boxes.forEach(function(ele) {
+    celles.forEach(function(ele) {
         ele.textContent = "";
         ele.classList.remove("pick");
     });
@@ -50,7 +50,7 @@ function reset() {
 // Check If The All Box Full Of [X || O]
 function check_all_ele_full() {
     var check = true; // Supose is Full
-    boxes.forEach(function(ele) {
+    celles.forEach(function(ele) {
         if (!ele.classList.contains("pick")) { check = false; return check; }; 
     });
     return check;
@@ -87,7 +87,7 @@ function checkWinner(matrix) {
 function is_there_a_winner() {
     // Make Matrix That Contain Just "X" and "O"
     var matrix = [], count = 1, temp = [];
-    boxes.forEach(function(ele) {
+    celles.forEach(function(ele) {
         temp[count - 1] = ele.textContent;
         if (count == 3) { matrix.push(temp); count = 0; temp = []; }
         count++;
@@ -147,16 +147,16 @@ window.addEventListener("DOMContentLoaded", reset);
 
 
 // Change X To 0 and 0 To X
-boxes.forEach(function(ele) {
+celles.forEach(function(ele) {
     ele.addEventListener("click", function(e) {
         // Check The Target Element + add "pick" class
-        if (!(e.target.classList.contains("pick")) && e.target.classList.contains("box")) {
+        if (!(e.target.classList.contains("pick")) && e.target.classList.contains("cell")) {
             if (i % 2 == 0) {
                 // Change To "X"
                 e.target.textContent = "X";
                 e.target.classList.add("pick");
                 // Change The Content
-                role_must_play.textContent = "0";
+                current_trun.textContent = "0";
                 // Change The Color Of "O" and "X"
                 o_symbol.style.color = "white";
                 x_symbol.style.color = "black";
@@ -167,7 +167,7 @@ boxes.forEach(function(ele) {
                 e.target.textContent = "0";
                 e.target.classList.add("pick");
                 // Change The Content
-                role_must_play.textContent = "X";
+                current_trun.textContent = "X";
                 // Change The Color Of "O" and "X"
                 o_symbol.style.color = "black";
                 x_symbol.style.color = "white";

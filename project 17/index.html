@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe Game</title>
+    <title>Tic Tac Toe</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Style File -->
@@ -24,43 +24,43 @@
         </div>
         <!-- Start Content Page -->
         <section class="content_page">
-            <header>
-                <div class="icons">
+            <header class="container">
+                <div class="symbols">
                     <span class="x"><i class="fa-solid fa-xmark"></i></span> 
                     <span class="o"><i class="fa-solid fa-o"></i></span> 
                 </div>
-                <div class="role">
-                    <span>trun : <span class="must_play">X</span></span>
+                <div class="turn">
+                    <span>trun : <span class="current-trun">X</span></span>
                 </div>
                 <div class="reset">
                     <i class="fa-solid fa-arrows-rotate"></i>
                 </div>
             </header>
-            <div class="game_tic">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
+            <div class="board">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
             </div>
-            <footer>
-                <p class="player1">
+            <footer class="score">
+                <div class="player1">
                     Player1 <br> <span class="number">0</span>
-                </p>
-                <p class="draws">
+                </div>
+                <div class="draws">
                     Draws <br> <span class="number">0</span>
-                </p>
-                <p class="player2">
+                </div>
+                <div class="player2">
                     Player2 <br> <span class="number">0</span>
-                </p>
+                </div>
             </footer>
         </section>
     </div>
-    <!-- Main Js -->
+    <!-- Main Js File -->
     <script src="main.js"></script>
 </body>
 </html>
