@@ -21,6 +21,9 @@ button {
     outline: none;
     border: none;
 }
+i.fa-sharp {
+    font-size: 70px;
+}
 :root {
     --clr-1: #FFC55A;
     --border-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
@@ -128,6 +131,7 @@ header.container .reset {
 /* End board */
 /* Start Footer */
 footer.score {
+    padding: 10px 0;
     margin-bottom: 20px;
     background-color: var(--clr-1);
     border-radius: var(--border-raduis);
@@ -136,7 +140,7 @@ footer.score {
     font-size: 20px;
     box-shadow: var(--box-shadow);
 }
-footer p span {
+footer div span {
     color: white;
 }
 /* End Footer */
