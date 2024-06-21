@@ -1,8 +1,14 @@
 // Getting The Varibles
 const cells = document.querySelectorAll(".cell");
 const reset_btn = document.querySelector(".reset");
+const current_turn = document.querySelector(".current-trun");
+const player1_score1 = document.querySelector(".player1 .number");
+const player2_score2 = document.querySelector(".player2 .number");
+const draws = document.querySelector(".draws .number");
 var turn = true;
 var usedCells = [];
+var winner = false;
+var ties = 0;
 const winCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -12,7 +18,7 @@ const winCombos = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6],
-]
+];
 
 // Define The Type For Player1 --> X and Player2 --> O
 let player1 = {
@@ -26,20 +32,26 @@ let player2 = {
     score: 0,
 }
 
+// Reset The Turn Player To "X"
+checkTurn(turn);
+
+// Loop Thought The Element
 for (let i = 0; i < 9; i++) {
     cells[i].addEventListener("click", function(ele) {
-        if (!usedCells.includes(i))  {
+        if (!usedCells.includes(i)) {
             if (turn) {
                     addSymbol(player1, i); turn = false;
                     player1.played.push(i);
-                    checkWin(player1);
                     usedCells.push(i);
-            } else {
-                
+                    checkWin(player1);
+                    checkTurn(turn);
+                } else {
+                    
                     addSymbol(player2, i); turn = true;
                     player2.played.push(i);
-                    checkWin(player2);
                     usedCells.push(i);
+                    checkWin(player2);
+                    checkTurn(turn);
             }
         }
     });
@@ -54,21 +66,50 @@ function addSymbol(player, i) {
 function checkWin(player) {
     var check = winCombos.some(function(combo) {
         if (combo.every((ele) => player.played.includes(ele))) {
-            reset();
+            player.score++;
+            showScore();
+            winner = true;
+            console.log("There Is A Winner");
         }
     });
+    if (!winner && usedCells.length == 9) {
+        console.log("There Is Not Winner");
+        ties++;
+        showScore();
+    }
 }
 
-// Reset All Element 
+// Reset All Element
 function reset() {
     cells.forEach(ele => ele.innerHTML = "");
     usedCells = [];
+    player1.played = [];
+    player2.played = [];
+    turn = true;
+    ties = 0;
+    checkTurn(true);
+}
+
+// check the turn
+function checkTurn(trun) {
+    if (trun) current_turn.innerHTML = player1.symbol; 
+    else current_turn.innerHTML = player2.symbol;
+}
+
+// Show The Score
+function showScore() {
+    player1_score1.innerHTML = player1.score;
+    player2_score2.innerHTML = player2.score;
+    draws.innerHTML = ties;
+    console.log(draws.innerHTML);
 }
 
 // reset button
 reset_btn.addEventListener("click", function() {
     reset();
 });
+
+// close icon
 
 
 
@@ -108,7 +149,7 @@ reset_btn.addEventListener("click", function() {
 
 // // Getting The Varibales
 // var celles = document.querySelectorAll(".cell");
-// var current_trun = document.querySelector(".turn .current-trun");
+// var current_turn = document.querySelector(".turn .current-trun");
 // var reset_btn = document.querySelector(".reset");
 // var x_symbol = document.querySelector(".x");
 // var o_symbol = document.querySelector(".o");
@@ -253,7 +294,7 @@ reset_btn.addEventListener("click", function() {
 //                 e.target.textContent = "X";
 //                 e.target.classList.add("pick");
 //                 // Change The Content
-//                 current_trun.textContent = "0";
+//                 current_turn.textContent = "0";
 //                 // Change The Color Of "O" and "X"
 //                 o_symbol.style.color = "white";
 //                 x_symbol.style.color = "black";
@@ -264,7 +305,7 @@ reset_btn.addEventListener("click", function() {
 //                 e.target.textContent = "0";
 //                 e.target.classList.add("pick");
 //                 // Change The Content
-//                 current_trun.textContent = "X";
+//                 current_turn.textContent = "X";
 //                 // Change The Color Of "O" and "X"
 //                 o_symbol.style.color = "black";
 //                 x_symbol.style.color = "white";
