@@ -4,7 +4,7 @@ var add_task = document.querySelector(".add_task");
 var alert = document.querySelector(".alert");
 var tasks = document.querySelector(".tasks");
 var clear_btn = document.querySelector(".clear_btn");
-var elements = [];
+var elements = []; // for all picked user
 
 // Focus On Input When I Reload
 window.onload = function() {
