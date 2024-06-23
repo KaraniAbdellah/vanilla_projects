@@ -5,9 +5,12 @@ const current_turn = document.querySelector(".current-trun");
 const player1_score1 = document.querySelector(".player1 .number");
 const player2_score2 = document.querySelector(".player2 .number");
 const draws = document.querySelector(".draws .number");
+const overlay = document.querySelector(".content");
+const toogle = document.querySelector(".toogle");
+const toogle_winner = document.querySelector(".toogle .winner");
+const close_btn = document.querySelector(".close");
 var turn = true;
 var usedCells = [];
-var winner = false;
 var ties = 0;
 const winCombos = [
     [0, 1, 2],
@@ -68,14 +71,15 @@ function checkWin(player) {
         if (combo.every((ele) => player.played.includes(ele))) {
             player.score++;
             showScore();
-            winner = true;
-            console.log("There Is A Winner");
+            const message = player.symbol;
+            setTimeout(showmMessage, 300, message);
         }
     });
-    if (!winner && usedCells.length == 9) {
-        console.log("There Is Not Winner");
+    if (!check && usedCells.length == 9) {
         ties++;
         showScore();
+        const message = "No Winner";
+        setTimeout(showmMessage, 300, message);
     }
 }
 
@@ -87,12 +91,14 @@ function reset() {
     player2.played = [];
     turn = true;
     ties = 0;
-    checkTurn(true);
+    checkTurn(turn);
+    overlay.classList.remove("shadow");
+    toogle.style.display = "none";
 }
 
 // check the turn
 function checkTurn(trun) {
-    if (trun) current_turn.innerHTML = player1.symbol; 
+    if (trun) current_turn.innerHTML = player1.symbol;
     else current_turn.innerHTML = player2.symbol;
 }
 
@@ -100,8 +106,14 @@ function checkTurn(trun) {
 function showScore() {
     player1_score1.innerHTML = player1.score;
     player2_score2.innerHTML = player2.score;
-    draws.innerHTML = ties;
-    console.log(draws.innerHTML);
+    draws.innerHTML = ties; 
+}
+
+// Show The Message 
+function showmMessage(message) {
+    overlay.classList.add("shadow");
+    toogle.style.display = "flex";
+    toogle_winner.innerHTML = message;
 }
 
 // reset button
@@ -110,7 +122,9 @@ reset_btn.addEventListener("click", function() {
 });
 
 // close icon
-
+close_btn.addEventListener("click", function() {
+    reset();
+});
 
 
 
@@ -148,18 +162,18 @@ reset_btn.addEventListener("click", function() {
 
 
 // // Getting The Varibales
-// var celles = document.querySelectorAll(".cell");
-// var current_turn = document.querySelector(".turn .current-trun");
-// var reset_btn = document.querySelector(".reset");
-// var x_symbol = document.querySelector(".x");
-// var o_symbol = document.querySelector(".o");
-// var player1 = document.querySelector(".player1 span");
-// var player2 = document.querySelector(".player2 span");
-// var draws = document.querySelector(".draws span");
-// var toolge = document.querySelector(".toogle");
-// var mark = document.querySelector(".toogle .mark");
-// var winner = document.querySelector(".winner");
-// var content = document.querySelector(".content");
+// const celles = document.querySelectorAll(".cell");
+// const current_turn = document.querySelector(".turn .current-trun");
+// const reset_btn = document.querySelector(".reset");
+// const x_symbol = document.querySelector(".x");
+// const o_symbol = document.querySelector(".o");
+// const player1 = document.querySelector(".player1 span");
+// const player2 = document.querySelector(".player2 span");
+// const draws = document.querySelector(".draws span");
+// const toolge = document.querySelector(".toogle");
+// const mark = document.querySelector(".toogle .mark");
+// const winner = document.querySelector(".winner");
+// const content = document.querySelector(".content");
 // var i = 0;
 
 // // Set The Winner And Loser Results
@@ -189,7 +203,7 @@ reset_btn.addEventListener("click", function() {
 // function check_all_ele_full() {
 //     var check = true; // Supose is Full
 //     celles.forEach(function(ele) {
-//         if (!ele.classList.contains("pick")) { check = false; return check; }; 
+//         if (!ele.classList.contains("pick")) { check = false; return check; };
 //     });
 //     return check;
 // }
@@ -221,7 +235,7 @@ reset_btn.addEventListener("click", function() {
 // }
 
 
-// // Check The Winner --> X : Player1, O : Player2 
+// // Check The Winner --> X : Player1, O : Player2
 // function is_there_a_winner() {
 //     // Make Matrix That Contain Just "X" and "O"
 //     var matrix = [], count = 1, temp = [];
