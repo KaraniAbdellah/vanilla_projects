@@ -11,7 +11,9 @@ const toogle_winner = document.querySelector(".toogle .winner");
 const close_btn = document.querySelector(".close");
 var turn = true;
 var usedCells = [];
+var emptyCells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 var ties = 0;
+var computer_player = true;
 const winCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -29,6 +31,7 @@ let player1 = {
     played: [],
     score: 0,
 }
+
 let player2 = {
     symbol: "<i class='fa-sharp fa-regular fa-circle'></i>",
     played: [],
@@ -37,6 +40,9 @@ let player2 = {
 
 // Reset The Turn Player To "X"
 checkTurn(turn);
+
+setInterval(computer, 3000);
+
 
 // Loop Thought The Element
 for (let i = 0; i < 9; i++) {
@@ -120,6 +126,14 @@ function showmMessage(message) {
 reset_btn.addEventListener("click", function() {
     reset();
 });
+
+
+function computer(computer_player) {
+    if (computer_player && !winner && turn) {
+        var random = Math.floor(Math.random() * emptyCells.length);
+        addSymbol(player1, random);
+    }   
+}
 
 // close icon
 close_btn.addEventListener("click", function() {
