@@ -128,12 +128,6 @@ reset_btn.addEventListener("click", function() {
 });
 
 
-function computer(computer_player) {
-    if (computer_player && !winner && turn) {
-        var random = Math.floor(Math.random() * emptyCells.length);
-        addSymbol(player1, random);
-    }   
-}
 
 // close icon
 close_btn.addEventListener("click", function() {
