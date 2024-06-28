@@ -1,0 +1,51 @@
+/* Start Global Varibles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+}
+button, input {
+    border: 0;
+    outline: 0;
+    padding: 10px;
+    font-size: 18px;
+}
+button {
+    cursor: pointer;
+}
+:root {
+    --clr-1: #101820;
+    --clr-2: #FEE715;
+}
+/* End Global Varibles */
+section {
+    height: 100vh;
+    width: 100%;
+    background-color:  var(--clr-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .content {
+    color: var(--clr-2);
+    font-size: 25px;
+}
+.content h3 {
+    margin-bottom: 20px;
+}
+
+.generate-inputs {
+    margin-bottom: 15px;
+}
+
+.generate-inputs input {
+    width: 300px;
+    margin-right: 10px;
+}
+
+
