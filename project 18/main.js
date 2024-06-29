@@ -51,7 +51,7 @@ copy.addEventListener("click", function() {
     message.classList.add("copied");
     setTimeout(function() {
         message.classList.remove("copied");
-    }, 700);
+    }, 1000);
 });
 
 

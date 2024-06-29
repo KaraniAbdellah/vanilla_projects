@@ -1,0 +1,16 @@
+/* Start Global Varibles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --clr-1: black;
+    --clr-2: red;
+}
+
+
+
+/* End Global Varibles */
+
+
