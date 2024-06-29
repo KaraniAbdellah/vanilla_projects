@@ -17,6 +17,9 @@ button, input {
 button {
     cursor: pointer;
 }
+button:hover {
+    background-color: #e2e2e2;
+}
 :root {
     --clr-1: #101820;
     --clr-2: #FEE715;
@@ -29,20 +32,50 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-section .content {
-    color: var(--clr-2);
-    font-size: 25px;
+section .message {
+    position: absolute;
+    top: 15px;
+    background-color: white;
+    color: black;
+    padding: 6px;
+    font-size: 16px;
+    padding: 10px 13px;
+    transition: 0.3s;
+    transform: translateY(-80px);
 }
+.message.copied {
+    transform: translateY(0);
+}
+.message i {
+    color: green;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
 .content h3 {
+    color: var(--clr-2);
+    font-size: 30px;
     margin-bottom: 20px;
+}
+
+.range-div {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.range-div .number {
+    margin-left: 20px;
+    font-size: 20px;
+    color: var(--clr-2);
 }
 
 .generate-inputs {
     margin-bottom: 15px;
 }
-
 .generate-inputs input {
     width: 300px;
     margin-right: 10px;
