@@ -4,13 +4,115 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+}
 :root {
     --clr-1: black;
     --clr-2: red;
 }
-
-
-
+.container {
+    margin: 0 90px;
+}
+@media (max-width: 767px) {
+    .container {
+        margin: 0 20px;
+    }
+}
+.content {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+}
 /* End Global Varibles */
+/* Start Section Header */
+section.header {
+    background-color: red;
+}
+section.header  {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 10px;
+    text-align: left;
+}
+section.header .text h3 {
+    font-size: 25px;
+    font-weight: 500;
+}
+section.header .text p {
+    color: #b0b0b0;
+    font-size: 16px;
+    font-weight: 500;
+}
+section.header .mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.header .mode .toggle {
+    background-color: #bfbebe;
+    width: 55px;
+    height: 28px;
+    border-radius: 13px;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+}
+section.header .mode .toggle.dark {
+    background-color: green;
+}
+.toggle .circle {
+    background-color: white;
+    width: 22px;
+    height: 80%;
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 20px;
+}
+.toggle .circle.dark {
+    left: 53%;
+    background-color: black;
+}
+/* End Sectioooooon Header */
+
+/* Start Main Box State */
+main.all-boxes {
+    background-color: green;
+}
+.all-boxes .boxes {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    margin: 20px 0px;
+}
+.all-boxes .boxes .box {
+    padding: 20px;
+    text-align: center;
+}
+/* End Main Box State */
+
+/* Start Section Overview */
+section.overview {
+    background-color: yellow;
+}
+/* End Section Overview */
+
+/* Start Section Overview */
+section.overview {
+    background-color: yellow;
+}
+/* End Section Overview */
+/* Start Main States */
+main.today-states {
+    background-color: aquamarine;
+}
+/* End Main States */
+
+
+
+
 
 
