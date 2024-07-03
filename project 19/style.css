@@ -28,13 +28,13 @@ body {
 /* End Global Varibles */
 /* Start Section Header */
 section.header {
-    background-color: red;
+    background-color: transparent;
 }
 section.header  {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
-    padding: 10px;
+    padding: 12px 10px;
     text-align: left;
 }
 section.header .text h3 {
@@ -80,34 +80,71 @@ section.header .mode .toggle.dark {
 /* End Sectioooooon Header */
 
 /* Start Main Box State */
-main.all-boxes {
-    background-color: green;
-}
-.all-boxes .boxes {
+main.state-boxes {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    margin: 20px 0px;
+    gap: 10px;
+    margin: 20px 0px 30px;
 }
-.all-boxes .boxes .box {
+.state-boxes .box {
     padding: 20px;
     text-align: center;
+    background-color: #f0f0f0;
+}
+.state-boxes .box i {
+    font-size: 20px;
+}
+.state-boxes .box .username {
+    font-size: 18px;
+}
+.state-boxes .box .nbr-followers {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 10px 0 0;
+}
+.state-boxes .box .followers-label {
+    color: #bfbebe;
+    margin: 0 0 10px;
+}
+.state-boxes .box .state {
+    font-size: 16px;
+}
+.state-boxes .box .state i {
+    margin-right: 10px;
+    color: red;
 }
 /* End Main Box State */
 
 /* Start Section Overview */
 section.overview {
-    background-color: yellow;
+    margin-bottom: 20px;
 }
-/* End Section Overview */
-
-/* Start Section Overview */
-section.overview {
-    background-color: yellow;
+section.overview h3 {
+    font-size: 23px;
+    padding: 10px;
 }
 /* End Section Overview */
 /* Start Main States */
 main.today-states {
-    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+}
+main.today-states .box {
+    padding: 12px;
+    background-color: #eee;
+}
+main.today-states .type {
+    margin-bottom: 20px;
+}
+main.today-states .type, .state-today {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main.today-states .state-today .message {
+    font-size: 30px;
+    font-weight: 500;
 }
 /* End Main States */
 
