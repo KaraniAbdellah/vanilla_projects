@@ -20,10 +20,14 @@ body {
         margin: 0 20px;
     }
 }
-.content {
-    height: 100vh;
+.content-page {
+    min-height: 100vh;
     width: 100%;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+}
+.content-page.dark {
+    background-color: rgb(2 6 13);
 }
 .youtube {
     color: #FF0000;
@@ -31,8 +35,8 @@ body {
 .instagram {
     color: #C13584;
 }
-.x {
-    color: #000000;
+.twitter {
+    color: #1DA1F2;
 }
 .facebook {
     color: 	#1877F2;
@@ -46,6 +50,9 @@ body {
 .up {
     color: green;
 }
+.box.dark {
+    background-color: #120932 !important;
+}
 /* End Global Varibles */
 /* Start Section Header */
 section.header {
@@ -55,12 +62,15 @@ section.header  {
     display: flex;
     justify-content: space-between;
     text-align: center;
-    padding: 12px 10px;
+    padding: 0 10px;
     text-align: left;
 }
 section.header .text h3 {
     font-size: 25px;
     font-weight: 500;
+}
+section.header .text h3.dark {
+    color: white;
 }
 section.header .text p {
     color: #b0b0b0;
@@ -71,6 +81,20 @@ section.header .mode {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #676767;
+}
+@media (max-width: 767px) {
+    section.header {
+        flex-direction: column;
+    }
+    section.header .text {
+        margin-bottom: 15px;
+    }
+    section.header .mode {
+        border-top: 1.5px solid #676767;
+        padding: 15px 0;
+        justify-content: space-between;
+    }
 }
 section.header .mode .toggle {
     background-color: #bfbebe;
@@ -83,7 +107,7 @@ section.header .mode .toggle {
     transition: 0.3s;
 }
 section.header .mode .toggle.dark {
-    background-color: green;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
 }
 .toggle .circle {
     background-color: white;
@@ -100,30 +124,60 @@ section.header .mode .toggle.dark {
     left: 53%;
     background-color: black;
 }
-/* End Sectioooooon Header */
+/* End Section Header */
 
 /* Start Main Box State */
 main.state-boxes {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     margin: 20px 0px 30px;
+}
+@media (max-width: 767px) {
+    main.state-boxes {
+        grid-template-columns: 100%;
+    }
 }
 .state-boxes .box {
     padding: 20px;
     text-align: center;
     background-color: #f0f0f0;
+    position: relative;
+}
+.state-boxes .box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+.state-boxes .box:nth-child(1)::before {
+    background-color: #1877F2;
+}
+.state-boxes .box:nth-child(2)::before {
+    background-color: #1DA1F2;
+}
+.state-boxes .box:nth-child(3)::before {
+    background: linear-gradient(to right, #f58529, #feda77, #dd2a7b, #8134af, #515bd4);
+}
+.state-boxes .box:nth-child(4)::before {
+    background-color: red;
 }
 .state-boxes .box i {
     margin-right: 5px;
 }
 .state-boxes .box .username {
     font-size: 18px;
+    color: #676767;
 }
 .state-boxes .box .nbr-followers {
     font-size: 40px;
     font-weight: 500;
     margin: 10px 0 0;
+}
+.state-boxes .box .nbr-followers.dark {
+    color: white;
 }
 .state-boxes .box .followers-label {
     color: #bfbebe;
@@ -145,12 +199,20 @@ section.overview h3 {
     font-size: 23px;
     padding: 10px;
 }
+section.overview h3.dark {
+    color: white;   
+}
 /* End Section Overview */
 /* Start Main States */
 main.today-states {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+}
+@media (max-width: 767px) {
+    main.today-states {
+        grid-template-columns: 100%;
+    }
 }
 main.today-states .box {
     padding: 12px;
@@ -159,6 +221,9 @@ main.today-states .box {
 main.today-states .type {
     margin-bottom: 20px;
 }
+main.today-states .type p {
+    color: #676767;
+} 
 main.today-states .type, .state-today {
     display: flex;
     align-items: center;
@@ -167,6 +232,9 @@ main.today-states .type, .state-today {
 main.today-states .state-today .message {
     font-size: 30px;
     font-weight: 500;
+}
+main.today-states .state-today .message.dark {
+    color: white;
 }
 /* End Main States */
 
