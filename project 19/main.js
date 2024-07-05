@@ -11,7 +11,7 @@ const boxes = document.querySelectorAll(".box");
 
 
 
-// Custom Dark/LIgth Mode
+// Custom Dark/Ligth Mode
 toggle.addEventListener("click", function() {
     toggle.classList.toggle("dark");
     circle.classList.toggle("dark");

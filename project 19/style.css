@@ -21,14 +21,29 @@ body {
     }
 }
 .content-page {
+    position: relative;
     min-height: 100vh;
     width: 100%;
     background-color: rgb(255, 255, 255);
     padding: 15px;
 }
+.content-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f4f4f4ab;
+    width: 100%;
+    height: 200px;
+    z-index: 0;
+    border-radius: 0 0 20px 20px;
+}
 .content-page.dark {
     background-color: rgb(2 6 13);
 }
+.content-page.dark::before {
+    background-color: #1209326d;
+} 
 .youtube {
     color: #FF0000;
 }
@@ -50,20 +65,22 @@ body {
 .up {
     color: green;
 }
+.box {
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
 .box.dark {
     background-color: #120932 !important;
 }
 /* End Global Varibles */
 /* Start Section Header */
-section.header {
-    background-color: transparent;
-}
 section.header  {
+    position: relative;
     display: flex;
     justify-content: space-between;
     text-align: center;
     padding: 0 10px;
     text-align: left;
+    z-index: 0;
 }
 section.header .text h3 {
     font-size: 25px;
@@ -130,7 +147,7 @@ section.header .mode .toggle.dark {
 main.state-boxes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
+    gap: 15px;
     margin: 20px 0px 30px;
 }
 @media (max-width: 767px) {
