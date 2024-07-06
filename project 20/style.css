@@ -1,0 +1,12 @@
+/* Start Global Variables */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+  }
+
+/* End Global Variables */
