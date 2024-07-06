@@ -10,9 +10,23 @@ const state_today = document.querySelectorAll(".state-today .message");
 const boxes = document.querySelectorAll(".box");
 
 
+// Custom The Local Storage
+if (window.localStorage.getItem("theme") == "dark") {
+    changeTheme();
+}
+
 
 // Custom Dark/Ligth Mode
 toggle.addEventListener("click", function() {
+    changeTheme();
+    if (toggle.classList.contains("dark")) {
+        window.localStorage.setItem("theme", "dark");
+    } else window.localStorage.setItem("theme", "light");
+});
+
+
+// Function That Change The Theme
+function changeTheme() {
     toggle.classList.toggle("dark");
     circle.classList.toggle("dark");
     content_page.classList.toggle("dark");
@@ -21,9 +35,7 @@ toggle.addEventListener("click", function() {
     nbr_followers.forEach(ele => ele.classList.toggle("dark"));
     state_today.forEach(ele => ele.classList.toggle("dark"));
     boxes.forEach(ele => ele.classList.toggle("dark"));
-});
-
-
+}
 
 
 // Custom State Number 
