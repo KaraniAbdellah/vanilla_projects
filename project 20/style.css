@@ -5,8 +5,29 @@
     box-sizing: border-box;
 }
 body {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-  }
-
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+}
+:root {
+  --main-back-theme1: hsl(222, 26%, 31%);
+  --main-back-theme2: hsl(0, 0%, 90%);
+  --main-back-theme3: hsl(268, 75%, 9%);
+}
 /* End Global Variables */
+
+.calc-app.theme1 {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--main-back-theme1);
+}
+
+
+
+
+
+
+
+
+
+

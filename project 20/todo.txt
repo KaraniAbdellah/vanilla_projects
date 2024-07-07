@@ -1,6 +1,14 @@
-// Read All Filies
-    // If You Do Not Understand Something Please Search About It
 // Begin Codding
+
+// First Is Structure In Html
+// Css And Start For Theme 1, 2 and 3 and using comment and classes like [themeI]
+// do the functinality of changing the color with some javascript
+// start js
+
+
+
+
+
 
 
 

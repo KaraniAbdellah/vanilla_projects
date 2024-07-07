@@ -47,7 +47,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
-
+ live site URL 
 ### Built with
 
 - Semantic HTML5 markup
@@ -55,9 +55,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
@@ -77,13 +75,13 @@ To see how you can add code snippets, see below:
 ```
 ```js
 const proudOfThisFunc = () => {
-  console.log('🎉')
+  console.log('🎉');
 }
 ```
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+**Note: Delete this note and the content within this section and remarkdownplace with your own learnings.**
 
 ### Continued development
 
