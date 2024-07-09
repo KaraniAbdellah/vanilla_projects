@@ -13,18 +13,142 @@ body {
   --main-back-theme1: hsl(222, 26%, 31%);
   --main-back-theme2: hsl(0, 0%, 90%);
   --main-back-theme3: hsl(268, 75%, 9%);
+  --toggle-back-theme1: hsl(223, 31%, 20%);
+  --screen-background-theme1: hsl(224, 36%, 15%);
+  --key-background-toggle-theme1: hsl(6, 63%, 50%);
+  --key-dark-blue-theme1: hsl(225, 21%, 49%);
+  --text-dark-blue-theme1: hsl(221, 14%, 31%);
+  --box-shadow-red-theme1: hsl(6, 70%, 34%);
+  --box-shadow-orange-theme1: hsl(28, 16%, 65%);
+}
+button {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
 }
 /* End Global Variables */
-
-.calc-app.theme1 {
+.calc-app {
   height: 100vh;
   width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;  
+}
+.calc-app.theme1 {
   background-color: var(--main-back-theme1);
 }
-
-
-
-
+.calc-app.theme2 {
+  background-color: var(--main-back-theme2);
+}
+.calc-app.theme3 {
+  background-color: var(--main-back-theme3);
+}
+/* Start Theme Section */
+.themes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.themes .title {
+  font-size: 32px;
+  color: white;
+}
+.themes .toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.themes .toggle > p {
+  margin-right: 15px;
+  color: white;
+  font-size: 14px;
+}
+.themes .toggle .theme  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.themes .toggle .theme .numbers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: white;
+}
+.themes .toggle .theme .numbers p:not(:last-child) {
+  margin-right: 10px;
+}
+.themes .toggle .theme .switch {
+  background-color: var(--toggle-back-theme1);
+  width: 60px;
+  height: 24px;
+  position: relative;
+  border-radius: 11px;
+  cursor: pointer;
+}
+.themes .toggle .theme .switch .circle {
+  background-color: var(--key-background-toggle-theme1);
+  border-radius: 50%;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 3px;
+  left: 4px;
+}
+/* End Theme Section */
+/* Start Section Display */
+.display {
+  background-color: var(--screen-background-theme1);
+  width: 100%;
+  height: 70px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+/* End Section Display */
+/* Start KeyBoard Section */
+.keyboard {
+  background-color: var(--toggle-back-theme1);
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+.keyboard .main-button {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
+  gap: 20px;
+}
+.keyboard .main-button .item {
+  width: 60px;
+  color: var(--text-dark-blue-theme1);
+}
+.keyboard .item {
+  padding: 5px;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-orange-theme1) 1px 1px 2px 0px;
+}
+.keyboard .result-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.keyboard .reset, .equal {
+  width: 47%;
+}
+.keyboard .item.delete,  .item.reset {
+  color: white;
+  background-color: var(--key-dark-blue-theme1);
+}
+.keyboard .item.equal {
+  background-color: var(--key-background-toggle-theme1);
+  color: white;
+  box-shadow: var(--box-shadow-red-theme1) 1px 1px 2px 0px;
+}
+/* End KeyBoard Section */
 
 
 
