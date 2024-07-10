@@ -52,7 +52,7 @@ The designs were created to the following widths:
 - Dark orange (key shadow): hsl(25, 99%, 27%)
 
 - Light grayish yellow (key background): hsl(45, 7%, 89%)
-- Dark grayish orange (key shadow): hsl(35, 11%, 61%)
+- Dark grayish orange (key shadow): hsl(25, 99%, 27%)
 
 #### Text
 

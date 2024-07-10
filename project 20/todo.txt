@@ -1,6 +1,5 @@
 // Begin Codding
 
-// Css And Start For Theme 1, 2 and 3 and using comment and classes like [themeI]
 // do the functinality of changing the color with some javascript
 // start js
 
