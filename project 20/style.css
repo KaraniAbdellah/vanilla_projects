@@ -174,6 +174,17 @@ button {
   height: 70px;
   margin-bottom: 20px;
   border-radius: 10px;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  text-align: right;
+  padding: 10px;
+}
+.display .result {
+  font-size: 30px;
+  color: white;
+}
+.display .result.theme2 {
+  color: black;
 }
 .display.theme1 {
   background-color: var(--screen-background-theme1);
@@ -216,9 +227,19 @@ button {
 }
 .keyboard .main-button .item.theme1 {
   color: var(--text-dark-blue-theme1); 
+  transition: 0.3s;
+}
+.keyboard .main-button .item.theme1:hover {
+  background-color: hsl(225deg 21% 49% / 37%);
+  color: white;
 }
 .keyboard .main-button .item.theme2 {
-  color: var(--text-dark-blue-theme2); 
+  color: black;
+  transition: 0.3s;
+}
+.keyboard .main-button .item.theme2:hover {
+  background-color: hsl(185, 58%, 25%);
+  color: white;
 }
 .keyboard .main-button .item.theme3 {
   color: var(--text-dark-blue-theme3);
@@ -244,20 +265,16 @@ button {
 .keyboard .reset, .equal {
   width: 47%;
 }
-.keyboard .item.delete,  .item.reset {
-  color: white;
-}
 .keyboard .item.delete.theme1,  .item.reset.theme1 {
   background-color: var(--key-dark-blue-theme1);
+  color: white;
 }
 .keyboard .item.delete.theme2,  .item.reset.theme2 {
   background-color: var(--key-dark-blue-theme2);
+  color: white;
 }
 .keyboard .item.delete.theme3,  .item.reset.theme3 {
   background-color: var(--key-dark-blue-theme3);
-}
-.keyboard .item.equal {
-  color: white;
 }
 .keyboard .item.equal.theme1 {
   background-color: var(--key-background-toggle-theme1);
@@ -270,6 +287,9 @@ button {
 .keyboard .item.equal.theme3 {
   background-color: var(--key-background-toggle-theme3);
   box-shadow: var(--box-shadow-red-theme3) 1px 1px 2px 0px;
+}
+.keyboard .reset, .equal, .delete {
+  color: white;
 }
 /* End KeyBoard Section */
 /* The Main Problem Is With Colors */
