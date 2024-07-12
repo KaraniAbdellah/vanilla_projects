@@ -79,16 +79,23 @@ circle.forEach(function(ele) {
 
 // Start With Calculation
 
+let matrix_number = [
+    [7, 8, 9],
+    [4, 5, 6],
+    [1, 2, 3],
+];
+
 
 items.forEach(function(ele) {
     ele.addEventListener("click", function() {
         if (ele.textContent == "RESET") {
-            
+            result.textContent = 0;
+            operation = [];
         }
         else if (ele.textContent == "DEL") {
             
         } else if (ele.textContent == "=") {
-            // result.textContent = 
+            result.textContent = eval(result.textContent); 
         } else {
             result.textContent = result.textContent + ele.textContent;
         }
