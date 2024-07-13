@@ -181,10 +181,20 @@ button {
 }
 .display .result {
   font-size: 30px;
+  font-weight: 700;
+  outline: 0;
+  border: 0;
   color: white;
+}
+.display .result.theme1 {
+  background-color: var(--screen-background-theme1);
 }
 .display .result.theme2 {
   color: black;
+  background-color: var(--screen-background-theme2);
+}
+.display .result.theme3 {
+  background-color: var(--screen-background-theme3);
 }
 .display.theme1 {
   background-color: var(--screen-background-theme1);

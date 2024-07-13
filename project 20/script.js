@@ -1,7 +1,6 @@
 // Getting The Varibles
-
 let curry = document.querySelector(".curry");
-let result = document.querySelector(".result");
+let result = document.querySelector("input.result");
 
 const calc_app = document.querySelector(".calc-app");
 const display_screen = document.querySelector(".display");
@@ -19,6 +18,8 @@ const reset_btn = document.querySelector(".reset");
 const equal_btn = document.querySelector(".equal");
 
 const items = document.querySelectorAll(".item");
+
+result.focus();
 
 // fucntion for changes the theme classes
 function change_theme(toAdd, toRemove1, toRemove2) {
@@ -53,7 +54,20 @@ function change_theme(toAdd, toRemove1, toRemove2) {
         ele.classList.add(toAdd);
         ele.classList.remove(toRemove1, toRemove2);
     });
+    // result input
+    result.classList.remove(toRemove1, toRemove2);
+    result.classList.add(toAdd);
 }
+
+// Fuction For Evualate An Expression
+function evaluateExpression(expression) {
+    try {
+        return math.evaluate(expression);
+    } catch {
+        alert("Invalid Sysntax");
+    }
+}
+
 
 circle.forEach(function(ele) {
     ele.addEventListener("click", function() {
@@ -78,26 +92,22 @@ circle.forEach(function(ele) {
 });
 
 // Start With Calculation
-
-let matrix_number = [
-    [7, 8, 9],
-    [4, 5, 6],
-    [1, 2, 3],
-];
-
-
 items.forEach(function(ele) {
     ele.addEventListener("click", function() {
         if (ele.textContent == "RESET") {
-            result.textContent = 0;
-            operation = [];
+            result.value = "";
+            result.focus();
         }
         else if (ele.textContent == "DEL") {
-            
+            let arr = [...result.value];
+            arr.pop();
+            result.value = arr.join("");
         } else if (ele.textContent == "=") {
-            result.textContent = eval(result.textContent); 
+            let operation_result = evaluateExpression(result.value);
+            if (operation_result) result.value = evaluateExpression(result.value);
+            else result.value = "";
         } else {
-            result.textContent = result.textContent + ele.textContent;
+            result.value += ele.textContent;
         }
     });
 });
