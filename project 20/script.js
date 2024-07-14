@@ -19,6 +19,8 @@ const equal_btn = document.querySelector(".equal");
 
 const items = document.querySelectorAll(".item");
 
+const pop_up = document.querySelector(".pop-up");
+
 result.focus();
 
 // fucntion for changes the theme classes
@@ -64,7 +66,13 @@ function evaluateExpression(expression) {
     try {
         return math.evaluate(expression);
     } catch {
-        alert("Invalid Sysntax");
+        // Show The Pop-Up
+        pop_up.classList.add("error");
+        setTimeout(function() {
+            pop_up.classList.remove("error");
+        }, 1000);
+        result.focus();
+        return false;
     }
 }
 
@@ -72,19 +80,16 @@ function evaluateExpression(expression) {
 circle.forEach(function(ele) {
     ele.addEventListener("click", function() {
         if (ele.classList.contains("circle2")) {
+            result.focus();
             ele.classList.add("theme2");
-            result.classList.add("theme2");
-            curry.classList.add("theme2");
             change_theme("theme2", "theme1", "theme3");
         } 
         else if (ele.classList.contains("circle3")) {
             ele.classList.add("theme3");
-            result.classList.remove("theme2");
-            curry.classList.remove("theme2");
+            result.focus();
             change_theme("theme3", "theme1", "theme2");
         } else {
-            result.classList.remove("theme2");
-            curry.classList.remove("theme2");
+            result.focus();
             ele.classList.add("theme1");
             change_theme("theme1", "theme2", "theme3");
         }
@@ -105,15 +110,18 @@ items.forEach(function(ele) {
         } else if (ele.textContent == "=") {
             let operation_result = evaluateExpression(result.value);
             if (operation_result) result.value = evaluateExpression(result.value);
-            else result.value = "";
         } else {
             result.value += ele.textContent;
         }
     });
 });
 
-
-
+document.addEventListener("keydown", function(event) {
+    if (event.key == "Enter") {
+        let result_operation = evaluateExpression(result.value);
+        if (result_operation) result.value = result_operation;
+    }
+});
 
 
 

@@ -48,11 +48,25 @@ button {
 }
 /* End Global Variables */
 .calc-app {
+  position: relative;
   height: 100vh;
   width: 100%;
   display: grid;
   justify-content: center;
   align-content: center;  
+}
+.pop-up {
+  position: absolute;
+  top: 0;
+  right: 41%;
+  background-color: hsl(180, 50%, 50%) ;
+  color: white;
+  padding: 5px 10px;
+  transition: 0.3s;
+  transform: translateY(-50px);
+}
+.pop-up.error {
+  transform: translateY(10px);
 }
 .calc-app.theme1 {
   background-color: var(--main-back-theme1);
