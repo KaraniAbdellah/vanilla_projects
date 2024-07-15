@@ -188,10 +188,22 @@ button {
   height: 70px;
   margin-bottom: 20px;
   border-radius: 10px;
-  display: grid;
-  grid-template-rows: repeat(2, auto);
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
+}
+.display.theme1 {
+  background-color: var(--screen-background-theme1);
+  box-shadow: var(--box-shadow-orange-theme1) 2px 2px 7px -5px;
+}
+.display.theme2 {
+  background-color: var(--screen-background-theme2);
+  box-shadow: var(--box-shadow-orange-theme2) 2px 2px 7px -5px;
+}
+.display.theme3 {
+  background-color: var(--screen-background-theme3);
+  box-shadow: var(--box-shadow-orange-theme3) 2px 2px 7px -5px;
 }
 .display .result {
   font-size: 30px;
@@ -210,17 +222,19 @@ button {
 .display .result.theme3 {
   background-color: var(--screen-background-theme3);
 }
-.display.theme1 {
-  background-color: var(--screen-background-theme1);
-  box-shadow: var(--box-shadow-orange-theme1) 2px 2px 7px -5px;
+.display .copy {
+  font-size: 30px;
+  cursor: pointer;
+  font-weight: 600;
 }
-.display.theme2 {
-  background-color: var(--screen-background-theme2);
-  box-shadow: var(--box-shadow-orange-theme2) 2px 2px 7px -5px;
+.display .copy.theme1 {
+  color: hsl(6, 63%, 50%);
 }
-.display.theme3 {
-  background-color: var(--screen-background-theme3);
-  box-shadow: var(--box-shadow-orange-theme3) 2px 2px 7px -5px;
+.display .copy.theme2 {
+  color: hsl(25, 98%, 40%);
+}
+.display .copy.theme3 {
+  color: hsl(176, 100%, 44%);
 }
 /* End Section Display */
 /* Start KeyBoard Section */
@@ -316,7 +330,29 @@ button {
   color: white;
 }
 /* End KeyBoard Section */
-/* The Main Problem Is With Colors */
+
+/* Download Button */
+
+.download {
+  margin-top: 20px;
+  padding: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  border-radius: 6px;
+  box-shadow: var(--box-shadow-orange-theme2) 2px 2px 7px -5px;
+}
+.download.theme1 {
+  background-color: hsl(224, 36%, 15%);
+}
+.download.theme2 {
+  background-color: rgb(255 255 255);
+  color: black;
+}
+.download.theme3 {
+  background-color: hsl(228, 45%, 44%);
+}
+
 
 
 

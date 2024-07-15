@@ -18,8 +18,12 @@ const reset_btn = document.querySelector(".reset");
 const equal_btn = document.querySelector(".equal");
 
 const items = document.querySelectorAll(".item");
-
 const pop_up = document.querySelector(".pop-up");
+const download_btn = document.querySelector(".download");
+const copy_btn = document.querySelector(".copy");
+
+// This Arr For Store The Operations && Used To Generate A File
+let calculationHistory = [];
 
 result.focus();
 
@@ -59,11 +63,18 @@ function change_theme(toAdd, toRemove1, toRemove2) {
     // result input
     result.classList.remove(toRemove1, toRemove2);
     result.classList.add(toAdd);
+    // Download Button
+    download_btn.classList.add(toAdd);
+    download_btn.classList.remove(toRemove1, toRemove2);
+    // Copy Icon
+    copy_btn.classList.add(toAdd);
+    copy_btn.classList.remove(toRemove1, toRemove2);
 }
 
 // Fuction For Evualate An Expression
 function evaluateExpression(expression) {
     try {
+        calculationHistory.push(expression);
         return math.evaluate(expression);
     } catch {
         // Show The Pop-Up
@@ -102,6 +113,7 @@ items.forEach(function(ele) {
         if (ele.textContent == "RESET") {
             result.value = "";
             result.focus();
+            calculationHistory = [];
         }
         else if (ele.textContent == "DEL") {
             let arr = [...result.value];
@@ -109,19 +121,54 @@ items.forEach(function(ele) {
             result.value = arr.join("");
         } else if (ele.textContent == "=") {
             let operation_result = evaluateExpression(result.value);
-            if (operation_result) result.value = evaluateExpression(result.value);
+            if (operation_result) {
+                result.value = evaluateExpression(result.value);
+                calculationHistory.push(` = ${result.value}`);
+            }
         } else {
             result.value += ele.textContent;
         }
     });
 });
 
+// For Click To The Enter From KeyBoard [Equal == Enter From Keyboard]
 document.addEventListener("keydown", function(event) {
     if (event.key == "Enter") {
         let result_operation = evaluateExpression(result.value);
-        if (result_operation) result.value = result_operation;
+        if (result_operation) { 
+            result.value = result_operation;
+            calculationHistory.push(` = ${result.value}`);
+        }
     }
 });
 
+// Function To Create A File And DownLoad It
+function generateHistoryFile() {
+    const blob = new Blob([calculationHistory.join('\n')], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);  
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'calculation_history.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 
-// add some thing and custom some thing
+// Button To Download A The File
+download_btn.addEventListener("click", generateHistoryFile);
+
+// Copy Button
+copy_btn.addEventListener("click", function() {
+    result.select();
+    navigator.clipboard.writeText(result.value);
+    copy_btn.innerHTML = "<i class='fa-solid fa-check'></i>";
+    setTimeout(function() {
+        copy_btn.innerHTML = '<i class="fa-solid fa-copy">';
+    }, 700);
+});
+
+// Think About A Project For Download Also For Form Validation For Practice Regex And Learn Some New
+// THing About Download Also Take The Time For Reading, Not Just For Writting Code A Lot Also REading
+
+
