@@ -223,7 +223,7 @@ button {
   background-color: var(--screen-background-theme3);
 }
 .display .copy {
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
   font-weight: 600;
 }
@@ -341,6 +341,7 @@ button {
   color: white;
   border-radius: 6px;
   box-shadow: var(--box-shadow-orange-theme2) 2px 2px 7px -5px;
+  font-family: "League Spartan", sans-serif;
 }
 .download.theme1 {
   background-color: hsl(224, 36%, 15%);

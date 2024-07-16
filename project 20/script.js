@@ -137,18 +137,22 @@ document.addEventListener("keydown", function(event) {
         let result_operation = evaluateExpression(result.value);
         if (result_operation) { 
             result.value = result_operation;
-            calculationHistory.push(` = ${result.value}`);
+            calculationHistory.push(` = ${result.value} \n\n============\n`);
         }
     }
 });
 
 // Function To Create A File And DownLoad It
 function generateHistoryFile() {
-    const blob = new Blob([calculationHistory.join('\n')], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);  
+    const blob = new Blob([calculationHistory.join('\n')]);
+    console.log(blob);
+    const url = URL.createObjectURL(blob);
+    console.log(url);  
     const a = document.createElement('a');
+    console.log(a);
     a.href = url;
     a.download = 'calculation_history.txt';
+    console.log(a);
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -168,7 +172,5 @@ copy_btn.addEventListener("click", function() {
     }, 700);
 });
 
-// Think About A Project For Download Also For Form Validation For Practice Regex And Learn Some New
-// THing About Download Also Take The Time For Reading, Not Just For Writting Code A Lot Also REading
 
 
