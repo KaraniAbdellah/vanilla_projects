@@ -121,7 +121,7 @@ items.forEach(function(ele) {
             result.value = arr.join("");
         } else if (ele.textContent == "=") {
             let operation_result = evaluateExpression(result.value);
-            if (operation_result) {
+            if (!isNaN(operation_result)) {
                 result.value = evaluateExpression(result.value);
                 calculationHistory.push(` = ${result.value}`);
             }
@@ -135,7 +135,7 @@ items.forEach(function(ele) {
 document.addEventListener("keydown", function(event) {
     if (event.key == "Enter") {
         let result_operation = evaluateExpression(result.value);
-        if (result_operation) { 
+        if (!isNaN(result_operation)) { 
             result.value = result_operation;
             calculationHistory.push(` = ${result.value} \n\n============\n`);
         }
@@ -172,5 +172,6 @@ copy_btn.addEventListener("click", function() {
     }, 700);
 });
 
+// video about project 
 
 
