@@ -54,7 +54,7 @@ button {
   display: grid;
   justify-content: center;
   align-content: center; 
-  padding: 20px; 
+  padding: 20px;
 }
 .pop-up {
   position: absolute;
