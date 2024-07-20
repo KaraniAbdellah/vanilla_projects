@@ -1,0 +1,70 @@
+// Import Global Roles
+@use "../sass/layout/global_roles" as *;
+
+// Import Variables
+@use "../sass/variables/colors" as *;
+
+// Import Mixins
+@use "../sass/helpers/mixin" as *;
+
+// Start Custom From Validation
+.content {
+    @include centering_eles;
+    background-color: $main-background;
+    height: 100vh;
+}
+
+form {
+    background-color: $white_color;
+    display: grid;
+    grid-template-rows: 60px 1fr 60px;
+    border-radius: 10px;
+}
+form header {
+    @include centering_eles;
+    background-color: $grey;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 10px;
+}
+form header .image {
+    position: absolute;
+    top: -60px;
+}
+form header .image img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+
+.inputs {
+    padding: #{$padding_20}px;
+    div {
+        margin-bottom: 20px;
+    }
+    label {
+        margin-bottom: 5px;
+    }
+    input {
+        padding: 5px 10px;
+        width: 250px;
+        font-size: 16px;
+        border: 2px solid $main-background;
+    }
+}
+
+
+footer {
+    background-color: $grey;
+    border-radius: 0 0 10px 10px;
+    @include centering_eles;
+    button.submit {
+        background-color: $button-color;
+        padding: 5px 30px;
+        width: 250px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
+
+

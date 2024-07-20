@@ -1,0 +1,9 @@
+// Start Mixins
+
+@mixin centering_eles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

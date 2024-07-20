@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>From Validation</title>
+    <!-- Css Files -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-rtl.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     
+    <!-- Start From Validation -->
+    <div class="content">
+        <form action="">
+            <header>
+                <div class="image">
+                    <img src="/images/avatar_img.avif" alt="Your Browser Doesn't Support This Image">
+                </div>
+            </header>
+            <div class="inputs">
+                <div class="div_username">
+                    <label for="username">Username</label>
+                    <input type="text" class="username" id="username">
+                    <p class="msg_username"></p>
+                </div>
+                <div class="div_email">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="email">
+                    <p class="msg_email"></p>
+                </div>
+                <div class="div_password">
+                    <label for="password">Password</label>
+                    <input type="password" class="password" id="password">
+                    <p class="msg_password"></p>
+                </div>
+                <div class="div_check_password">
+                    <label for="password_check">Password check</label>
+                    <input type="password" id="password_check" class="password_check">
+                    <p class="msg_password_check"></p>
+                </div>
+            </div>
+            <footer>
+                <button class="submit">Submit</button>
+            </footer>
+        </form>
+    </div>
+    <!-- Js File -->
+    <script src="main.js"></script>
 </body>
 </html>

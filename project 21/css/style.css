@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+}
+
+button {
+  outline: 0;
+  border: 0;
+}
+
+input:focus {
+  border-radius: 0;
+}
+
+label {
+  display: block;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #101820;
+  height: 100vh;
+}
+
+form {
+  background-color: white;
+  display: grid;
+  grid-template-rows: 60px 1fr 60px;
+  border-radius: 10px;
+}
+
+form header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 10px;
+}
+
+form header .image {
+  position: absolute;
+  top: -60px;
+}
+
+form header .image img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.inputs {
+  padding: 20px;
+}
+.inputs div {
+  margin-bottom: 20px;
+}
+.inputs label {
+  margin-bottom: 5px;
+}
+.inputs input {
+  padding: 5px 10px;
+  width: 250px;
+  font-size: 16px;
+  border: 2px solid #101820;
+}
+
+footer {
+  background-color: #eee;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer button.submit {
+  background-color: #FEE715;
+  padding: 5px 30px;
+  width: 250px;
+  font-size: 16px;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
