@@ -14,10 +14,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <p>Hello</p>
-
-
+    <!-- Start From Validation -->
+    <div class="content">
+        <div class="language_chooce">
+            <i class="fa-solid fa-language"></i>
+            <a href="/index-rtl.html">العربيه</a>
+            <a href="/index.html">انجليزيه</a>
+        </div>
+        <form action="">
+            <header>
+                <div class="image">
+                    <img src="/images/avatar.avif" alt="Your Browser Doesn't Support This Image">
+                </div>
+            </header>
+            <div class="inputs">
+                <div class="div_username">
+                    <label for="username">اسم المستخدم</label>
+                    <div class="input">
+                        <input type="text" class="username" id="username" placeholder="مثال: ادم">
+                        <i class="fa-solid fa-circle-check valide hidden"></i>
+                    </div>
+                    <p class="msg_username"></p>
+                </div>
+                <div class="div_phone">
+                    <label for="phone">رقم الهاتف</label>
+                    <div class="input">
+                        <input type="phone" id="phone" class="phone" placeholder="مثال: 123456789+">
+                        <i class="fa-solid fa-circle-exclamation error hidden"></i>
+                    </div>
+                    <p class="msg_phone"></p>
+                </div>
+                <div class="div_password">
+                    <label for="password">كلمة المرور</label>
+                    <div class="input">
+                        <input type="password" class="password" id="password"placeholder="مثال: ادم_1234_">
+                        <i class="fa-solid fa-circle-check valide hidden"></i>
+                    </div>
+                    <p class="msg_password"></p>
+                </div>
+                <div class="div_check_password">
+                    <label for="password_check">التحقق من كلمة المرور</label>
+                    <div class="input">
+                        <input type="password" id="password_check" class="password_check" placeholder="ادم_1234_">
+                        <i class="fa-solid fa-circle-check valide hidden"></i>
+                    </div>
+                    <p class="msg_password_check"></p>
+                </div>
+            </div>
+            <footer>
+                <button class="submit">ارسال</button>
+            </footer>
+        </form>
+    </div>
     <!-- Js File -->
     <script src="main.js"></script>
 </body>

@@ -10,30 +10,46 @@
 // Start Custom From Validation
 .content {
     @include centering_eles;
+    position: relative;
     background-color: $main-background;
     height: 100vh;
 }
 
+
+.language_chooce {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    i {
+        color: white;
+        padding: 0 10px;
+    }
+}
+
+
 form {
+    margin-top: 50px;
     background-color: $white_color;
     display: grid;
     grid-template-rows: 60px 1fr 60px;
     border-radius: 10px;
-}
-form header {
-    @include centering_eles;
-    background-color: $grey;
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    margin-bottom: 10px;
-}
-form header .image {
-    position: absolute;
-    top: -60px;
-}
-form header .image img {
-    width: 100px;
-    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    & header {
+        @include centering_eles;
+        background-color: $grey;
+        position: relative;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: 10px;
+        & .image {
+            position: absolute;
+            top: -60px;
+            & img {
+                width: 100px;
+                border-radius: 50%;
+            }
+        }
+    }
 }
 
 
@@ -45,11 +61,21 @@ form header .image img {
     label {
         margin-bottom: 5px;
     }
+    .input {
+        border: 2px solid $main-background;
+        &.valide { border: 2px solid $valide; }
+        &.error { border: 2px solid $error; }
+        i { padding: 0 5px; }
+        i.error { color: $error; }
+        i.check { color: $valide }
+        i.hidden { display: none; }
+    }
     input {
         padding: 5px 10px;
         width: 250px;
         font-size: 16px;
-        border: 2px solid $main-background;
+        border: 0;
+        outline: 0;
     }
 }
 
@@ -59,11 +85,13 @@ footer {
     border-radius: 0 0 10px 10px;
     @include centering_eles;
     button.submit {
+        font-weight: 700;
         background-color: $button-color;
         padding: 5px 30px;
         width: 250px;
         font-size: 16px;
         cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     }
 }
 

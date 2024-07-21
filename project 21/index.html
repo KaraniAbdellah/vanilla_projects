@@ -18,31 +18,48 @@
     
     <!-- Start From Validation -->
     <div class="content">
+        <div class="language_chooce">
+            <i class="fa-solid fa-language"></i>
+            <a href="/index-rtl.html">arabic</a>
+            <a href="/index.html">Englich</a>
+        </div>
         <form action="">
             <header>
                 <div class="image">
-                    <img src="/images/avatar_img.avif" alt="Your Browser Doesn't Support This Image">
+                    <img src="/images/avatar.avif" alt="Your Browser Doesn't Support This Image">
                 </div>
             </header>
             <div class="inputs">
                 <div class="div_username">
                     <label for="username">Username</label>
-                    <input type="text" class="username" id="username">
+                    <div class="input">
+                        <input type="text" class="username" id="username" placeholder="ex: adam">
+                        <i class="fa-solid fa-circle-exclamation error hidden"></i>
+                    </div>
                     <p class="msg_username"></p>
                 </div>
-                <div class="div_email">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="email">
-                    <p class="msg_email"></p>
+                <div class="div_phone">
+                    <label for="phone">phone</label>
+                    <div class="input">
+                        <input type="phone" id="phone" class="phone" placeholder="ex: +123456789">
+                        <i class="fa-solid fa-circle-check valide hidden"></i>
+                    </div>
+                    <p class="msg_phone"></p>
                 </div>
                 <div class="div_password">
                     <label for="password">Password</label>
-                    <input type="password" class="password" id="password">
+                    <div class="input">
+                        <input type="password" class="password" id="password"placeholder="ex: adam_1234_">
+                        <i class="fa-solid fa-circle-check valide hidden"></i>
+                    </div>
                     <p class="msg_password"></p>
                 </div>
                 <div class="div_check_password">
                     <label for="password_check">Password check</label>
-                    <input type="password" id="password_check" class="password_check">
+                    <div class="input">
+                        <input type="password" id="password_check" class="password_check" placeholder="adam_1234_">
+                        <i class="fa-solid fa-circle-check valide hidden"></i>
+                    </div>
                     <p class="msg_password_check"></p>
                 </div>
             </div>
