@@ -6,19 +6,17 @@
     and arabic version
 */
 
-
-// revise the fucntion and mixin and all of this --> this part is still with us
-// explain the project what i must do exaclty
-// Start With HTML 
-// custom also the index.-rtl.html file after begginig with sass
-// Then Sass
-// Then JS
-
-
-// problem : is with icons
+/*
+    problem : is with icons
+    use local storage
+*/
 
 
 
-// Add Something from your head
-// make a video 
-// share it youtube twitter and linkedin
+
+
+/*
+    Add Something from your head
+    make a video 
+    share it youtube twitter and linkedin
+*/

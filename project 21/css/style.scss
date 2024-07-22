@@ -62,12 +62,26 @@ form {
         margin-bottom: 5px;
     }
     .input {
-        border: 2px solid $main-background;
+        // start with icons with input
+        &.normal { border: 2px solid $main-background; }
         &.valide { border: 2px solid $valide; }
+        &.valide::after {
+            content: "\f058";
+            font-family: "FontAwesome";
+            padding: 0 5px;
+            color: $valide;
+        }
         &.error { border: 2px solid $error; }
+        &.error::after {
+            content: "\f06a";
+            font-family: "FontAwesome";
+            padding: 0 5px;
+            color: $error;
+        }
+        // icons
         i { padding: 0 5px; }
         i.error { color: $error; }
-        i.check { color: $valide }
+        i.valide { color: $valide }
         i.hidden { display: none; }
     }
     input {

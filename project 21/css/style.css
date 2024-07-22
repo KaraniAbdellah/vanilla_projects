@@ -77,14 +77,26 @@ form header .image img {
 .inputs label {
   margin-bottom: 5px;
 }
-.inputs .input {
+.inputs .input.normal {
   border: 2px solid #101820;
 }
 .inputs .input.valide {
   border: 2px solid green;
 }
+.inputs .input.valide::after {
+  content: "\f058";
+  font-family: "FontAwesome";
+  padding: 0 5px;
+  color: green;
+}
 .inputs .input.error {
   border: 2px solid red;
+}
+.inputs .input.error::after {
+  content: "\f06a";
+  font-family: "FontAwesome";
+  padding: 0 5px;
+  color: red;
 }
 .inputs .input i {
   padding: 0 5px;
@@ -92,7 +104,7 @@ form header .image img {
 .inputs .input i.error {
   color: red;
 }
-.inputs .input i.check {
+.inputs .input i.valide {
   color: green;
 }
 .inputs .input i.hidden {
