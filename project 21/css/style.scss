@@ -62,7 +62,7 @@ form {
         margin-bottom: 5px;
     }
     .input {
-        // start with icons with input
+        // start with icons with inputs
         &.normal { border: 2px solid $main-background; }
         &.valide { border: 2px solid $valide; }
         &.valide::after {
