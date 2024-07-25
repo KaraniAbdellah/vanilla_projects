@@ -6,6 +6,7 @@
     <title>From Validation</title>
     <!-- Css File -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-rtl.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- google font -->
@@ -16,55 +17,64 @@
 <body>
     <!-- Start From Validation -->
     <div class="content arabic">
-        <div class="language_chooce">
-            <i class="fa-solid fa-language"></i>
-            <a href="/index-rtl.html">العربيه</a>
-            <a href="/index.html">انجليزيه</a>
-        </div>
-        <form action="">
-            <header>
-                <div class="image">
-                    <img src="/images/avatar.avif" alt="Your Browser Doesn't Support This Image">
-                </div>
-            </header>
-            <div class="inputs">
-                <div class="div_username">
-                    <label for="username">اسم المستخدم</label>
-                    <div class="input normal">
-                        <input type="text" class="username" id="username" placeholder="مثال: ادم">
-                        <i class="fa-solid fa-circle-check valide hidden"></i>
-                    </div>
-                    <p class="msg_username"></p>
-                </div>
-                <div class="div_phone">
-                    <label for="phone">رقم الهاتف</label>
-                    <div class="input normal">
-                        <input type="phone" id="phone" class="phone" placeholder="مثال: 123456789+">
-                        <i class="fa-solid fa-circle-exclamation error hidden"></i>
-                    </div>
-                    <p class="msg_phone"></p>
-                </div>
-                <div class="div_password">
-                    <label for="password">كلمة المرور</label>
-                    <div class="input normal">
-                        <input type="password" class="password" id="password"placeholder="مثال: ادم_1234_">
-                        <i class="fa-solid fa-circle-check valide hidden"></i>
-                    </div>
-                    <p class="msg_password"></p>
-                </div>
-                <div class="div_check_password">
-                    <label for="password_check">التحقق من كلمة المرور</label>
-                    <div class="input normal">
-                        <input type="password" id="password_check" class="password_check" placeholder="ادم_1234_">
-                        <i class="fa-solid fa-circle-check valide hidden"></i>
-                    </div>
-                    <p class="msg_password_check"></p>
-                </div>
+        <section>
+            <div class="language_chooce">
+                <i class="fa-solid fa-language"></i>
+                <a href="/index-rtl.html">العربيه</a>
+                <a href="/index.html">انجليزيه</a>
             </div>
-            <footer>
-                <button class="submit">ارسال</button>
-            </footer>
-        </form>
+            <form action="">
+                <header>
+                    <div class="image">
+                        <img src="/images/avatar.avif" alt="Your Browser Doesn't Support This Image">
+                    </div>
+                </header>
+                <div class="inputs">
+                    <div class="div_username">
+                        <label for="username">اسم المستخدم</label>
+                        <div class="input normal">
+                            <input dir="auto" type="text" class="username" id="username">
+                            <i class="fa-solid fa-circle-check valide hidden"></i>
+                        </div>
+                        <p class="msg_username"></p>
+                    </div>
+                    <div class="div_email">
+                        <label for="email">بريد إلكتروني</label>
+                        <div class="input normal">  <!-- classes : normal error valide  --> 
+                            <input dir="auto" type="text" class="email" id="email">
+                        </div>
+                        <p class="msg_email"></p>
+                    </div>
+                    <div class="div_phone">
+                        <label for="phone">رقم الهاتف</label>
+                        <div class="input normal">
+                            <input dir="auto" type="phone" id="phone" class="phone">
+                            <i class="fa-solid fa-circle-exclamation error hidden"></i>
+                        </div>
+                        <p class="msg_phone"></p>
+                    </div>
+                    <div class="div_password">
+                        <label for="password">كلمة المرور</label>
+                        <div class="input normal">
+                            <input dir="auto" type="password" class="password" id="password">
+                            <i class="fa-solid fa-circle-check valide hidden"></i>
+                        </div>
+                        <p class="msg_password"></p>
+                    </div>
+                    <div class="div_check_password">
+                        <label for="password_check">التحقق من كلمة المرور</label>
+                        <div class="input normal">
+                            <input dir="auto" type="password" id="password_check" class="password_check">
+                            <i class="fa-solid fa-circle-check valide hidden"></i>
+                        </div>
+                        <p class="msg_password_check"></p>
+                    </div>
+                </div>
+                <footer>
+                    <button class="submit">ارسال</button>
+                </footer>
+            </form>
+        </section>
     </div>
     <!-- Js File -->
     <script src="main.js"></script>

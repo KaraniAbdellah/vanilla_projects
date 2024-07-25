@@ -12,9 +12,12 @@
     @include centering_eles;
     position: relative;
     background-color: $main-background;
-    height: 100vh;
+    padding: #{$padding_20}px;
+    min-height: 100vh;
 }
-
+.content section {
+    width: 500px;
+}
 
 .language_chooce {
     position: absolute;
@@ -40,7 +43,6 @@ form {
         background-color: $grey;
         position: relative;
         border-radius: 10px 10px 0 0;
-        margin-bottom: 10px;
         & .image {
             position: absolute;
             top: -60px;
@@ -56,12 +58,13 @@ form {
 .inputs {
     padding: #{$padding_20}px;
     div {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     label {
         margin-bottom: 5px;
     }
     .input {
+        margin: 0 0 4px;
         // start with icons with inputs
         &.normal { border: 2px solid $main-background; }
         &.valide { border: 2px solid $valide; }
@@ -77,6 +80,7 @@ form {
             font-family: "FontAwesome";
             padding: 0 5px;
             color: $error;
+            text-align: left;
         }
         // icons
         i { padding: 0 5px; }
@@ -85,11 +89,19 @@ form {
         i.hidden { display: none; }
     }
     input {
+        width: 92%;
         padding: 5px 10px;
-        width: 250px;
         font-size: 16px;
         border: 0;
         outline: 0;
+    }
+    @media (max-width: 767px) {
+        input {
+            width: 88%;
+        }
+    }
+    p {
+        font-size: 14px;
     }
 }
 

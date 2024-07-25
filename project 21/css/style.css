@@ -28,7 +28,12 @@ label {
   align-items: center;
   position: relative;
   background-color: #101820;
-  height: 100vh;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.content section {
+  width: 500px;
 }
 
 .language_chooce {
@@ -57,7 +62,6 @@ form header {
   background-color: #eee;
   position: relative;
   border-radius: 10px 10px 0 0;
-  margin-bottom: 10px;
 }
 form header .image {
   position: absolute;
@@ -72,10 +76,13 @@ form header .image img {
   padding: 20px;
 }
 .inputs div {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .inputs label {
   margin-bottom: 5px;
+}
+.inputs .input {
+  margin: 0 0 4px;
 }
 .inputs .input.normal {
   border: 2px solid #101820;
@@ -97,6 +104,7 @@ form header .image img {
   font-family: "FontAwesome";
   padding: 0 5px;
   color: red;
+  text-align: left;
 }
 .inputs .input i {
   padding: 0 5px;
@@ -111,11 +119,19 @@ form header .image img {
   display: none;
 }
 .inputs input {
+  width: 92%;
   padding: 5px 10px;
-  width: 250px;
   font-size: 16px;
   border: 0;
   outline: 0;
+}
+@media (max-width: 767px) {
+  .inputs input {
+    width: 88%;
+  }
+}
+.inputs p {
+  font-size: 14px;
 }
 
 footer {
