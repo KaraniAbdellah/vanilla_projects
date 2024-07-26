@@ -1,36 +1,33 @@
-// Start From Getting Elements
-
-var email = document.querySelector(".email");
-var username = document.querySelector(".username");
-var phone = document.querySelector(".phone");
-var password = document.querySelector(".password");
-var password_check = document.querySelector(".password_check");
+// Start Getting Elements
 var submit = document.querySelector(".submit");
 var main_content = document.querySelector(".content");
+let inputs = document.querySelectorAll("input");
 
 
 
-
+// Define A Regular Experssions
 let Regexs = {
-    email: /^[a-zA-Z]+\d?@[a-z]+\.com$/,
+    email: /^[a-zA-Z]+\d?\@[a-z]+\.com$/,
     username: /^([a-zA-Z0-9]){3,}$/,
     phone: /^\+\d{7,15}$/,
-    password: /^.{8,}$/i,
+    password: /^.{8,}$/,
     password_check: /^.{8,}$/,
 };
 
 
 
-let inputs = document.querySelectorAll("input");
-console.log(inputs);
 
+// submit and starting checking and changing
 submit.addEventListener("click", function(event) {
     // stop the reload event
     event.preventDefault();
     // confirmation inputs
     let classes = ["username", "email", "phone", "password", "password_check"];
-    let messages_englich = ["must contain chracters and number", "ex: adam283@gmail.com", 
-        "start with + and then more then 7 digits", "must contain chracters[lower and upper], numbers",
+    let messages_englich = [
+        "must contain characters and number",
+        "ex: adam283@gmail.com", 
+        "start with + and then more then 7 digits",
+        "must contain chracters[lower and upper], numbers",
         "the same password",
     ];
     let messages_arabic = [
@@ -41,44 +38,49 @@ submit.addEventListener("click", function(event) {
         "كلمة المرور نفسها"
     ];
     
+    // check the input without checking password_check
     for (let i = 0; i < classes.length; i++) {
         let ele = document.querySelector(`.${classes[i]}`);
         if (ele.classList.contains(classes[i])) {
-            /// checking the regex
-            let check = true;
-            if (ele.value.match(Regexs[ele.className] && ele.value) != "") {
-                ele.parentElement.classList.remove("normal", "error");
-                ele.parentElement.classList.add("valide");
-            } else {
-                ele.parentElement.classList.remove("valide", "normal");
-                ele.parentElement.classList.add("error");
-                check = false;
-            }
+            // checking the inputs
+            let check = check_input(ele);
             // generate a message depend to the page language
             let message_ele = document.querySelector(`p.msg_${classes[i]}`);
             if (main_content.classList.contains("englich")) {
-                if (check) {
-                    message_ele.innerHTML = "good";
-                    message_ele.style.color = "green";
-                } else {
-                    message_ele.innerHTML = messages_englich[i];
-                    message_ele.style.color = "red";
-                }
+                generate_message(messages_englich[i], check, message_ele);
             } else {
-                if (check) {
-                    message_ele.innerHTML = "good";
-                    message_ele.style.color = "green";
-                } else {
-                    message_ele.innerHTML = messages_arabic[i];
-                    message_ele.style.color = "red";
-                }
+                generate_message(messages_arabic[i], check, message_ele);
             }
         }
     }
+
 });
 
 
+// for test thee regex with inputs
+function check_input(ele) {
+    if (ele.value.match(Regexs[ele.className]) && ele.value != "") {
+        ele.parentElement.classList.remove("normal", "error");
+        ele.parentElement.classList.add("valide");
+    } else {
+        ele.parentElement.classList.remove("valide", "normal");
+        ele.parentElement.classList.add("error");
+        return false;
+    }
+    return true;
+}
 
+
+// generate a message
+function generate_message(message, check, message_ele) {
+    if (check) {
+        message_ele.innerHTML = "good";
+        message_ele.style.color = "green";
+    } else {
+        message_ele.innerHTML = message;
+        message_ele.style.color = "red";
+    }
+}
 
 
 
@@ -88,6 +90,10 @@ submit.addEventListener("click", function(event) {
  * popup when I click to the submit
  * edit colors --> make it prefect 
  * watch the video
- */
+*/
+
+
+
+
 
 
