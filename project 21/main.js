@@ -2,12 +2,16 @@
 var submit = document.querySelector(".submit");
 var main_content = document.querySelector(".content");
 let inputs = document.querySelectorAll("form input");
+let divs_input = document.querySelectorAll("form div.input");
 let popup = document.querySelector(".popup");
+let icons = document.querySelector(".icons");
+let confimation_code = document.querySelector(".text input");
+let btn_continue = document.querySelector("button.continue");
 
 
 // Define A Regular Experssions
 let Regexs = {
-    email: /^[a-zA-Z]+\d?\@[a-z]+\.[a-z]+$/,
+    email: /^[a-zA-Z]+\d*\@[a-z]+\.[a-z]+$/,
     username: /^[a-z]{3,}\d+$/,
     phone: /^\+\d{7,15}$/,
     password: /^.{8,}$/,
@@ -52,9 +56,10 @@ submit.addEventListener("click", function(event) {
         }
     }
     // check if all input valid
-    let check_all_inputs = [...inputs].every(function(ele) {
+    let check_all_inputs = [...divs_input].every(function(ele) {
         return ele.classList.contains("valide");
     });
+    console.log(check_all_inputs);
     if (check_all_inputs) {
         popup.classList.toggle("hidden");
         main_content.classList.toggle("overlay");
@@ -95,9 +100,21 @@ function generate_message(message, check, message_ele) {
 }
 
 
+// click to the icons
+icons.addEventListener("click", function() {
+        popup.classList.toggle("hidden");
+        main_content.classList.toggle("overlay");
+});
 
-
-
+// continue Button
+btn_continue.addEventListener("click", function() {
+    if (confimation_code.value == "") {
+        alert("Invalid Input");
+    } else {
+        popup.classList.toggle("hidden");
+        main_content.classList.toggle("overlay"); 
+    }
+});
 
 
 

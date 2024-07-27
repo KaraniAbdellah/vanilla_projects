@@ -58,13 +58,52 @@ label {
 }
 
 .popup {
+  width: 300px;
   position: absolute;
   top: 50%;
   right: 50%;
-  transform: translateX(50%);
+  transform: translate(50%, -50%);
   background-color: #eee;
-  padding: 10px 5px;
+  padding: 10px;
   z-index: 1;
+  text-align: center;
+  border-radius: 5px;
+}
+.popup .icons {
+  text-align: right;
+}
+.popup .icons i {
+  color: #05c305;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.popup .icons i.fa-xmark {
+  font-size: 20px;
+  cursor: pointer;
+}
+.popup .text h3 {
+  margin: 15px 0 10px;
+}
+.popup .text input {
+  font-size: 20px;
+  width: 80px;
+  padding: 5px 10px;
+  outline: 0;
+  border: 0;
+  border: 2px solid #b4b4b4;
+  border-radius: 5px 5px;
+  margin-bottom: 10px;
+}
+.popup .text button {
+  font-size: 20px;
+  width: 100px;
+  padding: 5px 10px;
+  background-color: #05c305;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px 5px;
+  cursor: pointer;
 }
 
 .popup.hidden {
@@ -76,7 +115,7 @@ form {
   background-color: white;
   display: grid;
   grid-template-rows: 60px 1fr 60px;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 form header {
@@ -85,7 +124,7 @@ form header {
   align-items: center;
   background-color: #eee;
   position: relative;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 form header .image {
   position: absolute;
@@ -160,7 +199,7 @@ form header .image img {
 
 footer {
   background-color: #eee;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 5px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,4 +212,5 @@ footer button.submit {
   font-size: 16px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  border-radius: 5px;
 }/*# sourceMappingURL=style.css.map */

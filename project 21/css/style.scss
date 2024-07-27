@@ -42,13 +42,54 @@
 
 
 .popup {
+    width: 300px;
     position: absolute;
     top: 50%;
     right: 50%;
-    transform: translateX(50%);
+    transform: translate(50%, -50%);
     background-color: $popup_color;
-    padding: 10px 5px;
+    padding: 10px;
     z-index: 1;
+    text-align: center;
+    border-radius: $border_radius;
+    .icons {
+        text-align: right;
+        i {
+            color: $succes_color;
+            background-color: white;
+            padding: 10px;
+            border-radius: $border_radius;
+        }
+        i.fa-xmark {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }    
+    .text {
+        h3 {
+            margin: 15px 0 10px;
+        }
+        input {
+            font-size: 20px;
+            width: 80px;
+            padding: 5px 10px;
+            outline: 0;
+            border: 0;
+            border: 2px solid #b4b4b4;
+            border-radius: $border_radius $border_radius;
+            margin-bottom: 10px;
+        }
+        button {
+            font-size: 20px;
+            width: 100px;
+            padding: 5px 10px;
+            background-color: $succes_color;
+            color: white;
+            font-weight: bold;
+            border-radius: $border_radius $border_radius;
+            cursor: pointer;
+        }
+    }
 }
 .popup.hidden {
     display: none;
@@ -60,14 +101,14 @@ form {
     background-color: $white_color;
     display: grid;
     grid-template-rows: 60px 1fr 60px;
-    border-radius: 10px;
+    border-radius: $border_radius;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     & header {
         @include centering_eles;
         background-color: $grey;
         position: relative;
-        border-radius: 10px 10px 0 0;
-        & .image {
+        border-radius: $border_radius $border_radius 0 0;
+        & .image {  
             position: absolute;
             top: -60px;
             & img {
@@ -132,7 +173,7 @@ form {
 
 footer {
     background-color: $grey;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 $border_radius $border_radius;
     @include centering_eles;
     button.submit {
         font-weight: 700;
@@ -142,6 +183,7 @@ footer {
         font-size: 16px;
         cursor: pointer;
         box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+        border-radius: $border_radius;
     }
 }
 
