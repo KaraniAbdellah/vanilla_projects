@@ -32,6 +32,16 @@ label {
   min-height: 100vh;
 }
 
+.content.overlay::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+  height: 100%;
+}
+
 .content section {
   width: 500px;
 }
@@ -39,11 +49,26 @@ label {
 .language_chooce {
   position: absolute;
   top: 20px;
+  left: 10px;
   font-size: 20px;
   padding: 5px 10px;
 }
 .language_chooce a {
   color: white;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #eee;
+  padding: 10px 5px;
+  z-index: 1;
+}
+
+.popup.hidden {
+  display: none;
 }
 
 form {

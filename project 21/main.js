@@ -1,20 +1,18 @@
 // Start Getting Elements
 var submit = document.querySelector(".submit");
 var main_content = document.querySelector(".content");
-let inputs = document.querySelectorAll("input");
-
+let inputs = document.querySelectorAll("form input");
+let popup = document.querySelector(".popup");
 
 
 // Define A Regular Experssions
 let Regexs = {
-    email: /^[a-zA-Z]+\d?\@[a-z]+\.com$/,
-    username: /^([a-zA-Z0-9]){3,}$/,
+    email: /^[a-zA-Z]+\d?\@[a-z]+\.[a-z]+$/,
+    username: /^[a-z]{3,}\d+$/,
     phone: /^\+\d{7,15}$/,
     password: /^.{8,}$/,
     password_check: /^.{8,}$/,
 };
-
-
 
 
 // submit and starting checking and changing
@@ -24,7 +22,7 @@ submit.addEventListener("click", function(event) {
     // confirmation inputs
     let classes = ["username", "email", "phone", "password", "password_check"];
     let messages_englich = [
-        "must contain characters and number",
+        "must contain more then three characters and numbers",
         "ex: adam283@gmail.com", 
         "start with + and then more then 7 digits",
         "must contain chracters[lower and upper], numbers",
@@ -53,13 +51,27 @@ submit.addEventListener("click", function(event) {
             }
         }
     }
-
+    // check if all input valid
+    let check_all_inputs = [...inputs].every(function(ele) {
+        return ele.classList.contains("valide");
+    });
+    if (check_all_inputs) {
+        popup.classList.toggle("hidden");
+        main_content.classList.toggle("overlay");
+    }
 });
 
 
 // for test thee regex with inputs
 function check_input(ele) {
-    if (ele.value.match(Regexs[ele.className]) && ele.value != "") {
+    let condition;
+    if (ele.classList.contains("password_check")) {
+        let password = document.querySelector(".password");
+        condition = (password.value == ele.value && ele.value != "");
+    } else {
+        condition = (ele.value.match(Regexs[ele.className]) && ele.value != "");
+    }
+    if (condition) {
         ele.parentElement.classList.remove("normal", "error");
         ele.parentElement.classList.add("valide");
     } else {
@@ -84,9 +96,20 @@ function generate_message(message, check, message_ele) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 // next task is 
 /**
- * find a method fot password_check
+ * find a method for password_check
  * popup when I click to the submit
  * edit colors --> make it prefect 
  * watch the video

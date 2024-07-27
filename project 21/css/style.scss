@@ -15,18 +15,43 @@
     padding: #{$padding_20}px;
     min-height: 100vh;
 }
+.content.overlay::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #0000001a;
+    width: 100%;
+    height: 100%;
+}
 .content section {
     width: 500px;
 }
 
+
 .language_chooce {
     position: absolute;
     top: 20px;
+    left: 10px;
     font-size: 20px;
     padding: 5px 10px;
     a {
         color: white;
     }
+}
+
+
+.popup {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: $popup_color;
+    padding: 10px 5px;
+    z-index: 1;
+}
+.popup.hidden {
+    display: none;
 }
 
 
