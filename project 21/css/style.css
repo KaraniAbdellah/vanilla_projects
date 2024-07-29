@@ -95,7 +95,8 @@ label {
   border-radius: 5px 5px;
   margin-bottom: 10px;
 }
-.popup .text button {
+.popup .text a {
+  display: block;
   font-size: 20px;
   width: 100px;
   padding: 5px 10px;
@@ -104,6 +105,8 @@ label {
   font-weight: bold;
   border-radius: 5px 5px;
   cursor: pointer;
+  margin: 5px auto;
+  text-decoration: none;
 }
 
 .popup.hidden {
@@ -156,7 +159,6 @@ form header .image img {
 .inputs .input.valide::after {
   content: "\f058";
   font-family: "FontAwesome";
-  padding: 0 5px;
   color: green;
 }
 .inputs .input.error {
@@ -165,7 +167,6 @@ form header .image img {
 .inputs .input.error::after {
   content: "\f06a";
   font-family: "FontAwesome";
-  padding: 0 5px;
   color: red;
   text-align: left;
 }
@@ -190,7 +191,7 @@ form header .image img {
 }
 @media (max-width: 767px) {
   .inputs input {
-    width: 88%;
+    width: 90%;
   }
 }
 .inputs p {

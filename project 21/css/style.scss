@@ -79,7 +79,8 @@
             border-radius: $border_radius $border_radius;
             margin-bottom: 10px;
         }
-        button {
+        a {
+            display: block;
             font-size: 20px;
             width: 100px;
             padding: 5px 10px;
@@ -88,6 +89,8 @@
             font-weight: bold;
             border-radius: $border_radius $border_radius;
             cursor: pointer;
+            margin: 5px auto;
+            text-decoration: none;
         }
     }
 }
@@ -136,14 +139,12 @@ form {
         &.valide::after {
             content: "\f058";
             font-family: "FontAwesome";
-            padding: 0 5px;
             color: $valide;
         }
         &.error { border: 2px solid $error; }
         &.error::after {
             content: "\f06a";
             font-family: "FontAwesome";
-            padding: 0 5px;
             color: $error;
             text-align: left;
         }
@@ -162,7 +163,7 @@ form {
     }
     @media (max-width: 767px) {
         input {
-            width: 88%;
+            width: 90%;
         }
     }
     p {

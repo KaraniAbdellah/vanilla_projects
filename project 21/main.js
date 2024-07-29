@@ -11,7 +11,7 @@ let btn_continue = document.querySelector("button.continue");
 
 // Define A Regular Experssions
 let Regexs = {
-    email: /^[a-zA-Z]+\d*\@[a-z]+\.[a-z]+$/,
+    email: /^[a-zA-Z]+(\.[a-z,A-Z]+)*\d*\@[a-z]+\.[a-z]+$/,
     username: /^[a-z]{3,}\d+$/,
     phone: /^\+\d{7,15}$/,
     password: /^.{8,}$/,
@@ -26,7 +26,7 @@ submit.addEventListener("click", function(event) {
     // confirmation inputs
     let classes = ["username", "email", "phone", "password", "password_check"];
     let messages_englich = [
-        "must contain more then three characters and numbers",
+        "must contain more then three characters and numbers like adam234",
         "ex: adam283@gmail.com", 
         "start with + and then more then 7 digits",
         "must contain chracters[lower and upper], numbers",
