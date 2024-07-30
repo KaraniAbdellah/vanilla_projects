@@ -125,14 +125,6 @@ btn_continue.addEventListener("click", function() {
 
 
 
-// next task is 
-/**
- * find a method for password_check
- * popup when I click to the submit
- * edit colors --> make it prefect 
- * watch the video
-*/
-
 
 
 
