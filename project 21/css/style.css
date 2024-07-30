@@ -52,6 +52,7 @@ label {
   left: 10px;
   font-size: 20px;
   padding: 5px 10px;
+  font-weight: 700;
 }
 .language_chooce a {
   color: white;
@@ -140,6 +141,7 @@ form header .image img {
 
 .inputs {
   padding: 20px;
+  font-weight: 700;
 }
 .inputs div {
   margin-bottom: 10px;

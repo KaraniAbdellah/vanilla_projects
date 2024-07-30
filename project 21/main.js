@@ -91,7 +91,8 @@ function check_input(ele) {
 // generate a message
 function generate_message(message, check, message_ele) {
     if (check) {
-        message_ele.innerHTML = "good";
+        if (main_content.classList.contains("arabic")) message_ele.innerHTML = "جيد";
+        else message_ele.innerHTML = "good";
         message_ele.style.color = "green";
     } else {
         message_ele.innerHTML = message;
