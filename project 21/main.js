@@ -123,7 +123,7 @@ btn_continue.addEventListener("click", function() {
 
 
 
-
+// explin that you get from the video please
 
 
 

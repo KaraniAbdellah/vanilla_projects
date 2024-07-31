@@ -35,7 +35,6 @@
     left: 10px;
     font-size: 20px;
     padding: 5px 10px;
-    font-weight: 700;
     a {
         color: white;
     }
@@ -87,7 +86,6 @@
             padding: 5px 10px;
             background-color: $succes_color;
             color: white;
-            font-weight: bold;
             border-radius: $border_radius $border_radius;
             cursor: pointer;
             margin: 5px auto;
@@ -114,7 +112,7 @@ form {
         border-radius: $border_radius $border_radius 0 0;
         & .image {  
             position: absolute;
-            top: -60px;
+            top: -55px;
             & img {
                 width: 100px;
                 border-radius: 50%;
@@ -126,7 +124,6 @@ form {
 
 .inputs {
     padding: #{$padding_20}px;
-    font-weight: 700;
     div {
         margin-bottom: 10px;
     }
@@ -135,20 +132,19 @@ form {
     }
     .input {
         margin: 0 0 4px;
-        // start with icons with inputs
-        &.normal { border: 2px solid $main-background; }
-        &.valide { border: 2px solid $valide; }
+        border: 2px solid $main-background;
+        // inputs
+        &::after {
+            font-family: "FontAwesome";
+        }
         &.valide::after {
             content: "\f058";
-            font-family: "FontAwesome";
             color: $valide;
         }
-        &.error { border: 2px solid $error; }
+        &.error { border-color:  $error; }
         &.error::after {
             content: "\f06a";
-            font-family: "FontAwesome";
             color: $error;
-            text-align: left;
         }
         // icons
         i { padding: 0 5px; }
@@ -179,7 +175,6 @@ footer {
     border-radius: 0 0 $border_radius $border_radius;
     @include centering_eles;
     button.submit {
-        font-weight: 700;
         background-color: $button-color;
         padding: 5px 30px;
         width: 250px;
