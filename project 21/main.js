@@ -25,19 +25,19 @@ submit.addEventListener("click", function(event) {
     event.preventDefault();
     // confirmation inputs
     let classes = ["username", "email", "phone", "password", "password_check"];
-    let messages_englich = [
-        "must contain more then three characters and numbers like adam234",
-        "ex: adam283@gmail.com", 
-        "start with + and then more then 7 digits",
-        "must contain chracters[lower and upper], numbers",
-        "the same password",
+    let messages_english = [
+        "Must contain more than three characters and numbers, e.g., adam234.",
+        "Example: adam283@gmail.com.",
+        "Should start with + followed by more than 7 digits.",
+        "Must contain both uppercase and lowercase letters, as well as numbers.",
+        "Must match the previously entered password."
     ];
     let messages_arabic = [
-        "يجب أن يحتوي على أحرف وأرقام",
-        "مثال: adam283@gmail.com",
-        "ابدأ بـ + ثم أكثر من 7 أرقام",
-        "يجب أن يحتوي على أحرف [صغيرة وكبيرة]، وأرقام",
-        "كلمة المرور نفسها"
+        "يجب أن يحتوي على أكثر من ثلاثة أحرف وأرقام، مثل: adam234.",
+        "مثال: adam283@gmail.com.",
+        "يجب أن يبدأ بـ + ثم أكثر من 7 أرقام.",
+        "يجب أن يحتوي على أحرف كبيرة وصغيرة وأرقام.",
+        "يجب أن تتطابق مع كلمة المرور المدخلة سابقًا."
     ];
     
     // check the input without checking password_check
@@ -49,7 +49,7 @@ submit.addEventListener("click", function(event) {
             // generate a message depend to the page language
             let message_ele = document.querySelector(`p.msg_${classes[i]}`);
             if (main_content.classList.contains("englich")) {
-                generate_message(messages_englich[i], check, message_ele);
+                generate_message(messages_english[i], check, message_ele);
             } else {
                 generate_message(messages_arabic[i], check, message_ele);
             }
@@ -57,9 +57,8 @@ submit.addEventListener("click", function(event) {
     }
     // check if all input valid
     let check_all_inputs = [...divs_input].every(function(ele) {
-        return ele.classList.contains("valide");
+        return ele.classList.contains("valid");
     });
-    console.log(check_all_inputs);
     if (check_all_inputs) {
         popup.classList.toggle("hidden");
         main_content.classList.toggle("overlay");
@@ -78,9 +77,9 @@ function check_input(ele) {
     }
     if (condition) {
         ele.parentElement.classList.remove("normal", "error");
-        ele.parentElement.classList.add("valide");
+        ele.parentElement.classList.add("valid");
     } else {
-        ele.parentElement.classList.remove("valide", "normal");
+        ele.parentElement.classList.remove("valid", "normal");
         ele.parentElement.classList.add("error");
         return false;
     }
@@ -92,7 +91,7 @@ function check_input(ele) {
 function generate_message(message, check, message_ele) {
     if (check) {
         if (main_content.classList.contains("arabic")) message_ele.innerHTML = "جيد";
-        else message_ele.innerHTML = "good";
+        else message_ele.innerHTML = "valid";
         message_ele.style.color = "green";
     } else {
         message_ele.innerHTML = message;
@@ -123,7 +122,6 @@ btn_continue.addEventListener("click", function() {
 
 
 
-// explin that you get from the video please
 
 
 
