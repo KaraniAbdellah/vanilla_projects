@@ -1,0 +1,27 @@
+// Import Filies
+// Global Rules
+@use "../layout/global_roles" as *;
+// Colors
+@use "../variables/colors" as *;
+// Mixins
+@use "../helpers/mixin" as *;
+// Functions
+@use "../helpers/functions" as *;
+
+
+// Start Page Content
+
+h1{
+    color: red;
+}
+
+// End Page Content
+
+
+
+
+
+
+
+
+
