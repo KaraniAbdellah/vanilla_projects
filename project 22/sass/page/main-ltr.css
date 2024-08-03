@@ -7,10 +7,9 @@
 
 /* Body styling */
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+  font-weight: 600;
 }
 
 /* Links */
@@ -23,24 +22,123 @@ a:hover {
   color: #2980b9;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1.2rem;
-  color: #444;
-}
-
 /* Paragraphs */
 p {
   margin-bottom: 1rem;
 }
 
-/* Button styling */
+/* Button styling  and input */
 button {
   border: none;
-  padding: 10px 20px;
+  padding: 8px 18px;
+  text-align: center;
   cursor: pointer;
 }
 
-h1 {
-  color: red;
+input {
+  outline: 0;
+  border: 0;
+}
+
+/* container */
+.container {
+  margin: 0 70px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin: 0 20px;
+  }
+}
+.page_content {
+  background-color: #2C3E50;
+  height: 100vh;
+  padding: 20px;
+}
+
+.title h1 {
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.inputs {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.inputs .text h2 {
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+.inputs form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.inputs form div input {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 20px;
+  font-weight: inherit;
+  border-radius: 4px;
+  background-color: #FAFAFA;
+  border: 1px solid #CCCCCC;
+}
+.inputs form div input.submit {
+  background-color: #4CAF50;
+  cursor: pointer;
+}
+.inputs form div input.submit:hover {
+  background-color: #388E3C;
+}
+
+.all_employee {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.all_employee .text h2 {
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+.all_employee .table_container {
+  overflow-x: auto;
+}
+.all_employee .table_container table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #FFFFFF;
+}
+.all_employee .table_container table tr td {
+  color: white;
+}
+.all_employee .table_container table tr td button {
+  color: inherit;
+  font-weight: inherit;
+}
+.all_employee .table_container table tr td button.delete {
+  margin-right: 5px;
+  background-color: #F44336;
+}
+.all_employee .table_container table tr td button.delete:hover {
+  background-color: #D32F2F;
+}
+.all_employee .table_container table tr td button.edit {
+  background-color: #4CAF50;
+}
+.all_employee .table_container table tr td button.edit:hover {
+  background-color: #388E3C;
+}
+.all_employee .table_container table tr th, .all_employee .table_container table tr td {
+  padding: 7px 10px;
+  border: 2px, solid #FFFFFF;
+}
+@media (max-width: 767px) {
+  .all_employee .table_container {
+    border: 2px solid;
+    border-color: #CCCCCC transparent;
+    padding: 15px;
+  }
+  .all_employee .table_container table {
+    min-width: 600px;
+  }
 }/*# sourceMappingURL=main-ltr.css.map */

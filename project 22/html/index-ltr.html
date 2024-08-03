@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CRUD</title>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,58 @@
 </head>
 <body>
     <!-- Start Page Content -->
-    <div class="page_content">
-        <h1>color black</h1>
+    <div class="page_content ">
+        <div class="content container">
+            <div class="title">
+                <h1>CRUD [ Create, Read, Update, Delete ]</h1>
+            </div>
+            <div class="inputs">
+                <div class="text">
+                    <h2>add new employee</h2>
+                </div>
+                <form action="">
+                    <div class="name">
+                        <input type="text" class="name" required placeholder="Name...">
+                    </div>
+                    <div class="email">
+                        <input type="email" class="email" required placeholder="Email...">
+                    </div>
+                    <div class="mobile">
+                        <input type="text" class="phone" required placeholder="Mobile...">
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="Submit" class="submit">
+                    </div>
+                </form>
+            </div>
+            <div class="all_employee">
+                <div class="text">
+                    <h2>all employees</h2>
+                </div>
+                <div class="table_container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Abdellah</td>
+                                <td>Abdellah@gmail.com</td>
+                                <td>+212607848253</td>
+                                <td><button class="delete">delete</button><button class="edit">edit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- End Page Content -->
-
     <!-- Js File -->
     <script src="/js/main.js"></script>
 </body>

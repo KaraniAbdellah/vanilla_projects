@@ -7,10 +7,9 @@
 
 /* Body styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Rubik", sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    font-weight: 600;
 }
 
 /* Links */
@@ -23,11 +22,6 @@ a:hover {
     color: #2980b9;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1.2rem;
-    color: #444;
-}
 
 /* Paragraphs */
 p {
@@ -35,11 +29,24 @@ p {
 }
 
 
-/* Button styling */
+/* Button styling  and input */
 button {
     border: none;
-    padding: 10px 20px;
+    padding: 8px 18px;
+    text-align: center;
     cursor: pointer;
 }
+input {
+    outline: 0;
+    border: 0;
+}
 
-
+/* container */
+.container {
+    margin: 0 70px;
+}
+@media (max-width: 767px) {
+    .container {
+        margin: 0 20px;
+    }
+}

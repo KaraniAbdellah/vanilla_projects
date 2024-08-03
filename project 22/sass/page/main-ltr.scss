@@ -10,16 +10,109 @@
 
 
 // Start Page Content
+.page_content {
+    background-color: $main_color;
+    height: 100vh;
+    padding: 20px;
+    
+}
+// End Page Content
+// Start Title
+.title h1 {
+    color: $white;
+    text-align: center;
+    margin-bottom: 50px;
+}
+// End Title
+// Start With Inputs
+.inputs {
+    text-align: center;
+    margin-bottom: 30px;
+    & .text h2 {
+        color: $white;
+        margin-bottom: 10px;
+    }
+    & form {
+        @include grid_eles;
+        div {
+            input {
+                width: 100%;
+                padding: 5px 10px;
+                font-size: 20px;
+                font-weight: inherit;
+                border-radius: $border_radius;
+                background-color: $input_color;
+                border: 1px solid $border_color;
+            }
+            input.submit {
+                background-color: $green;
+                cursor: pointer;
+                &:hover {
+                    background-color: $hover_green;
+                }
+            }
+        }
 
-h1{
-    color: red;
+    }
+}
+// End With Inputs
+// Start Employees Table
+.all_employee {
+    text-align: center;
+    margin-bottom: 30px;
+    & .text h2 {
+        color: $white;
+        margin-bottom: 10px;
+    }
+    .table_container {
+        overflow-x: auto;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid $white;
+            tr {
+                td {
+                    color: white;
+                    button {
+                        color: inherit;
+                        font-weight: inherit;
+                    }
+                    button.delete {
+                        margin-right: 5px;
+                        background-color: $red;
+                        &:hover {
+                            background-color: $hover_red;
+                        }
+                    }
+                    button.edit {
+                        background-color: $green;
+                        &:hover {
+                            background-color: $hover_green;
+                        }
+                    }
+                }
+                th, td {
+                    padding: 7px 10px;
+                    border: 2px, solid $white;
+                }
+            }
+        }
+        @media (max-width: 767px) {
+            & {
+                border: 2px solid;
+                border-color: $border_color transparent;
+                padding: 15px;
+            }
+            table {
+                min-width: 600px;
+            }
+        }
+    }
+    
 }
 
-// End Page Content
 
-
-
-
+// End Employees Table
 
 
 
