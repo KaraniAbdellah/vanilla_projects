@@ -10,6 +10,9 @@
 
 
 // Start Page Content
+.content {
+    position: relative;
+}
 .page_content {
     background-color: $main_color;
     height: 100vh;
@@ -17,21 +20,47 @@
     
 }
 // End Page Content
+// Start Language
+.languages {
+    position: absolute;
+    top: -8px;
+    right: -20px;
+    cursor: pointer;
+    .icon {
+        padding: 5px 15px;
+        border: 2px solid $border_color;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        color: $white;
+        font-size: 16px;
+        transition: $transition;
+        &:hover {
+            border-color: $white;
+        }
+    }
+    .list_languages {
+        padding: 5px;
+        display: none;
+        background-color: black;
+        text-align: center;
+    }
+    &:hover .list_languages {
+        display: block
+    }
+}
+// End Language 
 // Start Title
-.title h1 {
-    color: $white;
-    text-align: center;
-    margin-bottom: 50px;
+.title {
+    @include centered-margin;
+    h1 {
+        color: $white;
+    }
 }
 // End Title
 // Start With Inputs
 .inputs {
-    text-align: center;
-    margin-bottom: 30px;
-    & .text h2 {
-        color: $white;
-        margin-bottom: 10px;
-    }
+    @include centered-margin;
+    @include text-margin;
     & form {
         @include grid_eles;
         div {
@@ -47,6 +76,7 @@
             input.submit {
                 background-color: $green;
                 cursor: pointer;
+                transition: $transition;
                 &:hover {
                     background-color: $hover_green;
                 }
@@ -60,10 +90,7 @@
 .all_employee {
     text-align: center;
     margin-bottom: 30px;
-    & .text h2 {
-        color: $white;
-        margin-bottom: 10px;
-    }
+    @include text-margin;
     .table_container {
         overflow-x: auto;
         table {
@@ -76,9 +103,10 @@
                     button {
                         color: inherit;
                         font-weight: inherit;
+                        transition: $transition;
+                        margin-right: 5px;
                     }
                     button.delete {
-                        margin-right: 5px;
                         background-color: $red;
                         &:hover {
                             background-color: $hover_red;
@@ -97,14 +125,14 @@
                 }
             }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 992px) {
             & {
                 border: 2px solid;
                 border-color: $border_color transparent;
                 padding: 15px;
             }
             table {
-                min-width: 600px;
+                min-width: 650px;
             }
         }
     }

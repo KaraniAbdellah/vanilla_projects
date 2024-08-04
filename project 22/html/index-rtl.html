@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IQTH</title>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,13 +11,73 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Styling File -->
-    <link rel="stylesheet" href="../sass/page/main-rtl.css">
     <link rel="stylesheet" href="../sass/page/main-ltr.css">
 </head>
 <body>
-    
-
-
+    <!-- Start Page Content -->
+    <div class="page_content ">
+        <div class="content container">
+            <div class="languages">
+                <div class="icon">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>AR</span>
+                </div>
+                <ul class="list_languages">
+                    <li><a href="../html/index-ltr.html">الإنجليزية</a></li>
+                    <li><a href="../html/index-ltr-french.html">الفرنسية</a></li>
+                    <li><a href="../html/index-rtl.html">العربية</a></li>
+                </ul>
+            </div>
+            <div class="title">
+                <h1>IQTH</h1>
+            </div>
+            <div class="inputs">
+                <div class="text">
+                    <h2>إضافة موظف جديد</h2>
+                </div>
+                <form action="">
+                    <div class="name">
+                        <input type="text" class="name" required placeholder="اسم...">
+                    </div>
+                    <div class="email">
+                        <input type="email" class="email" required placeholder="بريد إلكتروني...">
+                    </div>
+                    <div class="mobile">
+                        <input type="text" class="phone" required placeholder="هاتف...">
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="إرسال" class="submit">
+                    </div>
+                </form>
+            </div>
+            <div class="all_employee">
+                <div class="text">
+                    <h2>كل الموظفين</h2>
+                </div>
+                <div class="table_container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اسم</th>
+                                <th>بريد إلكتروني</th>
+                                <th>هاتف</th>
+                                <th>فعل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Abdellah</td>
+                                <td>Abdellah@gmail.com</td>
+                                <td>+212607848253</td>
+                                <td><button class="delete">امسح</button><button class="edit">تعديل</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Content -->
     <!-- Js File -->
     <script src="/js/main.js"></script>
 </body>

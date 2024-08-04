@@ -1,7 +1,28 @@
 // Start Mixins
+// Import Colors
+@use "../variables/colors" as *;
+
 
 @mixin grid_eles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
+
+@mixin centered-margin {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+@mixin text-margin {
+    & .text h2 {
+        margin-bottom: 10px;
+        color: $white;
+    }
+}
+
+
+
+
+
+

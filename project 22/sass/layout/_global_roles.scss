@@ -16,6 +16,7 @@ body {
 a {
     text-decoration: none;
     color: #3498db;
+    font-size: 15px;
 }
 
 a:hover {
@@ -40,6 +41,14 @@ input {
     outline: 0;
     border: 0;
 }
+
+
+/* UL */
+ul {
+    text-decoration: none;
+    list-style: none;
+}
+
 
 /* container */
 .container {

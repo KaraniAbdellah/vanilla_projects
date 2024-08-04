@@ -16,6 +16,7 @@ body {
 a {
   text-decoration: none;
   color: #3498db;
+  font-size: 15px;
 }
 
 a:hover {
@@ -40,6 +41,12 @@ input {
   border: 0;
 }
 
+/* UL */
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
 /* container */
 .container {
   margin: 0 70px;
@@ -50,25 +57,59 @@ input {
     margin: 0 20px;
   }
 }
+.content {
+  position: relative;
+}
+
 .page_content {
   background-color: #2C3E50;
   height: 100vh;
   padding: 20px;
 }
 
+.languages {
+  position: absolute;
+  top: -8px;
+  right: -20px;
+  cursor: pointer;
+}
+.languages .icon {
+  padding: 5px 15px;
+  border: 2px solid #CCCCCC;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.languages .icon:hover {
+  border-color: #FFFFFF;
+}
+.languages .list_languages {
+  padding: 5px;
+  display: none;
+  background-color: black;
+  text-align: center;
+}
+.languages:hover .list_languages {
+  display: block;
+}
+
+.title {
+  margin-bottom: 50px;
+  text-align: center;
+}
 .title h1 {
   color: #FFFFFF;
-  text-align: center;
-  margin-bottom: 50px;
 }
 
 .inputs {
+  margin-bottom: 50px;
   text-align: center;
-  margin-bottom: 30px;
 }
 .inputs .text h2 {
-  color: #FFFFFF;
   margin-bottom: 10px;
+  color: #FFFFFF;
 }
 .inputs form {
   display: grid;
@@ -87,6 +128,7 @@ input {
 .inputs form div input.submit {
   background-color: #4CAF50;
   cursor: pointer;
+  transition: 0.3s;
 }
 .inputs form div input.submit:hover {
   background-color: #388E3C;
@@ -97,8 +139,8 @@ input {
   margin-bottom: 30px;
 }
 .all_employee .text h2 {
-  color: #FFFFFF;
   margin-bottom: 10px;
+  color: #FFFFFF;
 }
 .all_employee .table_container {
   overflow-x: auto;
@@ -114,9 +156,10 @@ input {
 .all_employee .table_container table tr td button {
   color: inherit;
   font-weight: inherit;
+  transition: 0.3s;
+  margin-right: 5px;
 }
 .all_employee .table_container table tr td button.delete {
-  margin-right: 5px;
   background-color: #F44336;
 }
 .all_employee .table_container table tr td button.delete:hover {
@@ -132,13 +175,13 @@ input {
   padding: 7px 10px;
   border: 2px, solid #FFFFFF;
 }
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .all_employee .table_container {
     border: 2px solid;
     border-color: #CCCCCC transparent;
     padding: 15px;
   }
   .all_employee .table_container table {
-    min-width: 600px;
+    min-width: 650px;
   }
 }/*# sourceMappingURL=main-ltr.css.map */
