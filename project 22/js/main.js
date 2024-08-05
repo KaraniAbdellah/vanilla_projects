@@ -4,37 +4,106 @@ const email_input = document.querySelector("form input.email");
 const mobile_input = document.querySelector("form input.mobile");
 const submit_input = document.querySelector("form input.submit");
 const tbody = document.querySelector("table tbody");
-console.log(tbody);
+const page_content = document.querySelector(".page_content");
+let edited_ele;
+let eles = [];
 
-const node = `
-<tr>
-    <td>Abdellah</td>
-    <td>Abdellah@gmail.com</td>
-    <td>+212607848253</td>
-    <td><button class="delete">delete</button><button class="edit">edit</button></td>
-</tr>
-`;
-
-function createNode() {
+// create new row in table
+function createNode(name, email, mobile) {
     let new_tr = document.createElement("tr");
-    let new_td1 = document.createElement("td");
-    new_td1.textContent = name_input.value;
-    let new_td2 = document.createElement("td");
-    new_td2.textContent = email_input.value;
-    let new_td3 = document.createElement("td");
-    new_td3.textContent = mobile_input.value;
-    let new_td4 = document.createElement("td");
-    new_td4.textContent = "BUtton";
-    new_tr.appendChild(new_td1);
-    new_tr.appendChild(new_td2);
-    new_tr.appendChild(new_td3);
-    new_tr.appendChild(new_td4);
-    tbody.appendChild(new_tr);
+    let tds = [];
+    let content = [name, email, mobile];
+    for (let i = 0; i < 4; i++) {
+        tds[i] = document.createElement("td");
+        if (i == 3) {
+            let btn1 = document.createElement("button"); btn1.className = "delete";
+            let btn2 = document.createElement("button"); btn2.className = "edit";
+            // generate button value depend in page
+            generateValue(btn1, btn2); 
+            tds[3].appendChild(btn1); tds[i].appendChild(btn2);
+        }
+        else tds[i].textContent = content[i];
+        new_tr.appendChild(tds[i]);
+        tbody.appendChild(new_tr);
+    }
+    // add content to local storage
+    eles.push(content);
+    localStorage.setItem('eles', JSON.stringify(eles));
 }
+
+// when clicking to submit button
 submit_input.addEventListener("click", function(e) {
     e.preventDefault();
-    createNode();
+    // edit node
+    if (submit_input.classList.contains("for_edit")) {
+        let tr_edited = edited_ele;
+        let new_content = [name_input.value, email_input.value, mobile_input.value];
+        let tds = [tr_edited.children[0], tr_edited.children[1], tr_edited.children[2]];
+        // edit values
+        for (let i = 0; i < tds.length; i++) {
+            tds[i].textContent = new_content[i];
+        }
+        submit_input.classList.remove("for_edit");
+        tr_edited.classList.remove("edited");
+        setInputs();
+    }
+    // add node
+    else {
+        if (name_input.value && email_input.value && mobile_input.value) {
+            createNode(name_input.value , email_input.value, mobile_input.value);
+            setInputs();
+        }
+    }
 });
+
+// delete element
+tbody.addEventListener("click", function(e) {
+    let button_btn = e.target;
+    // delete element
+    if (button_btn.classList.contains("delete")) {
+        let parentEle = button_btn.parentElement.parentElement;
+        parentEle.remove();
+        setInputs();
+    }
+    // edit data
+    if (button_btn.classList.contains("edit")) {
+        let parentEle = button_btn.parentElement.parentElement;
+        parentEle.classList.add("edited");
+        name_input.value = parentEle.children[0].textContent;
+        email_input.value = parentEle.children[1].textContent;
+        mobile_input.value = parentEle.children[2].textContent;
+        // add class to submit button
+        submit_input.classList.add("for_edit");
+        edited_ele = parentEle;
+    }
+});
+
+
+// set input as default 
+function setInputs() {
+    name_input.value = email_input.value = mobile_input.value = "";
+}
+
+// generate button value depending in wich page we are
+function generateValue(btn1, btn2) {
+    if (page_content.classList.contains("french")) {
+        btn1.textContent = "supprimer";
+        btn2.textContent = "modifier";
+    } else if (page_content.classList.contains("englich")) {
+        btn1.textContent = "delete";
+        btn2.textContent = "edit";
+    } else if (page_content.classList.contains("arabic")) {
+        btn1.textContent = "حذف";
+        btn2.textContent = "تعديل";
+    }
+}
+
+
+// local storage
+let myArray = [1, 2, 3, 4, 5];
+localStorage.setItem('myArray', JSON.stringify(myArray));
+let newArray = JSON.parse(localStorage.getItem('myArray'));
+
 
 
 

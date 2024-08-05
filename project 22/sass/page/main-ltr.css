@@ -63,7 +63,7 @@ ul {
 
 .page_content {
   background-color: #2C3E50;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
 }
 
