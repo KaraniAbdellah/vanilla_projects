@@ -1,4 +1,4 @@
-// Start With Js
-
-
+// Custom The Complexity Or Search For Another Idea By Adding Another Functions
+// Add To Local Storage
+// Fix Edit And Delete From Local Storage
 
