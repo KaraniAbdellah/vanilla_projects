@@ -158,9 +158,11 @@ ul {
   font-weight: inherit;
   transition: 0.3s;
   margin-right: 5px;
+  border-radius: 4px;
 }
 .all_employee .table_container table tr td button.delete {
   background-color: #F44336;
+  margin-bottom: 5px;
 }
 .all_employee .table_container table tr td button.delete:hover {
   background-color: #D32F2F;
@@ -182,6 +184,6 @@ ul {
     padding: 15px;
   }
   .all_employee .table_container table {
-    min-width: 650px;
+    min-width: 700px;
   }
 }/*# sourceMappingURL=main-ltr.css.map */

@@ -7,6 +7,18 @@ const tbody = document.querySelector("table tbody");
 const page_content = document.querySelector(".page_content");
 let edited_ele;
 let eles = [];
+let index;
+
+
+
+// Create Eles From Local Storage
+if (JSON.parse(localStorage.getItem('eles'))) {
+    let eles = JSON.parse(localStorage.getItem('eles'));
+    for (let i = 0; i < eles.length; i++) {
+        createNode(eles[i][0], eles[i][1], eles[i][2]);
+    }
+}
+
 
 // create new row in table
 function createNode(name, email, mobile) {
@@ -31,6 +43,7 @@ function createNode(name, email, mobile) {
     localStorage.setItem('eles', JSON.stringify(eles));
 }
 
+
 // when clicking to submit button
 submit_input.addEventListener("click", function(e) {
     e.preventDefault();
@@ -46,6 +59,11 @@ submit_input.addEventListener("click", function(e) {
         submit_input.classList.remove("for_edit");
         tr_edited.classList.remove("edited");
         setInputs();
+        // edit at local storage
+        eles[index][0] = new_content[0];
+        eles[index][1] = new_content[1];
+        eles[index][2] = new_content[2];
+        localStorage.setItem('eles', JSON.stringify(eles));
     }
     // add node
     else {
@@ -56,14 +74,26 @@ submit_input.addEventListener("click", function(e) {
     }
 });
 
+
 // delete element
 tbody.addEventListener("click", function(e) {
     let button_btn = e.target;
     // delete element
     if (button_btn.classList.contains("delete")) {
         let parentEle = button_btn.parentElement.parentElement;
-        parentEle.remove();
         setInputs();
+        // get position of element deleted
+        let children_ele = parentEle.parentElement.children;
+        for (let i = 0; i < children_ele.length; i++) {
+            if (children_ele[i] == parentEle) {
+                index = i; break;
+            }
+        }
+        // delete from local storage
+        let eles = JSON.parse(localStorage.getItem('eles'));
+        eles.splice(index, 1);
+        localStorage.setItem('eles', JSON.stringify(eles));
+        parentEle.remove();
     }
     // edit data
     if (button_btn.classList.contains("edit")) {
@@ -75,6 +105,13 @@ tbody.addEventListener("click", function(e) {
         // add class to submit button
         submit_input.classList.add("for_edit");
         edited_ele = parentEle;
+        // get position of element must edited
+        let children_ele = parentEle.parentElement.children;
+        for (let i = 0; i < children_ele.length; i++) {
+            if (children_ele[i] == parentEle) {
+                index = i; break;
+            }
+        }
     }
 });
 
@@ -83,6 +120,7 @@ tbody.addEventListener("click", function(e) {
 function setInputs() {
     name_input.value = email_input.value = mobile_input.value = "";
 }
+
 
 // generate button value depending in wich page we are
 function generateValue(btn1, btn2) {
@@ -99,11 +137,11 @@ function generateValue(btn1, btn2) {
 }
 
 
-// local storage
-let myArray = [1, 2, 3, 4, 5];
-localStorage.setItem('myArray', JSON.stringify(myArray));
-let newArray = JSON.parse(localStorage.getItem('myArray'));
 
+// local storage
+// let myArray = [1, 2, 3, 4, 5];
+// localStorage.setItem('myArray', JSON.stringify(myArray));
+// let newArray = JSON.parse(localStorage.getItem('myArray'));
 
 
 

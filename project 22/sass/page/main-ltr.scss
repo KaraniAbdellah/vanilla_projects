@@ -105,9 +105,11 @@
                         font-weight: inherit;
                         transition: $transition;
                         margin-right: 5px;
+                        border-radius: $border_radius;
                     }
                     button.delete {
                         background-color: $red;
+                        margin-bottom: 5px;
                         &:hover {
                             background-color: $hover_red;
                         }
@@ -132,7 +134,7 @@
                 padding: 15px;
             }
             table {
-                min-width: 650px;
+                min-width: 700px;
             }
         }
     }
