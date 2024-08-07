@@ -7,7 +7,6 @@ const tbody = document.querySelector("table tbody");
 const page_content = document.querySelector(".page_content");
 
 
-
 class Employee {
     constructor(id, name, email, mobile) {
         this.id = id;
@@ -16,44 +15,59 @@ class Employee {
         this.mobile = mobile;
     }
     showDate() {
+        Employee.createItem(this.name, this.email, this.mobile);
+    }
+    storeEmplyee() {
+        // localStorage.setItem('Data', JSON.stringify([1, 2, 3, 4, 5]));
+        const allData = JSON.parse(localStorage.getItem('Employees')) ?? [];
+        allData.push({id: this.id, name: this.name, email: this.email, mobile: this.mobile});
+        localStorage.setItem("Employees", JSON.stringify(allData));
+    }
+    static showAllData() {
+        if (localStorage.getItem("Employees")) {
+            JSON.parse(localStorage.getItem("Employees")).forEach(item => {
+                // let random_nbr = Math.floor(Math.random() * 10000);
+                // let instance = new Employee(random_nbr, item.name, item.email, item.mobile);
+                Employee.createItem(item.name, item.email, item.mobile);
+            });
+        }
+    }
+    static createItem(name, email, mobile) {
         const new_tr = document.createElement("tr");
         new_tr.innerHTML = `
-            <td>${name_input.value}</td>
-            <td>${email_input.value}</td>
-            <td>${mobile_input.value}</td>
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>${mobile}</td>
             <td>
                 <button class="delete">delete</button>
                 <button class="edit">edit</button>
             </td>`;
         tbody.appendChild(new_tr);
     }
-
-    storeEmplyee() {
-        // localStorage.setItem('Data', JSON.stringify([1, 2, 3, 4, 5]));
-        const allData = JSON.parse(localStorage.getItem('Employees')) ?? [];
-        allData.push(this.id, this.name, this.email, this.mobile);
-        localStorage.setItem("Employees", JSON.stringify(allData)); 
-        console.log(allData);
-    }
 }
+
+Employee.showAllData();
 
 submit_input.addEventListener("click", function(e) {
     e.preventDefault();
     // create new employee
     let randomId = Math.floor(Math.random() * 10000) + 1;
-    let new_employee = new Employee(randomId, name_input, email_input, mobile_input);
+    let new_employee = new Employee(
+        randomId,
+        name_input.value,
+        email_input.value,
+        mobile_input.value
+    );
     new_employee.showDate();
+    new_employee.storeEmplyee();
     // set input to default
     name_input.value = email_input.value = mobile_input.value = "";
-    // store date at local storage
-    new_employee.storeEmplyee();
 });
 
 
 
 
-
-
+// repeat this ideas please please
 
 
 
