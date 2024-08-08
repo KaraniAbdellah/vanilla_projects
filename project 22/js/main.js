@@ -6,6 +6,8 @@ const submit_input = document.querySelector("form input.submit");
 const tbody = document.querySelector("table tbody");
 const page_content = document.querySelector(".page_content");
 
+const condInput = document.querySelector(".condInput");
+condInput.value = -1;
 
 class Employee {
     constructor(id, name, email, mobile) {
@@ -15,63 +17,92 @@ class Employee {
         this.mobile = mobile;
     }
     showDate() {
-        Employee.createItem(this.name, this.email, this.mobile);
+        Employee.createItem(this.id, this.name, this.email, this.mobile);
     }
+
     storeEmplyee() {
         // localStorage.setItem('Data', JSON.stringify([1, 2, 3, 4, 5]));
         const allData = JSON.parse(localStorage.getItem('Employees')) ?? [];
         allData.push({id: this.id, name: this.name, email: this.email, mobile: this.mobile});
         localStorage.setItem("Employees", JSON.stringify(allData));
     }
+
     static showAllData() {
         if (localStorage.getItem("Employees")) {
             JSON.parse(localStorage.getItem("Employees")).forEach(item => {
                 // let random_nbr = Math.floor(Math.random() * 10000);
                 // let instance = new Employee(random_nbr, item.name, item.email, item.mobile);
-                Employee.createItem(item.name, item.email, item.mobile);
+                Employee.createItem(item.id, item.name, item.email, item.mobile);
             });
         }
     }
-    static createItem(name, email, mobile) {
+
+    static createItem(id, name, email, mobile) {
         const new_tr = document.createElement("tr");
         new_tr.innerHTML = `
             <td>${name}</td>
             <td>${email}</td>
             <td>${mobile}</td>
             <td>
-                <button class="delete">delete</button>
-                <button class="edit">edit</button>
+                <button class="delete" data-id=${id}>delete</button>
+                <button class="edit" data-id=${id}>edit</button>
             </td>`;
         tbody.appendChild(new_tr);
     }
+
 }
 
 Employee.showAllData();
 
 submit_input.addEventListener("click", function(e) {
     e.preventDefault();
-    // create new employee
-    let randomId = Math.floor(Math.random() * 10000) + 1;
-    let new_employee = new Employee(
-        randomId,
-        name_input.value,
-        email_input.value,
-        mobile_input.value
-    );
-    new_employee.showDate();
-    new_employee.storeEmplyee();
-    // set input to default
-    name_input.value = email_input.value = mobile_input.value = "";
+    if (condInput.value == -1) {
+        // create new employee
+        let randomId = Math.floor(Math.random() * 10000) + 1;
+        let new_employee = new Employee(
+            randomId,
+            name_input.value,
+            email_input.value,
+            mobile_input.value,
+        );
+        new_employee.showDate();
+        new_employee.storeEmplyee();
+        // set input to default
+        name_input.value = email_input.value = mobile_input.value = "";        
+    } else {
+        console.log(condInput.value);
+    }
+
+});
+
+tbody.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete")) {
+        // remove from html
+        e.target.parentElement.parentElement.remove();
+
+        // remove form local storage
+        const ele_id = e.target.getAttribute("data-id"); // also : e.target.dataset.id
+        let allData = JSON.parse(localStorage.getItem('Employees'));
+        allData = allData.filter(item => item.id != ele_id);
+        localStorage.setItem("Employees", JSON.stringify(allData));
+    }
+    if (e.target.classList.contains("edit")) {
+        const id = e.target.getAttribute("data-id");
+        // get data from local storage
+        let allData = JSON.parse(localStorage.getItem('Employees'));
+        let ele = allData.find(ele => ele.id == id);
+        name_input.value = ele.name,
+        email_input.value = ele.email;
+        mobile_input.value = ele.mobile;
+        submit_input.value = "Edit This Item";
+        condInput.value = ele.id;
+    }
 });
 
 
 
-
-// repeat this ideas please please
-
-
-
-
+// i am in tutorial hill. so after finich remove the project and start with it same project
+// or start with another project tha same form abderaganem gamal
 
 
 
