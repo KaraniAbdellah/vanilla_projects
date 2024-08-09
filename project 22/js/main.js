@@ -1,4 +1,37 @@
-// CRUD WITH USING OOP
+// Start The Project Alone
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// NOT MY CODE
+function Erra() {
+    
+    // CRUD WITH USING OOP --> Mentor
 const name_input = document.querySelector("form input.name");
 const email_input = document.querySelector("form input.email");
 const mobile_input = document.querySelector("form input.mobile");
@@ -30,11 +63,18 @@ class Employee {
     static showAllData() {
         if (localStorage.getItem("Employees")) {
             JSON.parse(localStorage.getItem("Employees")).forEach(item => {
-                // let random_nbr = Math.floor(Math.random() * 10000);
-                // let instance = new Employee(random_nbr, item.name, item.email, item.mobile);
                 Employee.createItem(item.id, item.name, item.email, item.mobile);
             });
         }
+    }
+
+    update(id) {
+        let newItem = {id:id, name: this.name, email: this.email, mobile: this.mobile};
+        let UpdatedData = JSON.parse(localStorage.getItem("Employees")).map((item)=> {
+            if (item.id == id) return newItem;
+            return item;
+        });
+        localStorage.setItem("Employees", JSON.stringify(UpdatedData));
     }
 
     static createItem(id, name, email, mobile) {
@@ -69,8 +109,15 @@ submit_input.addEventListener("click", function(e) {
         new_employee.storeEmplyee();
         // set input to default
         name_input.value = email_input.value = mobile_input.value = "";        
-    } else {
-        console.log(condInput.value);
+    } 
+    else {
+        let id = condInput.value;
+        let newEmpl = new Employee(id, name_input.value, email_input.value, mobile_input.value);
+        newEmpl.update(id);
+        name_input.value = email_input.value = mobile_input.value = "";
+        submit_input.value = "Submit";
+        tbody.innerHTML = "";
+        Employee.showAllData();
     }
 
 });
@@ -91,41 +138,14 @@ tbody.addEventListener("click", function(e) {
         // get data from local storage
         let allData = JSON.parse(localStorage.getItem('Employees'));
         let ele = allData.find(ele => ele.id == id);
-        name_input.value = ele.name,
+        name_input.value = ele.name;
         email_input.value = ele.email;
         mobile_input.value = ele.mobile;
         submit_input.value = "Edit This Item";
         condInput.value = ele.id;
     }
 });
-
-
-
-// i am in tutorial hill. so after finich remove the project and start with it same project
-// or start with another project tha same form abderaganem gamal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
