@@ -1,21 +1,71 @@
-// Start The Project Alone
+// CRUD WITH USING OOP --> Me
+const name_input = document.querySelector("form input.name");
+const email_input = document.querySelector("form input.email");
+const mobile_input = document.querySelector("form input.mobile");
+const submit_input = document.querySelector("form input.submit");
+const tbody = document.querySelector("table tbody");
+const page_content = document.querySelector(".page_content");
 
 
 
+class Employee {
+    constructor(id, name, email, mobile) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+    }
+
+    insertEmployee() {
+       Employee.createElement(this.id, this.name, this.email, this.mobile);
+    }
+
+    storeEmployee() {
+        const allData = JSON.parse(localStorage.getItem("Employees")) ?? [];
+        console.log(allData);
+        allData.push({id: this.id, name: this.name, email: this.email, mobile: this.mobile});
+        console.log(allData);
+        localStorage.setItem("Employees", JSON.stringify(allData));
+    }
+
+    static showAllData() {
+        const allData = JSON.parse(localStorage.getItem("Employees")) ?? [];
+        console.log(allData);
+        allData.forEach(ele => Employee.createElement(ele.id, ele.name, ele.email, ele.mobile));
+    }
+
+    static createElement(id, name, email, mobile) {
+        let new_tr = document.createElement("tr");
+        new_tr.innerHTML = `
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>${mobile}</td>
+            <td>
+                <button class="delete" data-id=${id}>delete</button>
+                <button class="edit" data-id=${id}>edit</button>
+            </td> 
+        `;
+        tbody.appendChild(new_tr);
+    }
+}
+
+Employee.showAllData();
+
+submit_input.addEventListener("click", function(e) {
+    e.preventDefault();
+    let random_id = Math.floor(Math.random() * 10000) + 1;
+    var new_employee = new Employee(random_id, name_input.value, email_input.value, mobile_input.value);
+    new_employee.insertEmployee();
+    new_employee.storeEmployee();
+    name_input.value = email_input.value = mobile_input.value = ""; 
+});
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+tbody.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete")) {
+        
+    }
+})
 
 
 
