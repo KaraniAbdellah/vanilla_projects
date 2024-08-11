@@ -1,12 +1,13 @@
-// CRUD WITH USING OOP --> Me
+// CRUD WITH OOP
 const name_input = document.querySelector("form input.name");
 const email_input = document.querySelector("form input.email");
 const mobile_input = document.querySelector("form input.mobile");
 const submit_input = document.querySelector("form input.submit");
 const tbody = document.querySelector("table tbody");
 const page_content = document.querySelector(".page_content");
+const condInput = document.querySelector("form input.condInput");
 
-
+condInput.value = -1;
 
 class Employee {
     constructor(id, name, email, mobile) {
@@ -22,48 +23,83 @@ class Employee {
 
     storeEmployee() {
         const allData = JSON.parse(localStorage.getItem("Employees")) ?? [];
-        console.log(allData);
         allData.push({id: this.id, name: this.name, email: this.email, mobile: this.mobile});
-        console.log(allData);
         localStorage.setItem("Employees", JSON.stringify(allData));
     }
 
     static showAllData() {
         const allData = JSON.parse(localStorage.getItem("Employees")) ?? [];
-        console.log(allData);
         allData.forEach(ele => Employee.createElement(ele.id, ele.name, ele.email, ele.mobile));
     }
 
     static createElement(id, name, email, mobile) {
         let new_tr = document.createElement("tr");
+        let text_delete, text_edit;
+        if (page_content.classList.contains("englich")) {
+            text_delete = "delete"; text_edit = "edit";
+        } else if (page_content.classList.contains("french")) {
+            text_delete = "supprimer"; text_edit = "modifier";
+        } else if (page_content.classList.contains("arabic")) {
+            text_delete = "حذف"; text_edit = "تعديل";
+        } else;
         new_tr.innerHTML = `
             <td>${name}</td>
             <td>${email}</td>
             <td>${mobile}</td>
             <td>
-                <button class="delete" data-id=${id}>delete</button>
-                <button class="edit" data-id=${id}>edit</button>
+                <button class="delete" data-id=${id}>${text_delete}</button>
+                <button class="edit" data-id=${id}>${text_edit}</button>
             </td> 
         `;
         tbody.appendChild(new_tr);
     }
+
+    static updateItems(id, name, email, mobile) {
+        let allData = JSON.parse(localStorage.getItem("Employees"));
+        const new_item = {id:+id, name:name, email:email, mobile:mobile};
+        allData = allData.map(item => item.id == id ? new_item : item);
+        localStorage.setItem("Employees", JSON.stringify(allData));
+    }
+
 }
 
 Employee.showAllData();
 
 submit_input.addEventListener("click", function(e) {
     e.preventDefault();
-    let random_id = Math.floor(Math.random() * 10000) + 1;
-    var new_employee = new Employee(random_id, name_input.value, email_input.value, mobile_input.value);
-    new_employee.insertEmployee();
-    new_employee.storeEmployee();
-    name_input.value = email_input.value = mobile_input.value = ""; 
+    if (condInput.value == -1) {
+        let random_id = Math.floor(Math.random() * 10000) + 1;
+        var new_employee = new Employee(random_id, name_input.value, email_input.value, mobile_input.value);
+        new_employee.insertEmployee();
+        new_employee.storeEmployee();
+        name_input.value = email_input.value = mobile_input.value = ""; 
+    } else {
+        tbody.innerHTML = "";
+        Employee.updateItems(condInput.value, name_input.value, email_input.value, mobile_input.value);
+        Employee.showAllData();
+        name_input.value = email_input.value = mobile_input.value = "";
+    }
 });
 
 
 tbody.addEventListener("click", function(e) {
     if (e.target.classList.contains("delete")) {
-        
+        // remove from html
+        e.target.parentElement.parentElement.remove();
+        // remove from local storage
+        const id = +e.target.dataset.id;
+        let allData = JSON.parse(localStorage.getItem("Employees"));
+        allData = allData.filter(item => item.id != id);
+        localStorage.setItem("Employees", JSON.stringify(allData));
+    }
+    if (e.target.classList.contains("edit")) {
+        submit_input.value = "Edit This Item";
+        const item_id = e.target.dataset.id;
+        const item = JSON.parse(localStorage.getItem("Employees")).find(item => item.id == item_id);
+        name_input.value = item.name;
+        email_input.value = item.email;
+        mobile_input.value = item.mobile;
+        condInput.value = item_id;
     }
 })
 
@@ -78,21 +114,21 @@ tbody.addEventListener("click", function(e) {
 
 
 
-// NOT MY CODE
-function Erra() {
-    
+// CRUD WITH OOP
+function WITH_OOP() {
+
     // CRUD WITH USING OOP --> Mentor
-const name_input = document.querySelector("form input.name");
-const email_input = document.querySelector("form input.email");
-const mobile_input = document.querySelector("form input.mobile");
-const submit_input = document.querySelector("form input.submit");
-const tbody = document.querySelector("table tbody");
-const page_content = document.querySelector(".page_content");
+    const name_input = document.querySelector("form input.name");
+    const email_input = document.querySelector("form input.email");
+    const mobile_input = document.querySelector("form input.mobile");
+    const submit_input = document.querySelector("form input.submit");
+    const tbody = document.querySelector("table tbody");
+    const page_content = document.querySelector(".page_content");
 
-const condInput = document.querySelector(".condInput");
-condInput.value = -1;
+    const condInput = document.querySelector(".condInput");
+    condInput.value = -1;
 
-class Employee {
+    class Employee {
     constructor(id, name, email, mobile) {
         this.id = id;
         this.name = name;
@@ -140,11 +176,11 @@ class Employee {
         tbody.appendChild(new_tr);
     }
 
-}
+    }
 
-Employee.showAllData();
+    Employee.showAllData();
 
-submit_input.addEventListener("click", function(e) {
+    submit_input.addEventListener("click", function(e) {
     e.preventDefault();
     if (condInput.value == -1) {
         // create new employee
@@ -170,9 +206,9 @@ submit_input.addEventListener("click", function(e) {
         Employee.showAllData();
     }
 
-});
+    });
 
-tbody.addEventListener("click", function(e) {
+    tbody.addEventListener("click", function(e) {
     if (e.target.classList.contains("delete")) {
         // remove from html
         e.target.parentElement.parentElement.remove();
@@ -194,16 +230,14 @@ tbody.addEventListener("click", function(e) {
         submit_input.value = "Edit This Item";
         condInput.value = ele.id;
     }
-});
+    });
 }
 
 
 
 
-
-
 // CRUD WITHOUT USING OOP
-function Without_OOP() {
+function WITHOUT_OOP() {
     // Start Getting Variables
     const name_input = document.querySelector("form input.name");
     const email_input = document.querySelector("form input.email");
@@ -347,5 +381,6 @@ function Without_OOP() {
     // localStorage.setItem('myArray', JSON.stringify(myArray));
     // let newArray = JSON.parse(localStorage.getItem('myArray'));
 }
+
 
 
