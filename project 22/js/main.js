@@ -78,6 +78,13 @@ submit_input.addEventListener("click", function(e) {
         Employee.updateItems(condInput.value, name_input.value, email_input.value, mobile_input.value);
         Employee.showAllData();
         name_input.value = email_input.value = mobile_input.value = "";
+        if (page_content.classList.contains("englich")) {
+            submit_input.value = "Submit";
+        } else if (page_content.classList.contains("french")) {
+            submit_input.value = "Soumettre";
+        } else if (page_content.classList.contains("arabic")) {
+            submit_input.value = "إرسال";
+        } else;
     }
 });
 
@@ -91,9 +98,16 @@ tbody.addEventListener("click", function(e) {
         let allData = JSON.parse(localStorage.getItem("Employees"));
         allData = allData.filter(item => item.id != id);
         localStorage.setItem("Employees", JSON.stringify(allData));
+        name_input.value = email_input.value = mobile_input.value = "";
     }
     if (e.target.classList.contains("edit")) {
-        submit_input.value = "Edit This Item";
+        if (page_content.classList.contains("englich")) {
+            submit_input.value = "Edit This Item";
+        } else if (page_content.classList.contains("french")) {
+            submit_input.value = "Modifier cet élément";
+        } else if (page_content.classList.contains("arabic")) {
+            submit_input.value = "تعديل هذا العنصر";
+        } else;
         const item_id = e.target.dataset.id;
         const item = JSON.parse(localStorage.getItem("Employees")).find(item => item.id == item_id);
         name_input.value = item.name;
