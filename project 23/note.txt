@@ -1,0 +1,4 @@
+this project for practice Date and Time and Generators
+
+// search about a project of clock with 4 of three row
+
