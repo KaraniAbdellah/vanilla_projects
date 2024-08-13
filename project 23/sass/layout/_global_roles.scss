@@ -1,1 +1,45 @@
 // start global roles
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+button, input[type="button"] {
+    outline: 0;
+    border: 0;
+}
+
+.container {
+    margin: 0 120px;
+    width: 100%;
+}
+@media  (max-width: 767px) {
+    .container {
+        margin: 0 40px;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+

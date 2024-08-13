@@ -1,1 +1,24 @@
 // start mixins
+
+@mixin center_flex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+@mixin center_ele {
+    @include center_flex;
+    min-height: 100vh;
+}
+
+@mixin evenly_flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin between_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

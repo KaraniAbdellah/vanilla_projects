@@ -1,4 +1,98 @@
-// start type something
-p {
-    color: red;
+// import global roles
+@use "../layout/global_roles" as *;
+// import colors
+@use "../variables/colors" as *;
+// import helpers
+@use "../helpers/mixin" as *;
+
+
+// Start Content
+.page_content {
+    @include center_ele;
+    background-color: $background_color;
+    padding: 20px;
+    
 }
+// End Content
+// Start List
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+ul.list_options {
+    @include evenly_flex;
+    background-color: $background_color;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    li {
+        color: $text-color;
+        padding: 10px 20px;
+        cursor: pointer;
+        &:hover {
+            border-radius: $border-radius;
+            background-color: $accent-color;
+            transition: $transition;
+            color: $white;
+        }
+    }
+}
+// End List
+// Start Date
+.clock {
+    align-items: center;
+    display: grid;
+    text-align: center;
+    margin-top: 30px;
+}
+// End Date
+// Start Alarm
+.alarm {
+    .inputs {
+        input {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            &.btn {
+                background-color: $accent-color;
+                font-size: 16px;
+                color: $white;
+                border-radius: $border-radius;
+                font-weight: inherit;
+            }
+            cursor: pointer;
+        }
+    }
+    .set_alarms {
+        .box {
+            @include between_flex;
+            padding: 10px 20px;
+            .custom {
+                @include between_flex;
+                font-size: 16px;
+                p {
+                    background: red;
+                    width: 50px;
+                    height: 20px;
+                    margin-right: 10px;
+                    border-radius: $border-radius;
+                    .circle {
+                        display: block;
+                        background-color: green;
+                        width: 40%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+                i {color: red;}
+            }
+        }
+    }
+}
+// End Alarm
+
+
+
+
+
+
+
+

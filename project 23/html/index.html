@@ -16,13 +16,34 @@
 <body>
     
     <div class="page_content">
-        <ul>
-            <li></li>
-        </ul>
-        
+        <div class="container">
+            <h1 class="title">Simple Clock</h1>
+            <ul class="list_options">
+                <li>Time</li>
+                <li>Alarm</li>
+                <li>Counter</li>
+            </ul>
+            <div class="clock">
+                <!-- Date -->
+                <div class="date hidden">
+                    <h2></h2>
+                </div>
+                <!-- Alaram -->
+                <div class="alarm">
+                    <div class="inputs">
+                        <input class="input_time" type="time"> <br>
+                        <input class="btn" type="button" value="Add Alarm">
+                    </div>
+                    <div class="set_alarms">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Js File -->
-    <script src="main.js"></script>
+    <script src="/js/alarm.js"></script>
+    <script src="/js/date.js"></script>
+    <script src="/js/counter.js"></script>
 </body>
 </html>
