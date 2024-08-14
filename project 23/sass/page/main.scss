@@ -10,8 +10,12 @@
 .page_content {
     @include center_ele;
     background-color: $background_color;
-    padding: 20px;
-    
+    padding: 100px 20px 20px;
+    @media (max-width: 767px) {
+        & {
+            padding-top: 50px;
+        }
+    }
 }
 // End Content
 // Start List
@@ -44,12 +48,16 @@ ul.list_options {
     text-align: center;
     margin-top: 30px;
 }
+.date {
+    height: 100px;
+    @include center_flex;
+}
 // End Date
 // Start Alarm
 .alarm {
     .inputs {
         input {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             padding: 5px 10px;
             &.btn {
                 background-color: $accent-color;
@@ -67,22 +75,35 @@ ul.list_options {
             padding: 10px 20px;
             .custom {
                 @include between_flex;
-                font-size: 16px;
+                font-size: 18px;
                 p {
-                    background: red;
+                    cursor: pointer;
+                    background-color: $toogle-color;
+                    box-shadow: $box-shadow;
                     width: 50px;
-                    height: 20px;
-                    margin-right: 10px;
-                    border-radius: $border-radius;
+                    height: 22px;
+                    margin-right: 20px;
+                    border-radius: 10px;
+                    position: relative;
                     .circle {
                         display: block;
-                        background-color: green;
-                        width: 40%;
+                        background-color: grey;
+                        width: 44%;
                         height: 100%;
                         border-radius: 50%;
+                        border: 2px solid $toogle-color;
+                        position: absolute;
+                        top: 0;
+                        left: 2px;
+                        transition: $transition;
+                        &.active {
+                            right: 2px;
+                            left: auto;
+                            background-color: $accent-color;
+                        }
                     }
                 }
-                i {color: red;}
+                i.delete {color: $accent-color; cursor: pointer;}
             }
         }
     }

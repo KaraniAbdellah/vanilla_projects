@@ -34,12 +34,15 @@ button, input[type=button] {
 }
 
 .page_content {
-  align-items: center;
   display: flex;
-  justify-content: center;
   min-height: 100vh;
   background-color: #F5F5F5;
-  padding: 20px;
+  padding: 100px 20px 20px;
+}
+@media (max-width: 767px) {
+  .page_content {
+    padding-top: 50px;
+  }
 }
 
 .title {
@@ -74,8 +77,15 @@ ul.list_options li:hover {
   margin-top: 30px;
 }
 
+.date {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .alarm .inputs input {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 5px 10px;
   cursor: pointer;
 }
@@ -96,22 +106,36 @@ ul.list_options li:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
 }
 .alarm .set_alarms .box .custom p {
-  background: red;
+  cursor: pointer;
+  background-color: #cecece;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 50px;
-  height: 20px;
-  margin-right: 10px;
-  border-radius: 5px;
+  height: 22px;
+  margin-right: 20px;
+  border-radius: 10px;
+  position: relative;
 }
 .alarm .set_alarms .box .custom p .circle {
   display: block;
-  background-color: green;
-  width: 40%;
+  background-color: grey;
+  width: 44%;
   height: 100%;
   border-radius: 50%;
+  border: 2px solid #cecece;
+  position: absolute;
+  top: 0;
+  left: 2px;
+  transition: all 0.3s ease;
 }
-.alarm .set_alarms .box .custom i {
-  color: red;
+.alarm .set_alarms .box .custom p .circle.active {
+  right: 2px;
+  left: auto;
+  background-color: #2196F3;
+}
+.alarm .set_alarms .box .custom i.delete {
+  color: #2196F3;
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
