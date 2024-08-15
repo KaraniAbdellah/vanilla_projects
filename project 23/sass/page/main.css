@@ -57,11 +57,16 @@ ul.list_options {
   background-color: #F5F5F5;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  margin-bottom: 50px;
 }
 ul.list_options li {
   color: #161616;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 ul.list_options li:hover {
   border-radius: 5px;
@@ -95,6 +100,9 @@ ul.list_options li:hover {
   color: white;
   border-radius: 5px;
   font-weight: inherit;
+}
+.alarm .inputs input.btn:hover {
+  background-color: black;
 }
 .alarm .set_alarms .box {
   display: flex;
@@ -138,4 +146,30 @@ ul.list_options li:hover {
 .alarm .set_alarms .box .custom i.delete {
   color: #2196F3;
   cursor: pointer;
+}
+
+.counter .text_counter {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.counter .btns button {
+  color: #161616;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.counter .btns button.stop {
+  margin-right: 10px;
+}
+.counter .btns button.stop:hover {
+  background-color: rgb(252, 59, 59);
+}
+.counter .btns button.start:hover {
+  background-color: #2196F3;
+}
+.counter .btns button:hover {
+  color: white;
 }/*# sourceMappingURL=main.css.map */

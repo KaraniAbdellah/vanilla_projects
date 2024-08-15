@@ -1,3 +1,6 @@
+// import colors
+@use "../variables/colors" as *;
+
 // Flex Mixins
 @mixin flex($display, $justify, $align) {
     display: $display;
@@ -20,3 +23,18 @@
 @mixin between_flex {
     @include flex(flex, space-between, center);
 }
+
+
+// Component Mixins
+@mixin button_style {
+    color: #161616;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: $border-radius;
+    transition: $transition;
+}
+
+
+
