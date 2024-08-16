@@ -14,6 +14,7 @@
     @media (max-width: 767px) {
         & {
             padding-top: 50px;
+            justify-content: center;
         }
     }
 }
@@ -31,7 +32,7 @@ ul.list_options {
     margin-bottom: 50px;
     li {
         @include button_style;
-        &:hover {
+        &:hover, &.active {
             border-radius: $border-radius;
             background-color: $accent-color;
             transition: $transition;
@@ -47,13 +48,13 @@ ul.list_options {
     text-align: center;
     margin-top: 30px;
 }
-.date {
+div.date {
     height: 100px;
     @include center_flex;
 }
 // End Date
 // Start Alarm
-.alarm {
+div.alarm {
     .inputs {
         input {
             margin-bottom: 20px;
@@ -112,7 +113,7 @@ ul.list_options {
 }
 // End Alarm
 // Start Counter
-.counter {
+div.counter {
     .text_counter {
         font-size: 30px;
         margin-bottom: 20px;
@@ -120,6 +121,7 @@ ul.list_options {
     .btns {
         button {
             @include button_style;
+            box-shadow: $box-shadow;
             &.stop {
                 margin-right: 10px;
             }

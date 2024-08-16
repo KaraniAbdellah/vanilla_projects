@@ -19,13 +19,13 @@
         <div class="container">
             <h1 class="title">Simple Clock</h1>
             <ul class="list_options">
-                <li>Time</li>
-                <li>Alarm</li>
-                <li>Counter</li>
+                <li class="date active">Date</li>
+                <li class="alarm">Alarm</li>
+                <li class="counter">Counter</li>
             </ul>
             <div class="clock">
                 <!-- Date -->
-                <div class="date hidden">
+                <div class="date">
                     <h2></h2>
                 </div>
                 <!-- Alaram -->
@@ -39,8 +39,12 @@
                     </div>
                 </div>
                 <!-- Counter -->
-                <div class="counter">
-                    <h3 class="text_counter">00:00:00</h3>
+                <div class="counter hidden">
+                    <h3 class="text_counter">
+                        <span class="hours">00</span>:
+                        <span class="minutes">00</span>:
+                        <span class="seconds">00</span>
+                    </h3>
                     <div class="btns">
                         <button class="stop">Stop</button>
                         <button class="start">Start</button>
@@ -54,5 +58,6 @@
     <script src="/js/alarm.js"></script>
     <script src="/js/date.js"></script>
     <script src="/js/counter.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
