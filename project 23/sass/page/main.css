@@ -105,6 +105,10 @@ div.alarm .inputs input.btn {
 div.alarm .inputs input.btn:hover {
   background-color: black;
 }
+div.alarm .inputs input.input_time {
+  border: 2px solid black;
+  border-radius: 5px;
+}
 div.alarm .set_alarms .box {
   display: flex;
   justify-content: space-between;
@@ -163,8 +167,11 @@ div.counter .btns button {
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-div.counter .btns button.stop {
-  margin-right: 10px;
+div.counter .btns button.start {
+  margin: 0 10px;
+}
+div.counter .btns button.reset:hover {
+  background-color: rgb(36, 156, 36);
 }
 div.counter .btns button.stop:hover {
   background-color: rgb(252, 59, 59);

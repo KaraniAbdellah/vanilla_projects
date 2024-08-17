@@ -4,6 +4,8 @@ const minutes = document.querySelector(".text_counter .minutes");
 const seconds = document.querySelector(".text_counter .seconds");
 const stop_btn = document.querySelector(".stop");
 const start_btn = document.querySelector(".start");
+const reset_btn = document.querySelector(".reset");
+
 
 let handler;
 start_btn.addEventListener("click", function() {
@@ -14,6 +16,11 @@ start_btn.addEventListener("click", function() {
 
 
 stop_btn.addEventListener("click", function() {
+    clearInterval(handler);
+});
+
+reset_btn.addEventListener("click", function() {
+    hours.textContent = minutes.textContent = seconds.textContent = "00";
     clearInterval(handler);
 });
 

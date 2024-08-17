@@ -69,6 +69,10 @@ div.alarm {
                     background-color: black;
                 }
             }
+            &.input_time {
+                border: 2px solid black;
+                border-radius: $border-radius;
+            }
             cursor: pointer;
         }
     }
@@ -122,9 +126,10 @@ div.counter {
         button {
             @include button_style;
             box-shadow: $box-shadow;
-            &.stop {
-                margin-right: 10px;
+            &.start {
+                margin: 0 10px;
             }
+            &.reset:hover { background-color: $green; }
             &.stop:hover { background-color: $stop_color; }
             &.start:hover { background-color: $accent-color; }
             &:hover {color: white;}
