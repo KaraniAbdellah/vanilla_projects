@@ -1,0 +1,27 @@
+// Start Global Variables
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    font-style: 700;
+}
+
+.container {
+    margin: 0 80px;
+    text-align: center;
+    
+}
+@media (max-width: 767px) {
+    .container {
+        margin: 0 20px;
+    }
+}
+
+button {
+    border: 0;
+    outline: 0;
+}
