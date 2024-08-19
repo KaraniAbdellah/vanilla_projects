@@ -1,8 +1,8 @@
-# 20 vanilla_projects [🌐 Visit To See All Projects At [vanilla_projects](https://www.google.com)]
+#  To See All Projects At [vanilla_projects](https://www.google.com)]
 
 ## Project Descriptions
 
-This table displays a list of projects along with their descriptions and links to their respective websites.
+This table displays a list of all projects.
 
 | Project Name | Description               | Website               |
 | ------------ | ------------------------- | --------------------- |
@@ -26,3 +26,7 @@ This table displays a list of projects along with their descriptions and links t
 | Project 18   | Description of Project 18 | [Visit Project 18](#) |
 | Project 19   | Description of Project 19 | [Visit Project 19](#) |
 | Project 20   | Description of Project 20 | [Visit Project 20](#) |
+| Project 21   | Description of Project 19 | [Visit Project 21](#) |
+| Project 22   | Description of Project 20 | [Visit Project 22](#) |
+| Project 23   | Description of Project 19 | [Visit Project 23](#) |
+| Project 24   | Description of Project 20 | [Visit Project 24](#) |
