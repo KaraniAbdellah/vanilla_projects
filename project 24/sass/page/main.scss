@@ -4,52 +4,141 @@
 @use "../variables/colors" as *;
 // Import Mixins
 @use "../helpers/mixins" as *;
+// Import helper Calsses
+@use "../helpers/classes" as *;
+
+
 
 
 // Start Content Page
 .page_content {
     background-color: $main_background;
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
-    padding: 40px 20px;
+}
+.main_page {
+    height: 100vh;
+    width: 100%;
+    header {
+        @include flex_between;
+        background-color: $white;
+        padding: 20px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        font-weight: 700;
+    }
+    .content {
+        height: calc(100vh - 80px);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        .title {
+            p {
+                margin: 20px auto;
+            }
+            button {
+                margin-bottom: 20px;
+            }
+        }
+        .social {
+            @include flex_between;
+            button {
+                padding: 10px 15px;
+                font-size: 15px;
+                color: $white;
+                border-radius: $border_radius;
+                a {
+                    color: $white;
+                }
+                i {
+                    margin-right: 6px;
+                }
+                &.facebook {
+                    background-color: $facebook;
+                }
+                &.twitter {
+                    background-color: $twitter;
+                }
+                &.linkedin {
+                    background-color: $linkedin;
+                }
+                &.youtube {
+                    background-color: $youtube;
+                }
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
 }
 // End Content Page
-// Start Conatiner
-.boxes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 200px;
-    gap: 10px; 
-    margin-bottom: 50px;
-    .box {
-        background-color: white;
-        border-radius: 10px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        .color {
-            background-color: red;
-            height: 80%;
-            border-top-left-radius: inherit;
-            border-top-right-radius: inherit;
+
+
+
+// Start Services
+.services {
+    background-color: white;
+    .services_content {
+        min-height: 100vh;
+        .boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 20px; 
+            margin-bottom: 50px;
+            .box {
+                background-color: white;
+                border-radius: $border_radius;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+                .color {
+                    position: relative;
+                    background-color: red;
+                    height: 80%;
+                    border-top-left-radius: inherit;
+                    border-top-right-radius: inherit;
+                    &:hover::before {
+                        content: "";
+                        background-color: rgba(43, 40, 40, 0.146);
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+                .color_name {
+                    @include flex_center;
+                    height: 20%;
+                    cursor: pointer;
+                }
+
+            }
         }
-        .color_name {
-            height: 20%;
-            background-color: green;
+        .refrech {
+            text-align: center;
+            margin: 20px auto;
+            button {
+                background-color: rgb(249, 64, 64);
+                padding: 10px 30px;
+                font-size: 20px;
+                color: $white;
+                font-weight: 700;
+                cursor: pointer;
+                border-radius: $border_radius;
+                transition: 0.3s;
+                &:hover {
+                    background-color: rgb(208, 48, 48);
+                }
+            }
         }
     }
 }
-.refrech {
-    margin: 20px auto;
-    button {
-        background-color: red;
-        padding: 10px 30px;
-        font-size: 20px;
-        color: $white;
-        font-weight: 700;
-        cursor: pointer;
-    }
-}
-// End Container
+// End Services
 
 

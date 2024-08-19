@@ -1,0 +1,20 @@
+// Import Colors
+@use "../variables/colors" as *;
+
+button.btn {
+    color: $white;
+    background-color: $btn_color;
+    padding: 10px;
+    border-radius: $border_radius;
+    transition: $transition;
+    &:hover {
+        background-color: $hover_btn_color;
+    }
+}
+
+.main_title {
+    padding: 20px 0 30px;
+    text-align: center;
+}
+
+
