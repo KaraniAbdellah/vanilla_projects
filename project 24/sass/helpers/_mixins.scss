@@ -13,3 +13,9 @@
     align-items: center;
 }
 
+@mixin grid_ele {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 20px;
+}
