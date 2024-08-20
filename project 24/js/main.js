@@ -4,6 +4,16 @@ const refrech = document.querySelector(".refrech");
 const div_boxes = document.querySelector(".boxes");
 
 
+// Generator for Generate RGB Color
+function *generateRGB() {
+    while (1) {
+        let red = Math.floor(Math.random() * 255);
+        let green = Math.floor(Math.random() * 255);
+        let blue = Math.floor(Math.random() * 255);
+        yield `rgb(${red}, ${green}, ${blue})`;
+    }
+}
+let generator_color = generateRGB();
 
 // Generate Color
 function generate_color() {
@@ -11,11 +21,9 @@ function generate_color() {
         const box_color = element.firstElementChild;
         const box_color_name = box_color.nextElementSibling.firstElementChild;
         // Random Color
-        let red = Math.floor(Math.random() * 255);
-        let green = Math.floor(Math.random() * 255);
-        let blue = Math.floor(Math.random() * 255);
-        box_color.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-        box_color_name.textContent = `rgb(${red}, ${green}, ${blue})`;
+        let rgb_color = generator_color.next().value;
+        box_color.style.backgroundColor = rgb_color;
+        box_color_name.textContent = rgb_color;
     });
 }
 
@@ -37,7 +45,6 @@ div_boxes.addEventListener("click", function(e) {
     }
 });
 
-// How To Use Generators
 
 
 

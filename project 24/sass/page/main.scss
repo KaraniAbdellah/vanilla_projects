@@ -25,6 +25,11 @@
         padding: 20px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         font-weight: 700;
+        .logo {
+            a {
+                font-size: 20px;
+            }
+        }
     }
     .content {
         height: calc(100vh - 80px);
@@ -35,11 +40,17 @@
         flex-direction: column;
         padding: 10px;
         .title {
+            width: 60%;
             p {
                 margin: 20px auto;
             }
             button {
                 margin-bottom: 20px;
+            }
+        }
+        @media (max-width: 767px) {
+            .title {
+                width: 100%;
             }
         }
         .social {
@@ -82,6 +93,7 @@
             }
         }
     }
+    
 }
 // End Content Page
 

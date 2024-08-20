@@ -65,6 +65,9 @@ button.btn:hover {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   font-weight: 700;
 }
+.main_page header .logo a {
+  font-size: 20px;
+}
 .main_page .content {
   height: calc(100vh - 80px);
   text-align: center;
@@ -74,11 +77,19 @@ button.btn:hover {
   flex-direction: column;
   padding: 10px;
 }
+.main_page .content .title {
+  width: 60%;
+}
 .main_page .content .title p {
   margin: 20px auto;
 }
 .main_page .content .title button {
   margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .main_page .content .title {
+    width: 100%;
+  }
 }
 .main_page .content .social {
   display: flex;
