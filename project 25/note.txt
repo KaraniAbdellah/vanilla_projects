@@ -1,0 +1,8 @@
+Choose an image generation API.
+Obtain the API key.
+Install necessary libraries (e.g., Axios).
+Set up the API endpoint and request parameters.
+Send a POST request to generate the image.
+Handle the API response.
+Display or save the image.
+Implement error handling.
