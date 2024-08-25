@@ -1,5 +1,5 @@
-// just start with elzero for getting the idea
-// then go to inspering from others
-// practice this
+// you have two page
+// first for getting the data
+// second for generate a simple web site
 
 
