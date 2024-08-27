@@ -6,8 +6,38 @@
 
 
 // Start Main Page
-
-
+.portfolio {
+    min-height: 100vh;
+}
+.page {
+    height: 100vh;
+    header {
+        background-color: red;
+        height: 60px;
+        padding: 20px;
+        @include flex_evenly;
+        .title {
+            font-size: 30px;
+        }
+        ul {
+            @include flex_evenly;
+            li:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+    }
+    .main_info {
+        height: calc(100vh - 60px);
+        text-align: center;
+        line-height: 2;
+        @include flex_center;
+        img {
+            border-radius: 20px;
+            width: 500px;
+            margin-bottom: 10px;
+        }
+    }
+}
 
 
 

@@ -15,7 +15,6 @@ myRequest.onload = function() {
         console.log(Data.public_repos);
         console.log(Data.bio);
         console.log(Data.blog);
-        console.log(Data.repos_url);
         console.log(Data.avatar_url);
         // // projects
         // url = url + '/repos';

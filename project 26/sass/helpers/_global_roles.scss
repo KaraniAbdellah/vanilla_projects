@@ -22,7 +22,8 @@ a {
 
 
 .container {
-    margin: 0 100px;
+    margin: 0 200px;
+    padding: 20px;
 }
 @media (max-width: 767px) {
     .container {
@@ -31,7 +32,9 @@ a {
 }
 
 
-
+ul {
+    list-style: none;
+}
 
 
 
