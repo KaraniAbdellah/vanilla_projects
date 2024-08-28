@@ -16,6 +16,7 @@ button {
 
 a {
   text-decoration: none;
+  display: inline-block;
 }
 
 .container {
@@ -32,19 +33,24 @@ ul {
   list-style: none;
 }
 
+.hidden {
+  display: none;
+}
+
 .portfolio {
   min-height: 100vh;
 }
 
 .page {
   height: 100vh;
+  background-color: #ededed;
 }
 .page header {
   background-color: red;
   height: 60px;
   padding: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 .page header .title {
@@ -58,6 +64,54 @@ ul {
 .page header ul li:not(:last-child) {
   margin-right: 20px;
 }
+.page header i {
+  font-size: 20px;
+  cursor: pointer;
+}
+.page header .nav-bar {
+  display: none;
+}
+.page header .close {
+  position: absolute;
+  top: -60px;
+  right: 0px;
+  background-color: blue;
+  padding: 5px 10px;
+  text-align: center;
+}
+.page header .close.show {
+  top: 60px;
+}
+@media (max-width: 767px) {
+  .page header ul {
+    background-color: green;
+    position: absolute;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 60px;
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 0;
+    right: 0;
+    transition: 0.3s;
+  }
+  .page header ul li {
+    margin: 0 !important;
+    padding: 10px 20px;
+  }
+  .page header ul.show {
+    width: 80%;
+    right: 0;
+  }
+  .page header .nav-bar {
+    display: block;
+  }
+}
 .page .main_info {
   height: calc(100vh - 60px);
   text-align: center;
@@ -70,4 +124,30 @@ ul {
   border-radius: 20px;
   width: 500px;
   margin-bottom: 10px;
+}
+.page .main_info .info .links a {
+  background-color: green;
+  padding: 5px 20px;
+  margin-top: 20px;
+}
+@media (max-width: 992px) {
+  .page .main_info {
+    flex-direction: column;
+  }
+  .page .main_info img {
+    width: 200px;
+    margin-bottom: 40px;
+  }
+  .page .main_info .info {
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    position: relative;
+  }
+}
+.projects {
+  height: 100vh;
 }/*# sourceMappingURL=main.css.map */

@@ -6,16 +6,20 @@
 
 
 // Start Main Page
+
 .portfolio {
     min-height: 100vh;
 }
+
 .page {
     height: 100vh;
+    background-color: $main_background;
+
     header {
         background-color: red;
         height: 60px;
         padding: 20px;
-        @include flex_evenly;
+        @include flex_between;
         .title {
             font-size: 30px;
         }
@@ -25,7 +29,57 @@
                 margin-right: 20px;
             }
         }
+        i {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .nav-bar {
+            display: none;
+        }
+        .close {
+            position: absolute;
+            top: -60px;
+            right: 0px;
+            background-color: blue;
+            padding: 5px 10px;
+            text-align: center;
+        }
+        .close.show {
+            top: 60px;
+        }
     }
+
+    @media (max-width: 767px) {
+        header {
+            ul {
+                background-color: green;
+                position: absolute;
+                flex-direction: column;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 60px;
+                height: calc(100% - 60px);
+                @include flex_center;
+                overflow: hidden;
+                width: 0;
+                right: 0;
+                li {
+                    margin: 0 !important;
+                    padding: 10px 20px;
+                }
+                transition: 0.3s;
+            }
+            ul.show {
+                width: 80%;
+                right: 0;
+            }
+            .nav-bar {
+                display: block;
+            }
+        }
+    }
+
     .main_info {
         height: calc(100vh - 60px);
         text-align: center;
@@ -36,29 +90,52 @@
             width: 500px;
             margin-bottom: 10px;
         }
+        .info {
+            .links {
+                a {
+                    background-color: green;
+                    padding: 5px 20px;
+                    margin-top: 20px;
+                }
+            }    
+        }
+            
     }
+
+    @media (max-width: 992px) {
+        .main_info {
+            flex-direction: column;
+            img {
+                width: 200px;
+                margin-bottom: 40px;
+            }
+            .info {
+                line-height: 1.7;
+            }
+        }
+    }
+    
+}
+
+@media (max-width: 767px) {
+    .page {
+        position: relative;
+    }
+}
+
+// End Main Page
+
+
+// Start Projects
+.projects {
+    height: 100vh;
 }
 
 
 
 
 
-
-
-
-
-
-// End Main Page
-
-
-
-
-
-// Start Getting Data Page
-
-
-
-// End Getting Data Page
+// End Projects
 
 
 
