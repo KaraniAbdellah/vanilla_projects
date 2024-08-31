@@ -8,11 +8,10 @@ nav_bar.addEventListener("click", function() {
     close.classList.toggle("show");
 });
 
-
 close.addEventListener("click", function() {
     navigations.classList.remove("show");
     close.classList.remove("show");
-})
+});
 
 
 
@@ -22,7 +21,8 @@ const bio = document.querySelector(".bio");
 const github_link = document.querySelector(".links .github");
 const avatar = document.querySelector(".avatar");
 const title = document.querySelector(".title");
-
+let nbr_repos = 0;
+let location_value = "SomeWhere In This World";
 
 let Data = new Promise((resolve, reject) => {
     let myRequest = new XMLHttpRequest();
@@ -53,6 +53,8 @@ Data.then((resolveValue) => {
     setValues(bio.textContent, object_data.bio, bio_msg);
     setValues(avatar.src, object_data.avatar_url, "https://robohash.org/mail@ashallendesign.co.uk");
     setValues( github_link.href, object_data.blog, "https://github.com/KaraniAbdellah?tab=repositories");
+    nbr_repos = object_data.public_repos;
+    location_value = object_data.location;
 }).catch((rejectValue) => {
     // create a pop_up
     console.log(rejectValue);
@@ -61,40 +63,66 @@ Data.then((resolveValue) => {
 
 // Start With Projects
 const boxes = document.querySelector(".boxes");
+const watchers = document.querySelector(".nbr_watchers");
+const repo_name = document.querySelector(".repo_name");
+const clone_url = document.querySelector(".clone_url");
+const ssh_url = document.querySelector(".ssh_url");
+const location_name = document.querySelector(".location_name");
+
+
+
 fetch("https://api.github.com/users/KaraniAbdellah/repos").then((resolve) => {
     let Data = resolve.json();
     return Data;
 }).then((Data) => {
-    console.log(Data[0].watchers_count);
-    console.log(Data[0].name);
-    console.log(Data[0].clone_url);
-    console.log(Data[0].ssh_url);
+
+    for (let i = 0; i < nbr_repos; i++) {
+        let ele_box = document.createElement("div");
+        ele_box.className = "box";
+        ele_box.innerHTML = `
+            <div class="watchers">
+                <i class="fa-solid fa-eye"></i>
+                <span class="nbr_watchers">${Data[i].watchers_count}</span>
+            </div>
+            <div class="repo">
+                <a href="${Data[i].clone_url}" class="repo_name">${Data[i].name}</a>
+            </div>
+            <div class="used">
+                <button class="clone_url" url="${Data[i].clone_url}">HTTPS</button>
+                <button class="ssh_url" url="${Data[i].ssh_url}">SSH</button>
+            </div>
+        `;
+        boxes.appendChild(ele_box);
+    }
+
+    location_name.textContent = `Living In ${location_value}`;
+
 }).catch((reject) => {
     console.log(reject);
-})
+});
+
+
+function setCopiedValue(ele, value) {
+    ele.textContent ="Copied";
+    setTimeout(() => {
+        ele.textContent = value;
+    }, 1000);
+}
+
+boxes.addEventListener("click", function(e) {
+    let url = e.target.getAttribute("url");
+    if (e.target.classList.contains("clone_url")) {
+        navigator.clipboard.writeText(url);
+        setCopiedValue(e.target, "HTTPS");
+    }
+    if (e.target.classList.contains("ssh_url")) {
+        navigator.clipboard.writeText(url);
+        setCopiedValue(e.target, "SSH");
+    }
+});
 
 
 
-
-
-
-
-// Main Info
-/*
-    title.textContent = Data.name;
-    full_name.textContent = Data.name;
-    bio.textContent = Data.bio;
-    avatar.src = Data.avatar_url;
-    github_link.href = Data.blog;
-*/
-// Project
-/*
-console.log(Data[0].watchers_count);
-console.log(Data[0].clone_url);
-console.log(Data[0].ssh_url);
-console.log(Data[0].name);
-    console.log(Data[0]);
-*/
 
 
 
