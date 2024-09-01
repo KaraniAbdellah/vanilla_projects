@@ -2,6 +2,7 @@
 const close = document.querySelector(".close");
 const nav_bar = document.querySelector(".nav-bar");
 const navigations = document.querySelector(".navigations");
+const portfolio = document.querySelector(".portfolio");
 
 nav_bar.addEventListener("click", function() {
     navigations.classList.toggle("show");
@@ -12,6 +13,12 @@ close.addEventListener("click", function() {
     navigations.classList.remove("show");
     close.classList.remove("show");
 });
+
+
+// Start Login 
+let url_value = localStorage.getItem("link");
+let new_url = `https://api.github.com/users/${url_value}`;
+console.log(new_url);
 
 
 
@@ -26,19 +33,20 @@ let location_value = "SomeWhere In This World";
 
 let Data = new Promise((resolve, reject) => {
     let myRequest = new XMLHttpRequest();
-    myRequest.open("GET", "https://api.github.com/users/KaraniAbdellah");
+    myRequest.open("GET", new_url);
     myRequest.send();
     myRequest.onload = function() {
         if (myRequest.status == 200 && myRequest.readyState == 4) {
             resolve(myRequest.response);
-        } else reject(new Error("Can Not Get The Data"));
+        } else reject(new Error("Can Not Found You Data"));
     }
 });
 
-function setValues(ele, data, msg) {
-    if (data) {
-        ele = data;
-    } else ele = msg;
+function setPortfolio(msg) {
+    portfolio.innerHTML = `
+    <p class=error>${msg}</p>
+    <a href="../html/login.html">back to login</a>
+`;
 }
 
 Data.then((resolveValue) => {
@@ -48,16 +56,18 @@ Data.then((resolveValue) => {
     scripts and tools for system management and security.";
 
     let object_data = JSON.parse(resolveValue);
-    setValues(title.textContent, object_data.name, "John Deo");
-    setValues(full_name.textContent, object_data.name, "John Deo");
-    setValues(bio.textContent, object_data.bio, bio_msg);
-    setValues(avatar.src, object_data.avatar_url, "https://robohash.org/mail@ashallendesign.co.uk");
-    setValues( github_link.href, object_data.blog, "https://github.com/KaraniAbdellah?tab=repositories");
+    console.log(object_data.name);
+    title.textContent = (object_data.name) ? object_data.name : "John Deo";
+    full_name.textContent = (object_data.name) ? object_data.name : "John Deo";
+    bio.textContent = (object_data.bio) ? object_data.bio : bio_msg;
+    avatar.src = (object_data.avatar_url) ? object_data.avatar_url : "https://robohash.org/mail@ashallendesign.co.uk";
+    avatar.href = (object_data.blog) ? object_data.blog : "https://github.com/KaraniAbdellah?tab=repositories";
+
     nbr_repos = object_data.public_repos;
     location_value = object_data.location;
+
 }).catch((rejectValue) => {
-    // create a pop_up
-    console.log(rejectValue);
+    setPortfolio(rejectValue);
 });
 
 
@@ -70,8 +80,7 @@ const ssh_url = document.querySelector(".ssh_url");
 const location_name = document.querySelector(".location_name");
 
 
-
-fetch("https://api.github.com/users/KaraniAbdellah/repos").then((resolve) => {
+fetch(`"https://api.github.com/users/KaraniAbdellah"`).then((resolve) => {
     let Data = resolve.json();
     return Data;
 }).then((Data) => {
@@ -98,8 +107,9 @@ fetch("https://api.github.com/users/KaraniAbdellah/repos").then((resolve) => {
     location_name.textContent = `Living In ${location_value}`;
 
 }).catch((reject) => {
-    console.log(reject);
+    setPortfolio(reject);
 });
+
 
 
 function setCopiedValue(ele, value) {
@@ -120,6 +130,8 @@ boxes.addEventListener("click", function(e) {
         setCopiedValue(e.target, "SSH");
     }
 });
+
+
 
 
 

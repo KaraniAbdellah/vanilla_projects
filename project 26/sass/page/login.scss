@@ -1,0 +1,52 @@
+// Import Global Roles & Mixins & Colors
+@use "../helpers/global_roles" as *;
+@use "../helpers/mixins" as *;
+@use "../variables/colors" as *;
+
+
+
+
+.page_login {
+    height: 100vh;
+    .login {
+        @include flex_center;
+        flex-direction: column;
+        height: 100%;
+        p {
+            font-size: 22px;
+        }
+        .url {
+            padding: 10px 20px;
+            margin: 20px 0 10px;
+            border: 2px solid black;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .url:focus {
+            border: 2px solid $blue;
+            outline: 0;
+        }
+        .submit_url {
+            color: white;
+            background-color: $blue;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .submit_url:hover {
+            background-color: $hover_blue;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
