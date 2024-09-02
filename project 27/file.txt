@@ -1,0 +1,7 @@
+// after making video
+// choice one api
+// try to read documentation --> see how it works --> [you can see elzero video]
+// try to implemente simple idea
+// know inspering by see the video
+
+
