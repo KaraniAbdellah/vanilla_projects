@@ -6,4 +6,5 @@ github_url.addEventListener("input", function() {
     localStorage.setItem("link", github_url.value);
 });
 
+github_url.value = "";
 

@@ -147,6 +147,7 @@ ul {
   border-radius: 20px;
   width: 500px;
   margin-bottom: 10px;
+  margin-right: 20px;
 }
 .page .main_info .info .links a {
   background-color: #3678f3;
@@ -165,6 +166,7 @@ ul {
   .page .main_info img {
     width: 200px;
     margin-bottom: 40px;
+    margin-right: 0;
   }
   .page .main_info .info {
     line-height: 1.7;
@@ -212,6 +214,7 @@ ul {
 .projects .boxes .box .repo {
   height: 60%;
   background: #ededed;
+  text-align: center;
 }
 .projects .boxes .box .repo a {
   color: black;

@@ -15,10 +15,11 @@ close.addEventListener("click", function() {
 });
 
 
+
 // Start Login 
 let url_value = localStorage.getItem("link");
-let new_url = `https://api.github.com/users/${url_value}`;
-console.log(new_url);
+let new_url = "https://api.github.com/users/" + url_value;
+let repos_url = new_url + "/repos";
 
 
 
@@ -50,13 +51,10 @@ function setPortfolio(msg) {
 }
 
 Data.then((resolveValue) => {
-
     let bio_msg = "An IT professional with expertise in network administration,\
     cybersecurity, and technical support. Actively contributes to GitHub, sharing\
     scripts and tools for system management and security.";
-
     let object_data = JSON.parse(resolveValue);
-    console.log(object_data.name);
     title.textContent = (object_data.name) ? object_data.name : "John Deo";
     full_name.textContent = (object_data.name) ? object_data.name : "John Deo";
     bio.textContent = (object_data.bio) ? object_data.bio : bio_msg;
@@ -71,6 +69,7 @@ Data.then((resolveValue) => {
 });
 
 
+
 // Start With Projects
 const boxes = document.querySelector(".boxes");
 const watchers = document.querySelector(".nbr_watchers");
@@ -80,18 +79,19 @@ const ssh_url = document.querySelector(".ssh_url");
 const location_name = document.querySelector(".location_name");
 
 
-fetch(`"https://api.github.com/users/KaraniAbdellah"`).then((resolve) => {
+fetch(repos_url).then((resolve) => {
     let Data = resolve.json();
     return Data;
 }).then((Data) => {
 
-    for (let i = 0; i < nbr_repos; i++) {
+
+    for (let i = 0; i < nbr_repos && Data[i]; i++) {
         let ele_box = document.createElement("div");
         ele_box.className = "box";
         ele_box.innerHTML = `
             <div class="watchers">
                 <i class="fa-solid fa-eye"></i>
-                <span class="nbr_watchers">${Data[i].watchers_count}</span>
+                <span class="nbr_watchers">${Data[i].watchers}</span>
             </div>
             <div class="repo">
                 <a href="${Data[i].clone_url}" class="repo_name">${Data[i].name}</a>
@@ -109,6 +109,7 @@ fetch(`"https://api.github.com/users/KaraniAbdellah"`).then((resolve) => {
 }).catch((reject) => {
     setPortfolio(reject);
 });
+
 
 
 

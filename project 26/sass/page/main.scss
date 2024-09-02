@@ -100,6 +100,7 @@
             border-radius: 20px;
             width: 500px;
             margin-bottom: 10px;
+            margin-right: 20px;
         }
         .info {
             .links {
@@ -124,6 +125,7 @@
             img {
                 width: 200px;
                 margin-bottom: 40px;
+                margin-right: 0;
             }
             .info {
                 line-height: 1.7;
@@ -172,6 +174,7 @@
             .repo {
                 height: 60%;
                 background: $main_background;
+                text-align: center;
                 a {
                     color: black;
                     font-size: 20px;

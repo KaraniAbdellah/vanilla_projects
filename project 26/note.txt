@@ -1,6 +1,3 @@
-// handle the colors
-// make another page
-// set url and pop if url incorrect
 // make a video in youtube
 
 
