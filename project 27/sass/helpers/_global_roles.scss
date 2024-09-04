@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "SUSE", sans-serif;
+    font-weight: 700;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    display: block;
+}
+
+input:focus {
+    outline: 0;
+    border: 0;
+}
+
+
+
