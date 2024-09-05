@@ -36,17 +36,33 @@
     div.from_to {
         @include flex_between;
         margin: 30px 0;
-        .from {
-
-        } 
-        .to {
-            
+        .from, .to {
+            p {
+                margin-bottom: 5px;
+            }
+            select {
+                padding: 5px;
+                font-weight: inherit;
+                option {
+                    font-size: 17px;
+                }
+            }
         }
         .icon {
+            @include flex_center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: $transition;
             cursor: pointer;
+            &:hover {
+                color: white;
+                background-color: $main_color;
+            }
         }
     }
     .exchange {
+        font-size: 15px;
         margin: 20px auto;
         padding: 10px 20px;
         background-color: $main_color;

@@ -56,10 +56,32 @@ input:focus {
   align-items: center;
   margin: 30px 0;
 }
+.converter div.from_to .from p, .converter div.from_to .to p {
+  margin-bottom: 5px;
+}
+.converter div.from_to .from select, .converter div.from_to .to select {
+  padding: 5px;
+  font-weight: inherit;
+}
+.converter div.from_to .from select option, .converter div.from_to .to select option {
+  font-size: 17px;
+}
 .converter div.from_to .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: 0.3s;
   cursor: pointer;
 }
+.converter div.from_to .icon:hover {
+  color: white;
+  background-color: rgba(0, 0, 255, 0.9921568627);
+}
 .converter .exchange {
+  font-size: 15px;
   margin: 20px auto;
   padding: 10px 20px;
   background-color: rgba(0, 0, 255, 0.9921568627);
