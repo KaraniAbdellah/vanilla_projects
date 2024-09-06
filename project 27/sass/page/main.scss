@@ -12,16 +12,18 @@
     font-size: 17px;
 }
 .converter {
+    background-color: $box_color;
+    width: 500px;
+    padding: 30px;
     .title {
         font-size: 30px;
         margin-bottom: 20px;
     }
-    background-color: $box_color;
-    padding: 20px;
     div.amount {
         label {
             display: block;
             margin-bottom: 5px;
+            font-size: $font_size;
         }
         .amount {
             width: 100%;
@@ -34,43 +36,72 @@
         }
     }
     div.from_to {
-        @include flex_between;
         margin: 30px 0;
-        .from, .to {
+        .text {
+            @include flex_between;
+            margin-bottom: 5px;
             p {
-                margin-bottom: 5px;
-            }
-            select {
-                padding: 5px;
-                font-weight: inherit;
-                option {
-                    font-size: 17px;
-                }
+                font-size: $font_size;
             }
         }
-        .icon {
-            @include flex_center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            transition: $transition;
-            cursor: pointer;
-            &:hover {
-                color: white;
-                background-color: $main_color;
+        .currencies {
+            @include flex_between;
+            .from, .to {
+                p {
+                    margin-bottom: 5px;
+                }
+                select {
+                    padding: 10px;
+                    font-weight: inherit;
+                    font-size: 15px;
+                    option {
+                        font-size: 17px;
+                    }
+                }
+            }
+            .icon {
+                @include flex_center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                transition: $transition;
+                cursor: pointer;
+                &:hover {
+                    color: white;
+                    background-color: $main_color;
+                }
+                i {
+                    font-size: 20px;
+                }
             }
         }
     }
     .exchange {
-        font-size: 15px;
+        font-size: 16px;
         margin: 20px auto;
-        padding: 10px 20px;
+        padding: 15px 20px;
         background-color: $main_color;
         color: white;
         font-weight: inherit;
         cursor: pointer;
+        transition: $transition;
+        &:hover {
+            background-color: #0000c6;
+        }
+    }
+    .result {
+        font-size: $font_size;
+    }
+    @media (max-width: 767px) {
+        & {
+            width: 300px;
+            padding: 20px;
+        }
     }
 }
+
+
+
 
 
 

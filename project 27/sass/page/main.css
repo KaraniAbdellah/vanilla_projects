@@ -31,7 +31,8 @@ input:focus {
 
 .converter {
   background-color: white;
-  padding: 20px;
+  width: 500px;
+  padding: 30px;
 }
 .converter .title {
   font-size: 30px;
@@ -40,6 +41,7 @@ input:focus {
 .converter div.amount label {
   display: block;
   margin-bottom: 5px;
+  font-size: 19px;
 }
 .converter div.amount .amount {
   width: 100%;
@@ -51,22 +53,34 @@ input:focus {
   border: 2px solid rgba(0, 0, 255, 0.9921568627);
 }
 .converter div.from_to {
+  margin: 30px 0;
+}
+.converter div.from_to .text {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 30px 0;
-}
-.converter div.from_to .from p, .converter div.from_to .to p {
   margin-bottom: 5px;
 }
-.converter div.from_to .from select, .converter div.from_to .to select {
-  padding: 5px;
-  font-weight: inherit;
+.converter div.from_to .text p {
+  font-size: 19px;
 }
-.converter div.from_to .from select option, .converter div.from_to .to select option {
+.converter div.from_to .currencies {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.converter div.from_to .currencies .from p, .converter div.from_to .currencies .to p {
+  margin-bottom: 5px;
+}
+.converter div.from_to .currencies .from select, .converter div.from_to .currencies .to select {
+  padding: 10px;
+  font-weight: inherit;
+  font-size: 15px;
+}
+.converter div.from_to .currencies .from select option, .converter div.from_to .currencies .to select option {
   font-size: 17px;
 }
-.converter div.from_to .icon {
+.converter div.from_to .currencies .icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,16 +90,32 @@ input:focus {
   transition: 0.3s;
   cursor: pointer;
 }
-.converter div.from_to .icon:hover {
+.converter div.from_to .currencies .icon:hover {
   color: white;
   background-color: rgba(0, 0, 255, 0.9921568627);
 }
+.converter div.from_to .currencies .icon i {
+  font-size: 20px;
+}
 .converter .exchange {
-  font-size: 15px;
+  font-size: 16px;
   margin: 20px auto;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background-color: rgba(0, 0, 255, 0.9921568627);
   color: white;
   font-weight: inherit;
   cursor: pointer;
+  transition: 0.3s;
+}
+.converter .exchange:hover {
+  background-color: #0000c6;
+}
+.converter .result {
+  font-size: 19px;
+}
+@media (max-width: 767px) {
+  .converter {
+    width: 300px;
+    padding: 20px;
+  }
 }/*# sourceMappingURL=main.css.map */
