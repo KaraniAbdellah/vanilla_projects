@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "SUSE", sans-serif;
+    font-weight: 700;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    display: block;
+}
+
+input:focus {
+    outline: 0;
+    border: 0;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    padding: 0 80px;
+}
+@media (max-width: 767px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
+
+.title {
+    font-weight: 500;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+
+

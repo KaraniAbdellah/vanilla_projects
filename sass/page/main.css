@@ -1,0 +1,161 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "SUSE", sans-serif;
+  font-weight: 700;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  display: block;
+}
+
+input:focus {
+  outline: 0;
+  border: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  padding: 0 80px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+.title {
+  font-weight: 500;
+  font-size: 50px;
+  letter-spacing: 5px;
+}
+
+.page {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+}
+.page .main_info {
+  margin-right: 40px;
+}
+.page .main_info .info {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 30px 0;
+  line-height: 1.5;
+}
+.page .main_info .info .special {
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.page .main_info .info .special::before {
+  content: "";
+  background-color: yellow;
+  width: 100%;
+  position: absolute;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+}
+.page .main_info .btns {
+  display: flex;
+}
+.page .main_info .btns a {
+  width: 130px;
+  padding: 5px 15px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: rgba(231, 231, 231, 0.99);
+}
+.page .main_info .btns a .icon {
+  margin-right: 10px;
+}
+.page .main_info .btns .github {
+  margin-right: 10px;
+}
+.page .main_info .btns .linkedin {
+  color: #0e76a8;
+}
+@media (max-width: 992px) {
+  .page .main_info {
+    margin-right: 0px;
+  }
+}
+.page .image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 500px;
+}
+@media (max-width: 992px) {
+  .page .image {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  .page {
+    justify-content: center;
+  }
+}
+
+.projects {
+  background-color: rgba(231, 231, 231, 0.99);
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px;
+}
+.projects .title {
+  text-align: center;
+  padding: 50px 0 40px;
+  position: relative;
+}
+.projects .title::before {
+  content: "";
+  background-color: yellow;
+  width: 50px;
+  position: absolute;
+  height: 3px;
+  bottom: 32px;
+  left: 46%;
+  text-align: center;
+}
+.projects .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill);
+  gap: 20px;
+}
+.projects .boxes .box {
+  background-color: red;
+  border-radius: 5px;
+}
+.projects .boxes .box img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+}
+.projects .boxes .box .name {
+  font-size: 20px;
+  letter-spacing: 4px;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: 500;
+}/*# sourceMappingURL=main.css.map */
