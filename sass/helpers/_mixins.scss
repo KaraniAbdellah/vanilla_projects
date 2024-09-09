@@ -1,3 +1,6 @@
+// import variables
+@use "../variables/var" as *;
+
 @mixin flex_center {
     display: flex;
     justify-content: center;
@@ -14,6 +17,22 @@
     align-items: center;
 }
 
+
+@mixin grid_ele {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, 200px);
+    gap: 25px;
+}
+
+@mixin scale_ele($ele) {
+    #{$ele} {
+        transition: $transition;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
 
 
 

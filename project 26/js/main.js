@@ -46,7 +46,7 @@ let Data = new Promise((resolve, reject) => {
 function setPortfolio(msg) {
     portfolio.innerHTML = `
     <p class=error>${msg}</p>
-    <a href="../html/login.html">back to login</a>
+    <a href="../index.html">back to login</a>
 `;
 }
 

@@ -10,8 +10,12 @@ body {
     position: relative;
 }
 button {
+    cursor: pointer;
     border: 0;
     outline: 0;
+}
+input {
+    cursor: pointer;
 }
 /* End Global Roles */
 .preloader {

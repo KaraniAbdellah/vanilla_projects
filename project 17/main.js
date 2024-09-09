@@ -41,7 +41,7 @@ let player2 = {
 // Reset The Turn Player To "X"
 checkTurn(turn);
 
-setInterval(computer, 3000);
+// setInterval(computer, 3000);
 
 
 // Loop Thought The Element

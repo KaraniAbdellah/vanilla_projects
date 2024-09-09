@@ -79,6 +79,8 @@ function idea_2() {
     window.addEventListener("DOMContentLoaded", () => display_show_class());
     status_food.forEach(function(ele) {
         ele.addEventListener("click", function() {
+            document.querySelectorAll(".food").forEach(ele => ele.classList.remove("back"));
+            ele.classList.add("back");
             remove_show_class();
             if (ele.classList.contains("breakfast")) display_n_items(0, 3);
             if (ele.classList.contains("lunch")) display_n_items(3, 6);

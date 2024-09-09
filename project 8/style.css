@@ -59,6 +59,9 @@ body {
 .page ul li:hover {
     background-color: var(--main-button);
 }
+.page ul li.back {
+    background-color: var(--main-button);
+}
 .page .foods {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
