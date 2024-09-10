@@ -54,6 +54,37 @@ header {
         box-shadow: $box_shadow;
         background: white;
         padding: 20px;
+        .main_info {
+            @include flex_between;
+            .info {
+                .word {
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+                .status{
+                    color: grey
+                }
+            }
+            .audio {
+                color: green;
+            }
+        }
+        .desc {
+            margin: 30px 0;
+            line-height: 1.5;
+            span {
+                font-weight: bold;
+            }
+        }
+        .read_more {
+            i {
+                margin-right: 5px;
+                color: $button_color;
+            }
+            a {
+                font-size: 17px;
+            }
+        }
     }
     @media (max-width: 767px) {
         padding-top: 30px;
