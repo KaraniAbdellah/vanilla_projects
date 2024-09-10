@@ -1,0 +1,89 @@
+// Import Mixins, Colors and Global Roles
+@use "../sass/helpers/global_roles" as *;
+@use "../sass/helpers/mixin" as *;
+@use "../sass/helpers/var" as *;
+
+
+
+// Start Page
+.page {
+    min-height: 100vh;
+    background-color: $main_color;
+}
+// Start Header
+header {
+    height: 100px;
+    @include flex_center;
+    .title {
+        font-size: 40px;
+        font-weight: 700;
+    }
+}
+// End Header
+// Start Content
+.content {
+    height: calc(100vh - 130px);
+    padding: 50px 0 0;
+    @include center_ele;
+    .search_bar, .result {
+        width: 600px;
+    }
+    .search_bar {
+        @include flex_between;
+        margin-bottom: 30px;
+        input, button {
+            box-shadow: $box_shadow;
+            font-size: 18px;
+            padding: 10px;
+        }
+        input {
+            display: block;
+            box-shadow: $box_shadow;
+            margin-right: 10px;
+            width: 85%;
+        }
+        button {
+            color: white;
+            background-color: $button_color;
+            cursor: pointer;
+            font-weight: 700;
+            width: 15%;
+        }
+    }
+    .result {
+        box-shadow: $box_shadow;
+        background: white;
+        padding: 20px;
+    }
+    @media (max-width: 767px) {
+        padding-top: 30px;
+        .search_bar {
+            flex-direction: column;
+            input, button {
+                width: 100%;
+            }
+            input {
+                margin-bottom: 10px;
+                margin-right: 0px;
+            }
+        }
+        .search_bar, .result {
+            width: 300px;
+        }
+    }
+}
+// End Content
+// Start Fotter
+footer {
+    height: 30px;
+    @include flex_center;
+}
+// End Fotter
+// End Page
+
+
+
+
+
+
+
