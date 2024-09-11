@@ -22,9 +22,10 @@ header {
 // End Header
 // Start Content
 .content {
-    height: calc(100vh - 130px);
+    min-height: calc(100vh - 130px);
     padding: 50px 0 0;
     @include center_ele;
+    margin-bottom: 20px;
     .search_bar, .result {
         width: 600px;
     }
@@ -56,33 +57,26 @@ header {
         padding: 20px;
         .main_info {
             @include flex_between;
-            .info {
-                .word {
-                    font-weight: bold;
-                    font-size: 20px;
-                }
-                .status{
-                    color: grey
-                }
-            }
-            .audio {
-                color: green;
-            }
-        }
-        .desc {
-            margin: 30px 0;
-            line-height: 1.5;
-            span {
+            p {
+                font-size: 20px;
                 font-weight: bold;
             }
-        }
-        .read_more {
             i {
-                margin-right: 5px;
-                color: $button_color;
+                background-color: rgb(113, 255, 82);
+                color: white;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                padding: 0;
+                @include flex_center;
             }
-            a {
-                font-size: 17px;
+        }
+        table {
+            margin: 20px 0;
+            border-collapse: collapse;
+            th, tr, td {
+                border: 2px solid black;
+                padding: 10px;
             }
         }
     }

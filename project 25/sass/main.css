@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+.hidden {
+  display: none;
+}
+
 .page {
   min-height: 100vh;
   background-color: #f7f7f7;
@@ -40,12 +44,13 @@ header .title {
 }
 
 .content {
-  height: calc(100vh - 130px);
+  min-height: calc(100vh - 130px);
   padding: 50px 0 0;
   display: flex;
   justify-content: stretch;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 .content .search_bar, .content .result {
   width: 600px;
@@ -84,29 +89,28 @@ header .title {
   justify-content: space-between;
   align-items: center;
 }
-.content .result .main_info .info .word {
-  font-weight: bold;
+.content .result .main_info p {
   font-size: 20px;
-}
-.content .result .main_info .info .status {
-  color: grey;
-}
-.content .result .main_info .audio {
-  color: green;
-}
-.content .result .desc {
-  margin: 30px 0;
-  line-height: 1.5;
-}
-.content .result .desc span {
   font-weight: bold;
 }
-.content .result .read_more i {
-  margin-right: 5px;
-  color: rgb(113, 255, 82);
+.content .result .main_info i {
+  background-color: rgb(113, 255, 82);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.content .result .read_more a {
-  font-size: 17px;
+.content .result table {
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+.content .result table th, .content .result table tr, .content .result table td {
+  border: 2px solid black;
+  padding: 10px;
 }
 @media (max-width: 767px) {
   .content {
