@@ -1,0 +1,47 @@
+// Import Mixins, Colors and Global Roles
+@use "../sass/helpers/global_roles" as *;
+@use "../sass/helpers/mixin" as *;
+@use "../sass/helpers/var" as *;
+
+
+// Start Content
+
+.page {
+    height: 100vh;
+    background-color: $main_color;
+    @include flex_center;
+    padding: 20px;
+}
+.content {
+    background-color: white;
+    padding: 20px;
+    margin-top: -150px;
+    h2 {
+        margin-bottom: 5px;
+        + p {
+            color: grey;
+        }
+    }
+    input, button, & {
+        border-radius: 2px;
+    }
+    input {
+        font-size: 18px;
+        margin: 30px 0 20px;
+        border: 1px solid black;
+        padding: 10px;
+        width: 100%;
+    }
+    button {
+        cursor: pointer;
+        background-color: $main_color;
+        padding: 10px;
+        width: 100%;
+        font-size: 18px;
+        color: white;
+    }
+}
+
+
+
+// End Content

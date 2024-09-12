@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  display: block;
+}
+
+input {
+  outline: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.page {
+  height: 100vh;
+  background-color: #008bee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content {
+  background-color: white;
+  padding: 20px;
+  margin-top: -150px;
+}
+.content h2 {
+  margin-bottom: 5px;
+}
+.content h2 + p {
+  color: grey;
+}
+.content input, .content button, .content {
+  border-radius: 2px;
+}
+.content input {
+  font-size: 18px;
+  margin: 30px 0 20px;
+  border: 1px solid black;
+  padding: 10px;
+  width: 100%;
+}
+.content button {
+  cursor: pointer;
+  background-color: #008bee;
+  padding: 10px;
+  width: 100%;
+  font-size: 18px;
+  color: white;
+}/*# sourceMappingURL=main.css.map */
