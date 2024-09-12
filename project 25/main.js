@@ -10,27 +10,30 @@ const thead_table = document.querySelector("thead");
 const fetch_ele = document.querySelector("p.fetch");
 
 search_btn.addEventListener("click", async function() {
-    setEles();
-    let word_searched = input.value;
-    try {
-        if (word_searched) {
-            let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word_searched}`;
-            let myPromise = fetch(apiUrl);
-            await myPromise.then((result) => {
-                return result.json();
-            }).then((Data) => {
-                if (!Data.message) {
-                    setTimeout(() => {
-                        getResult(Data, word_searched);
-                    }, 1000);
-                } else message(Data.message);
-            }).catch((msg) => {
-                message(msg);
-            });
-        } 
-    } catch (error) {
-        message(error);
-    }
+    if (input.value) {
+        setEles();
+        let word_searched = input.value;
+        try {
+            if (word_searched) {
+                let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word_searched}`;
+                let myPromise = fetch(apiUrl);
+                await myPromise.then((result) => {
+                    return result.json();
+                }).then((Data) => {
+                    console.log(Data, "Here");
+                    if (!Data.message && Data) {
+                        setTimeout(() => {
+                            getResult(Data, word_searched);
+                        }, 1000);
+                    } else message(Data.message);
+                }).catch((msg) => {
+                    message(msg);
+                });
+            } 
+        } catch (error) {
+            message(error);
+        }
+    } else input.focus();
 
 });
 
@@ -56,7 +59,7 @@ function autoPlay(audio_link) {
 function getResult(Data, word_searched) {
     let audio_link;
     console.log(Data[0].phonetics);
-    if (Data[0].phonetics) {
+    if (Data[0].phonetics.length) {
         audio_link = Data[0].phonetics[0].audio;
     } else {
         audio_link = "https://api.dictionaryapi.dev/media/pronunciations/en/nothing-us.mp3";

@@ -112,6 +112,14 @@ header .title {
   border: 2px solid black;
   padding: 10px;
 }
+.content .result .read_more {
+  display: flex;
+  align-items: center;
+}
+.content .result .read_more i {
+  margin-right: 5px;
+  color: rgb(113, 255, 82);
+}
 @media (max-width: 767px) {
   .content {
     padding-top: 30px;

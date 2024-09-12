@@ -79,6 +79,14 @@ header {
                 padding: 10px;
             }
         }
+        .read_more {
+            display: flex;
+            align-items: center;
+            i {
+                margin-right: 5px;
+                color: $button_color;
+            }
+        }
     }
     @media (max-width: 767px) {
         padding-top: 30px;
