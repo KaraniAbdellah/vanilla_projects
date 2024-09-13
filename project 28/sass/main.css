@@ -34,12 +34,20 @@ a {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  position: relative;
+}
+.page .error {
+  position: absolute;
+  top: 10px;
+  background-color: white;
+  padding: 10px;
+  font-size: 18px;
 }
 
 .content {
   background-color: white;
   padding: 20px;
-  margin-top: -150px;
+  margin-top: -50px;
 }
 .content h2 {
   margin-bottom: 5px;
