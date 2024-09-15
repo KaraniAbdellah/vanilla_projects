@@ -1,0 +1,9 @@
+// Success --> green
+// Error --> red
+// Warning --> orange_yellow
+// Info --> blue
+
+
+// box like this
+        icon + simple text
+        line with color

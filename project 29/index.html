@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notifications</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Style File -->
+    <link rel="stylesheet" href="sass/main.css">
+
+</head>
+<body>
+
+    <div class="page">
+        <div class="content">
+            <button class="success">Success</button>
+            <button class="error">Error</button>
+            <button class="warning">Warning</button>
+            <button class="info">Info</button>
+        </div>
+        <div class="notfications">
+            <div class="success">
+                <i class="fa-solid fa-check"></i>
+                <span>success: toast notification</span>
+                <div class="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="error">
+                <i class="fa-solid fa-xmark"></i>
+                <span>error: toast notification</span>
+                <div class="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="warning">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>warning: toast notification</span>
+                <div class="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="info">
+                <i class="fa-solid fa-info"></i>
+                <span>info: toast notification</span>
+                <div class="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

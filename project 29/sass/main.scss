@@ -1,0 +1,135 @@
+// Import Mixins, Colors and Global Roles
+@use "../sass/helpers/global_roles" as *;
+@use "../sass/helpers/mixin" as *;
+@use "../sass/helpers/var" as *;
+
+
+// Start Content
+
+.page {
+    height: 100vh;
+    background-color: $main_color;
+    padding: 20px;
+    position: relative;
+    @include flex_center;
+}
+.content {
+    @include flex_between;
+    button {
+        padding: 10px;
+        font-size: 20px;
+        width: 150px;
+        text-align: center;
+        cursor: pointer;
+        &.success {
+            background-color: $success;
+        }
+        &.error {
+            background-color: $error;
+        }
+        &.warning {
+            background-color: $warning;
+        }
+        &.info {
+            background-color: $info;
+        }
+    }
+    button:not(last-child) {
+        margin-right: 10px;
+    }
+    @media (max-width: 767px) {
+        flex-direction: column;
+        button:not(last-child) {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.notfications {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    > div {
+        @include flex_between;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        width: 350px;
+        height: 50px;
+        background-color: $main_color;
+        box-shadow: $box_shadow;
+        position: relative;
+        font-size: 18px;
+        // i & close icon and span
+        > i {
+            margin-right: 10px;
+        }
+        i, div.close {
+            width: 8%;
+            height: 25px;
+            @include flex_center;
+        }
+        span {
+            width: 84%;
+        }
+        div.close {
+            background-color: #eee;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        visibility: hidden;
+        // colors & line
+        &::before {
+            content: "";
+            background-color: red;
+            width: 0%;
+            position: absolute;
+            bottom: 0;
+            height: 5px;
+            right: 0;
+            transition: 1s;
+        }
+        &.success::before {
+            background-color: $success;
+        }
+        &.success > i {
+            color: $success;
+        }
+        &.error > i {
+            color: $error;
+        }
+        &.error::before {
+            background-color: $error;
+        }
+        &.info > i {
+            color: $info;
+        }
+        &.info::before {
+            background-color: $info;
+        }
+        &.warning > i {
+            color: $warning;
+        }
+        &.warning::before {
+            background-color: $warning;
+        }
+        // margin for div
+        &:not(last-child) {
+            margin-bottom: 10px;
+        }
+    }
+    div.show {
+        visibility: visible;
+        &::before {
+            width: 100%;
+        }
+    }
+
+}
+
+
+
+
+
+// End Content

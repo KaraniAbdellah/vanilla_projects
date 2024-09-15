@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  display: block;
+}
+
+input {
+  outline: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+span {
+  display: inline-block;
+}
+
+i {
+  display: block;
+}
+
+.page {
+  height: 100vh;
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content button {
+  padding: 10px;
+  font-size: 20px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+.content button.success {
+  background-color: #28a745;
+}
+.content button.error {
+  background-color: #dc3545;
+}
+.content button.warning {
+  background-color: #ffc107;
+}
+.content button.info {
+  background-color: #17a2b8;
+}
+.content button:not(last-child) {
+  margin-right: 10px;
+}
+@media (max-width: 767px) {
+  .content {
+    flex-direction: column;
+  }
+  .content button:not(last-child) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.notfications {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.notfications > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 350px;
+  height: 50px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  position: relative;
+  font-size: 18px;
+  visibility: hidden;
+}
+.notfications > div > i {
+  margin-right: 10px;
+}
+.notfications > div i, .notfications > div div.close {
+  width: 8%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notfications > div span {
+  width: 84%;
+}
+.notfications > div div.close {
+  background-color: #eee;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.notfications > div::before {
+  content: "";
+  background-color: red;
+  width: 0%;
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  right: 0;
+  transition: 1s;
+}
+.notfications > div.success::before {
+  background-color: #28a745;
+}
+.notfications > div.success > i {
+  color: #28a745;
+}
+.notfications > div.error > i {
+  color: #dc3545;
+}
+.notfications > div.error::before {
+  background-color: #dc3545;
+}
+.notfications > div.info > i {
+  color: #17a2b8;
+}
+.notfications > div.info::before {
+  background-color: #17a2b8;
+}
+.notfications > div.warning > i {
+  color: #ffc107;
+}
+.notfications > div.warning::before {
+  background-color: #ffc107;
+}
+.notfications > div:not(last-child) {
+  margin-bottom: 10px;
+}
+.notfications div.show {
+  visibility: visible;
+}
+.notfications div.show::before {
+  width: 100%;
+}/*# sourceMappingURL=main.css.map */
