@@ -12,6 +12,7 @@
     padding: 20px;
     position: relative;
     @include flex_center;
+    overflow: hidden;
 }
 .content {
     @include flex_between;
@@ -39,6 +40,7 @@
     }
     @media (max-width: 767px) {
         flex-direction: column;
+        margin-top: 100px;
         button:not(last-child) {
             margin-right: 0;
             margin-bottom: 10px;
@@ -78,8 +80,9 @@
             border-radius: 2px;
             cursor: pointer;
         }
-        visibility: hidden;
+        // visibility: hidden;
         // colors & line
+        transform: translateX(150%);
         &::before {
             content: "";
             background-color: red;
@@ -88,7 +91,7 @@
             bottom: 0;
             height: 5px;
             right: 0;
-            transition: 1s;
+            transition: 2s;
         }
         &.success::before {
             background-color: $success;
@@ -121,9 +124,13 @@
     }
     div.show {
         visibility: visible;
+        transform: translateX(0);
         &::before {
             width: 100%;
         }
+    }
+    @media (max-width: 767px) {
+        right: auto;
     }
 
 }

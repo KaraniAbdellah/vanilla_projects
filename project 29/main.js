@@ -6,9 +6,9 @@ btn_name.forEach(element => {
         const div_ele = document.querySelector(`div.${e.target.className}`);
         console.log(div_ele);
         div_ele.classList.add("show");
-        // setTimeout(() => {
-        //     div_ele.classList.remove("show");
-        // }, 1000);
+        setTimeout(() => {
+            div_ele.classList.remove("show");
+        }, 2000);
     });
 });
 

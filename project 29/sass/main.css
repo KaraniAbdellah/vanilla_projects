@@ -43,6 +43,7 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .content {
@@ -75,6 +76,7 @@ i {
 @media (max-width: 767px) {
   .content {
     flex-direction: column;
+    margin-top: 100px;
   }
   .content button:not(last-child) {
     margin-right: 0;
@@ -100,7 +102,7 @@ i {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   position: relative;
   font-size: 18px;
-  visibility: hidden;
+  transform: translateX(150%);
 }
 .notfications > div > i {
   margin-right: 10px;
@@ -128,7 +130,7 @@ i {
   bottom: 0;
   height: 5px;
   right: 0;
-  transition: 1s;
+  transition: 2s;
 }
 .notfications > div.success::before {
   background-color: #28a745;
@@ -159,7 +161,13 @@ i {
 }
 .notfications div.show {
   visibility: visible;
+  transform: translateX(0);
 }
 .notfications div.show::before {
   width: 100%;
+}
+@media (max-width: 767px) {
+  .notfications {
+    right: auto;
+  }
 }/*# sourceMappingURL=main.css.map */
