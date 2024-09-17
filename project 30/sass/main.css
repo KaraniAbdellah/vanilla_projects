@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", system-ui;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  display: block;
+  cursor: pointer;
+}
+
+input {
+  outline: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+span {
+  display: inline-block;
+}
+
+i {
+  display: block;
+}
+
+.page {
+  background-color: #444;
+  height: 100vh;
+  padding: 30px;
+}
+.page header {
+  height: 12%;
+  margin-bottom: 50px;
+}
+.page .content {
+  height: 30%;
+  margin-bottom: 50px;
+}
+.page footer {
+  height: 40%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+header button {
+  font-size: 30px;
+  padding: 10px 20px;
+  font-family: inherit;
+}
+header p {
+  color: white;
+}
+
+.content {
+  text-align: center;
+}
+.content h1 {
+  margin-bottom: 40px;
+  color: white;
+}
+.content .guess_number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  background-color: white;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  width: 120px;
+  height: 80px;
+  font-size: 40px;
+  color: #444;
+}
+.content .guess_number::before {
+  content: "";
+  background: red;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  top: 50%;
+  left: 100px;
+}
+.content .guess_number::after {
+  content: "";
+  background: red;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  top: 50%;
+  right: 100px;
+}/*# sourceMappingURL=main.css.map */
