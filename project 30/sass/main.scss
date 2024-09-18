@@ -9,6 +9,12 @@
     background-color: $main_background;
     height: 100vh;
     padding: 30px;
+    &.error {
+        background-color: $error_background;
+    }
+    &.success {
+        background-color: $success_background;
+    }
     header {
         height: 12%;
         margin-bottom: 50px;
@@ -16,6 +22,9 @@
     .content {
         height: 30%;
         margin-bottom: 50px;
+        @media (max-width: 767px) {
+            margin-bottom: 0px;
+        }
     }
     footer {
         height: 40%;
@@ -27,13 +36,14 @@
 header {
     display: flex;
     justify-content: space-between;
-    button {
-        font-size: 30px;
-        padding: 10px 20px;
-        font-family: inherit;
-    }
+    @include button_style;
     p {
         color: white;
+        font-size: 18px;
+        @media (max-width: 767px) {
+            line-height: 30px;
+            font-size: 14px;
+        }
     }
 }
 // End Header
@@ -44,43 +54,62 @@ header {
     h1 {
         margin-bottom: 40px;
         color: white;
+        @media (max-width: 767px) {
+            font-size: 17px;
+        }
     }
     .guess_number {
-        @include flex_center;
-        display: block;
-        background-color: white;
-        margin: 20px auto;
-        padding: 20px;
-        position: relative;
-        width: 120px;
-        height: 80px;
-        font-size: 40px;
-        color: $main_background;
-        &::before {
-            content: "";
-            background: red;
-            width: 10px;
-            height: 10px;
-            position: absolute;
-            width: 100%;
-            height: 10px;
-            top: 50%;
-            left: 100px;
+        @include flex_between;
+        .question {
+            display: inline-block;
+            background-color: white;
+            margin: 10px auto;
+            padding: 20px;
+            position: relative;
+            height: 80px;
+            font-size: 40px;
+            color: #444;
         }
-        &::after {
-            content: "";
-            background: red;
-            width: 10px;
+        span:not(.question) {
+            background-color: white;
+            width: 50%;
             height: 10px;
-            position: absolute;
-            width: 100%;
-            height: 10px;
-            top: 50%;
-            right: 100px;
         }
     }
+    
 }
 // End Content
 
 // Start Footer
+footer {
+    @include flex_evenly;
+    @include button_style;
+    .guess {
+        .number {
+            @include global_size(".number");
+            display: block;
+            margin-bottom: 30px;
+            background-color: #444;
+            border: 3px solid white;
+            color: white;
+            padding: 10px;
+        }
+    }
+    .main_info {
+        line-height: 45px;
+        p {
+            font-size: 20px;
+            color: white;
+            @media (max-width: 767px) {
+                font-size: 14px;
+                margin-bottom: 0;
+            }
+        }
+        @media (max-width: 767px) {
+            line-height: 30px;
+        }
+    }
+}
 // End Footer
+
+

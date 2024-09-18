@@ -17,28 +17,30 @@
     
     <div class="page">
         <header>
-            <button>Again!</button>
-            <p>&lt; Between 1 and 20 &gt;</p>
+            <button class="again">Again!</button>
+            <p>&lt;Between 1 and 20&gt;</p>
         </header>
         <div class="content">
             <h1>Guess My Number ?</h1>
-            <div class="guess_number">?</div>
+            <div class="guess_number">
+                <span class="left"></span>
+                <span class="question">?</span>
+                <span class="right"></span>
+            </div>
         </div>
         <footer>
             <div class="guess">
-                <input type="number">
-                <p class="msg">Start Guessing <br> ...</p>
+                <input type="text" class="number">
+                <button class="btn_submit">Check!</button>
             </div>
             <div class="main_info">
-                <button class="btn_submit"></button>
-                <div class="info">
-                    <p class="score">💯 Score: 20</p>
-                    <p class="heigh_score">🏅 Highscore: 0</p>
-                </div>
+                <p class="msg">Start Guessing <br> ...</p>
+                <p class="score">💯 Score: <span class="number">20</span></p>
+                <p class="heigh_score">🏅 Highscore: <span class="number">0</span></p>
             </div>
         </footer>
     </div>
-    
+    <script src="main.js"></script>
 
 </body>
 </html>
