@@ -16,9 +16,13 @@
 <body>
     
     <div class="page">
+        <div class="next_game hidden">
+            <p>You Are The Winner</p>
+            <button class="next">Next</button>
+        </div>
         <header>
             <button class="again">Again!</button>
-            <p>&lt;Between 1 and 20&gt;</p>
+            <p>&lt;Between 1 and <span class="next_number">20</span>&gt;</p>
         </header>
         <div class="content">
             <h1>Guess My Number ?</h1>
@@ -36,7 +40,11 @@
             <div class="main_info">
                 <p class="msg">Start Guessing <br> ...</p>
                 <p class="score">💯 Score: <span class="number">20</span></p>
-                <p class="heigh_score">🏅 Highscore: <span class="number">0</span></p>
+                <p class="heigh_score">🏅 Highscore: 
+                    <span class="number">0</span>
+                    <span class="sperate">--</span>
+                    <span class="goal">5</span>
+                </p>
             </div>
         </footer>
     </div>
