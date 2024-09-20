@@ -8,9 +8,11 @@ const msg = document.querySelector(".msg");
 const score = document.querySelector(".score .number");
 const heigh_score = document.querySelector(".heigh_score .number");
 
-const next_game = document.querySelector(".next_game");
+const next_btn= document.querySelector(".next_btn");
+const next_game_box = document.querySelector(".next_game");
 const heigh_score_gloal = document.querySelector(".heigh_score .goal");
 const next_number = document.querySelector(".next_number");
+const message_winner = document.querySelector(".message_winner");
 
 
 
@@ -20,16 +22,22 @@ if (!localStorage.getItem("next_number")) {
 if (!localStorage.getItem("heigh_score_gloal")) {
     localStorage.setItem("heigh_score_gloal", 5);
 }
+if (!localStorage.getItem("score")) {
+    localStorage.setItem("score", 20);
+}
+if (!localStorage.getItem("heigh_score")) {
+    localStorage.setItem("heigh_score", 0);
+}
+
+
 let randomNumber = Math.floor(Math.random() * localStorage.getItem("next_number")) + 1;
 console.log(randomNumber);
 
 
 // Reload The Page
 document.addEventListener("DOMContentLoaded", function() {
-    let new_heigh_score = localStorage.getItem("heigh_score");
-    let new_score = localStorage.getItem("score");
-    heigh_score.textContent = new_heigh_score ? new_heigh_score: 0;
-    score.textContent = new_score ? new_score: 20;
+    heigh_score.textContent = localStorage.getItem("heigh_score");
+    score.textContent = localStorage.getItem("score");
     heigh_score_gloal.textContent = localStorage.getItem("heigh_score_gloal");
     next_number.textContent = localStorage.getItem("next_number");
 });
@@ -52,21 +60,18 @@ btn_submit.addEventListener("click", function() {
             WrongGuessing("⬇️ Too Low");
         } 
         // Player Guess a Number To Hight
-        else {
+        else if (input_number.value > randomNumber) {
             WrongGuessing("⬆️ Too High");
-        }
+        } else;
    } else input_number.focus();
 });
 
-
 btn_again.addEventListener("click", setToDefault);
 
-
-next_game.addEventListener("click", function() {
+next_btn.addEventListener("click", function() {
+    message_winner.textContent = "You Are The Winner";
     page.classList.remove("win");
-    next_game.classList.add("hidden");
-    score.textContent = 20;
-    heigh_score.textContent = 0;
+    next_game_box.classList.add("hidden");
     // changes for next game
     heigh_score_gloal.textContent = +localStorage.getItem("heigh_score_gloal") + 1;
     next_number.textContent = +localStorage.getItem("next_number") + 5;
@@ -84,7 +89,7 @@ function setToDefault() {
     input_number.value = "";
     msg.innerHTML = `Start Guessing <br> ...`;
     score.textContent = 20;
-    heigh_score.textContent = "0"; // must this value store in local storage
+    heigh_score.textContent = "0";
     // change score and height score in local storage
     localStorage.setItem("score", 20);
     localStorage.setItem("heigh_score", 0);
@@ -105,9 +110,9 @@ function SetForWinner() {
     heigh_score.textContent = Number(heigh_score.textContent) + 1;
     localStorage.setItem("heigh_score", heigh_score.textContent);
     question.textContent = randomNumber;
-    randomNumber = Math.floor(Math.random() * 20) + 1;
+    randomNumber = Math.floor(Math.random() * localStorage.getItem("next_number")) + 1;
     console.log(randomNumber);
-    // Set Eles To Default For Generate Now Number
+    // Set Eles To Default For Generate New Number
     setTimeout(() => {
         page.classList.remove("error", "success");
         msg.innerHTML = `Start Guessing <br> ...`;
@@ -116,16 +121,26 @@ function SetForWinner() {
 
     // Player Win The Game
     if (heigh_score.textContent == heigh_score_gloal.textContent) {
+        // The Goat Of The Game
+        if (localStorage.getItem("score") == 20) {
+            GoatGame();
+        }
+        else NextGame();
         setToDefault();
-        console.log("You Win The Game");
-        NextGame();
     }
+    
 }
 
 
 function NextGame() {
     page.classList.add("win");
-    next_game.classList.remove("hidden");
+    next_game_box.classList.remove("hidden");
+}
+
+
+function GoatGame() {
+    NextGame();
+    message_winner.textContent = "You Are Goat Of The Game";
 }
 
 

@@ -86,7 +86,7 @@ i {
     font-size: 20px;
   }
 }
-.page .next_game .next {
+.page .next_game .next_btn {
   font-size: 30px;
   width: 200px;
   height: 70px;
@@ -94,7 +94,7 @@ i {
   color: #444;
 }
 @media (max-width: 767px) {
-  .page .next_game .next {
+  .page .next_game .next_btn {
     font-size: 15px;
     width: 100px;
     height: 55px;
