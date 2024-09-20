@@ -1,9 +1,0 @@
-// understand the code
-// custom the lagecy code by function
-// find common changes
-// go chatGPT --> for custon the changes
-
-
-// make a video --> share it
-
-
