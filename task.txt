@@ -1,0 +1,4 @@
+// put the file in web
+// make a video
+// put it with sample description in youtube and linkedin with source code and website link
+// think about next step [learn boostrap || start new project || both of them]
