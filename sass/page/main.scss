@@ -108,6 +108,8 @@
             flex-direction: column;
             border-radius: 5px;
             box-shadow: $box_shadow;
+            height: 320px;
+            overflow: hidden;
             img {
                 object-fit: cover;
                 max-width: 100%;
@@ -130,3 +132,4 @@
 }
 
 // End Projects
+

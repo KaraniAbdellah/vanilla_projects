@@ -3,11 +3,12 @@ const projects_names = ["color fliper", "counter", "our reviews", "coding addict
     "sidebar", "model", "General Questions", "our menu", "video play", "scrool",
     "tabs", "countdown", "add task", "generate paragraph", "grocery bud", "gallery",
     "tic tac toe", "gernerate password", "simple webSite", "calculator app", "form validation",
-    "crud project", "alarm", "palette generator", "Document", "generate portfolio", 
-    "currency convertor",
+    "crud project", "alarm", "palette generator", "Dictionary App", "generate portfolio", 
+    "currency convertor", "file downloader", "toast notifications", "guess number game",
 ];
 
-for (let i = 0; i < 27; i++) {
+// there is 30 projects
+for (let i = 0; i < 30; i++) {
     let newBox = document.createElement("box");
     newBox.innerHTML = `
         <img src="images/project${i + 1}.png" alt="">
