@@ -37,7 +37,7 @@ This table displays a list of all projects.
 | Guess Number Game       | A fun game to guess a random number.   |
 
 
-### Contributors
+## Contributors
 
 Thank you to everyone who contributed to this project!
 
