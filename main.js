@@ -11,7 +11,7 @@ const projects_names = ["color fliper", "counter", "our reviews", "coding addict
 for (let i = 0; i < 30; i++) {
     let newBox = document.createElement("box");
     newBox.innerHTML = `
-        <img src="images/project${i + 1}.png" alt="">
+        <img src="/images/project${i + 1}.png" alt="">
         <a class="name" href="project ${i + 1}/index.html">${projects_names[i]}</a>
     `;
     newBox.className = "box";
