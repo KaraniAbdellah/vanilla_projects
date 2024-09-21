@@ -1,4 +1,4 @@
-#  To See All Projects At [vanilla_projects](https://www.google.com)]
+#  website: [vanilla_projects](https://karaniabdellah.github.io/vanilla_projects/)
 
 ## Project Descriptions
 
