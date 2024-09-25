@@ -39,8 +39,29 @@ i {
 /* End Global Roles */
 
 
-h1 {
-    color: yellow;
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.card {
+    width: 400px;
+    background-color: #e3e3e3;
+    padding: 20px;
+    transition: 1s;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.card.animation {
+    margin-top: 20px;
+}
+
+.card5 {
+    background-color: rgb(255, 95, 95);
 }
 
 
