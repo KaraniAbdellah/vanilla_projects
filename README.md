@@ -1,5 +1,6 @@
 #  website: [vanilla_projects](https://karaniabdellah.github.io/vanilla_projects/)
 
+
 ## Project Descriptions
 
 This table displays a list of all projects.
@@ -35,6 +36,13 @@ This table displays a list of all projects.
 | File Downloader          | Allows users to download files.        |
 | Toast Notifications      | Displays temporary notifications.       |
 | Guess Number Game       | A fun game to guess a random number.   |
+
+
+
+## Video
+
+[![vanilla_projects](https://img.youtube.com/vi/GnU0lJ-RldM/0.jpg)](https://youtu.be/GnU0lJ-RldM)
+
 
 
 ## Contributors
