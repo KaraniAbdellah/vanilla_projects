@@ -39,9 +39,16 @@ This table displays a list of all projects.
 
 
 
-## Video
+## Screenshots
 
-[![vanilla_projects](https://img.youtube.com/vi/GnU0lJ-RldM/0.jpg)](https://youtu.be/GnU0lJ-RldM)
+![Project 20](images/project20.png)
+
+![Project 22](images/project22.png)
+
+![Project 30](images/project30.png)
+
+
+
 
 
 
