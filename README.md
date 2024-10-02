@@ -49,7 +49,7 @@ This table displays a list of all projects.
 
 ![Project 27](images/project27.png)
 
-![Project 13](images/project27.png)
+![Project 13](images/project13.png)
 
 
 
