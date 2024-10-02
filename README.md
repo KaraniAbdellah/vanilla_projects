@@ -1,6 +1,4 @@
-
-## Demo: [!vanilla_projects](https://karaniabdellah.github.io/vanilla_projects/)
-
+#  Demo: [vanilla_projects](https://karaniabdellah.github.io/vanilla_projects/)
 
 
 ## Project Descriptions
